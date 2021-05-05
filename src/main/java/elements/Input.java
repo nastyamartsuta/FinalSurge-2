@@ -8,13 +8,13 @@ import org.openqa.selenium.WebDriver;
 @Log4j2
 public class Input extends AbstractComponent {
 
-    private static final String INPUT_PATTERN = "//label[@for='%s']/ancestor::div/input[@id='%s']";
+    private static final String INPUT_PATTERN = "%s";
     private String label;
 
-    public Input(WebDriver driver, String labelOne, String labelTwo) {
+
+    public Input(WebDriver driver, String label) {
         super(driver);
-        this.label = labelOne;
-        this.label = labelTwo;
+        this.label = label;
     }
 
     @Override
@@ -23,14 +23,16 @@ public class Input extends AbstractComponent {
     }
 
     private By locator() {
-        return By.xpath(String.format(INPUT_PATTERN, label, label));
+        return By.id(String.format(INPUT_PATTERN, label));
     }
 
     public void enterInput(String text) {
         log.info("Send text to input {} ", label);
         driver.findElement(locator()).sendKeys(text);
     }
+
     public void clear() {
         driver.findElement(locator()).clear();
     }
+
 }

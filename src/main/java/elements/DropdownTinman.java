@@ -8,14 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class Dropdown extends AbstractComponent {
+public class DropdownTinman extends AbstractComponent {
 
-    private static final String DROPDOWN_PATTERN = "//select[@id='%s']";
-    private String label;
+    private static final String DROPDOWN_PATTERN = "//div[@class='span6']/select";
 
-    public Dropdown(WebDriver driver, String label) {
+    public DropdownTinman(WebDriver driver) {
         super(driver);
-        this.label = label;
     }
 
     @Override
@@ -24,7 +22,7 @@ public class Dropdown extends AbstractComponent {
     }
 
     private By locator() {
-        return By.xpath(String.format(DROPDOWN_PATTERN, label));
+        return By.xpath(DROPDOWN_PATTERN);
     }
 
     public void select(String optionValue) {
@@ -32,7 +30,7 @@ public class Dropdown extends AbstractComponent {
         Select dropdown = new Select(dropdownElement);
 
         dropdown.selectByValue(optionValue);
-        log.info("Select option {} in Dropdown {} ", optionValue, label);
+        log.info("Select option {} in Dropdown ", optionValue);
     }
 
 }

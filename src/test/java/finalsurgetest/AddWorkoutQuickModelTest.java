@@ -24,7 +24,7 @@ public class AddWorkoutQuickModelTest extends BaseTest {
                 .openCalendarPage()
                 .openNewWorkoutQuickPage()
                 .fillNewWorkoutQuickPage(workoutQuickModel);
-        //  addWorkoutQuickSteps.saveNewWorkout();
+        addWorkoutQuickSteps.saveNewWorkout();
 
     }
 
@@ -40,11 +40,11 @@ public class AddWorkoutQuickModelTest extends BaseTest {
         workoutQuickModel.setWorkoutDescription("Warm-up, run, stretching");
         workoutQuickModel.setResults("Check pulse and blood pressure");
         //dropdown
-        workoutQuickModel.setDistanceType(1);
-        workoutQuickModel.setPaceType(2);
-        workoutQuickModel.setHowFeel(3);
-        workoutQuickModel.setPerceivedEffort(4);
-        workoutQuickModel.setActivityType(5);
+        workoutQuickModel.setDistanceType("km");
+        workoutQuickModel.setPaceType("min/km");
+        workoutQuickModel.setHowFeel("Good");
+        workoutQuickModel.setPerceivedEffort("3 (Light)");
+        workoutQuickModel.setActivityType("Run");
         //autocomplete
         workoutQuickModel.setTimeOfDay("06:15 AM");
 

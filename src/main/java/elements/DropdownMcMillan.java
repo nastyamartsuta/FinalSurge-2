@@ -8,12 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class Dropdown extends AbstractComponent {
+public class DropdownMcMillan extends AbstractComponent {
 
-    private static final String DROPDOWN_PATTERN = "//select[@id='%s']";
+    private static final String DROPDOWN_PATTERN = "//select[@name='%s']";
     private String label;
 
-    public Dropdown(WebDriver driver, String label) {
+    public DropdownMcMillan(WebDriver driver, String label) {
         super(driver);
         this.label = label;
     }
@@ -34,5 +34,5 @@ public class Dropdown extends AbstractComponent {
         dropdown.selectByValue(optionValue);
         log.info("Select option {} in Dropdown {} ", optionValue, label);
     }
-
 }
+

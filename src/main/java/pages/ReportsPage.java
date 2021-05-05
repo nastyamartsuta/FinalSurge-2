@@ -10,7 +10,7 @@ public class ReportsPage extends BasePage{
 
     private static final By REPORTS_BUTTON = By.className("icsw16-graph");
     private static final By HEADER_REPORTS_PAGE = By.xpath("//h4[contains(.,'Report Filters')]/ancestor::div[@class='w-box-header']");
-    private static final By HEADER_REPORTS = By.xpath("//h4[contains(.,'Athlete Workout Report')]/ancestor::div[@class='w-box-header']");
+    private static final By TOTAL_REPORTS = By.xpath("//span[contains(.,'Totals')]");
     private static final By VIEW_REPORTS_BUTTON = By.id("saveButton");
 
     public ReportsPage(WebDriver driver) {
@@ -36,7 +36,7 @@ public class ReportsPage extends BasePage{
 
     public boolean checkReportsOpened(){
         log.info("Checking that the Reports opened");
-        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_REPORTS));
+        explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TOTAL_REPORTS));
         return true;
     }
 }

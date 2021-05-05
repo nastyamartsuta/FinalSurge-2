@@ -1,7 +1,7 @@
 package steps;
 
 import elements.Dropdown;
-import elements.InputHansons;
+import elements.Input;
 import elements.RadioButton;
 import io.qameta.allure.Step;
 import model.ReportsModel;
@@ -27,10 +27,10 @@ public class ReportsSteps extends AbstractStep {
     @Step
     public ReportsSteps fillReports(ReportsModel reportsModel) {
         //input
-        new InputHansons(driver, "WorkoutDate").clear();
-        new InputHansons(driver, "WorkoutDate").enterInputHansons(reportsModel.getStartDate());
-        new InputHansons(driver, "WorkoutDateEnd").clear();
-        new InputHansons(driver, "WorkoutDateEnd").enterInputHansons(reportsModel.getEndDate());
+        new Input(driver, "WorkoutDate").clear();
+        new Input(driver, "WorkoutDate").enterInput(reportsModel.getStartDate());
+        new Input(driver, "WorkoutDateEnd").clear();
+        new Input(driver, "WorkoutDateEnd").enterInput(reportsModel.getEndDate());
 
         //radiobutton
         new RadioButton(driver, "List View").selectRadioButton();
@@ -48,7 +48,7 @@ public class ReportsSteps extends AbstractStep {
 
     @Step
     public void checkReportsOpened() {
-        //TODO на что тут еще можно написать assert
+        //TODO на что тут еще можно написать assert?
         Assert.assertTrue(reportsPage.checkReportsOpened(), "Reports did not open");
     }
 }

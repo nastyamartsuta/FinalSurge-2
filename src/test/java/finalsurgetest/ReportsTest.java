@@ -37,6 +37,6 @@ public class ReportsTest extends BaseTest {
         reportsModel.setEndDate("12/12/2021");
 
         //dropdown
-        reportsModel.setActivityType(1);
+        reportsModel.setActivityType("Run");
     }
 }

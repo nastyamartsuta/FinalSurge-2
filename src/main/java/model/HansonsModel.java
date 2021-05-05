@@ -16,8 +16,8 @@ public class HansonsModel {
         private String Humidity;
 
         //dropdown
-        private Integer RaceDistance;
-        private Integer TemperatureType;
-        private Integer SpeedType;
+        private String RaceDistance;
+        private String TemperatureType;
+        private String SpeedType;
 
 }

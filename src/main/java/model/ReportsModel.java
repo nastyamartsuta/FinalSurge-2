@@ -12,7 +12,7 @@ public class ReportsModel {
     private String EndDate;
 
     //dropdown
-    private Integer ActivityType;
+    private String ActivityType;
 
     //radiobutton
     private String ReportView;

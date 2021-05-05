@@ -1,10 +1,10 @@
 package steps;
 
-;
-import elements.InputHansons;
+import elements.Input;
 import io.qameta.allure.Step;
 import model.PrintWorkoutsModel;
 import org.openqa.selenium.WebDriver;
+import pages.PrintPage;
 import pages.PrintWorkoutsPage;
 
 public class PrintWorkoutsSteps extends AbstractStep {
@@ -25,9 +25,8 @@ public class PrintWorkoutsSteps extends AbstractStep {
     @Step
     public PrintWorkoutsSteps fillPrintWorkout(PrintWorkoutsModel printWorkoutsModel) {
         //input
-        new InputHansons(driver, "WorkoutDate").enterInputHansons(printWorkoutsModel.getPrintEndingDate());
-        new InputHansons(driver, "WorkoutDateEnd").enterInputHansons(printWorkoutsModel.getPrintStartingDate());
-
+        new Input(driver, "WorkoutDate").enterInput(printWorkoutsModel.getPrintEndingDate());
+        new Input(driver, "WorkoutDateEnd").enterInput(printWorkoutsModel.getPrintStartingDate());
         return this;
     }
 
@@ -39,7 +38,7 @@ public class PrintWorkoutsSteps extends AbstractStep {
 
     @Step
     public void checkingResultIsPrinted() {
-        //TODO как сделать assert если открывается нова страница
-       // Assert.assertTrue(reportsPage.checkReportsOpened(), "Reports did not open");
+        PrintPage printPage = new PrintPage(driver);
+        validateComponentIsLoaded(printPage);
     }
 }

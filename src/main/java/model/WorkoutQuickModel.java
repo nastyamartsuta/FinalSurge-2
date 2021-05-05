@@ -19,11 +19,11 @@ public class WorkoutQuickModel {
     private String Results;
 
     //dropdown
-    private Integer DistanceType;
-    private Integer PaceType;
-    private Integer HowFeel;
-    private Integer PerceivedEffort;
-    private Integer ActivityType;
+    private String DistanceType;
+    private String PaceType;
+    private String HowFeel;
+    private String PerceivedEffort;
+    private String ActivityType;
 
     //autocomplete
     private String TimeOfDay;

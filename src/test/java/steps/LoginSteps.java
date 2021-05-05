@@ -32,7 +32,7 @@ public class LoginSteps extends AbstractStep {
     }
 
     @Step
-    public LoginSteps authentication() {
+    public void authentication() {
         log.info("send text {} to text field {}", EMAIL_INPUT, "email");
         driver.findElement(EMAIL_INPUT).sendKeys(VALID_EMAIL);
         log.info("send text {} to text field {}", PASSWORD_INPUT, "password");
@@ -42,6 +42,5 @@ public class LoginSteps extends AbstractStep {
         log.info("open Home Page");
         HomePage homePage = new HomePage(driver);
         validateComponentIsLoaded(homePage);
-        return this;
     }
 }

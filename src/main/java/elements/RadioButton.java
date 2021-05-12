@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class RadioButton extends AbstractComponent {
 
     private static final String RADIO_BUTTON_PATTERN = "//label[contains(.,'%s')]/input";
-    private String label;
+    private final String label;
 
     public RadioButton(WebDriver driver, String label) {
         super(driver);

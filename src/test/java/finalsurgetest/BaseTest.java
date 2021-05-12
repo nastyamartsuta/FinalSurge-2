@@ -21,7 +21,14 @@ public class BaseTest {
     protected ReportsSteps reportsSteps;
     protected PrintWorkoutsSteps printWorkoutsSteps;
     protected McMillanSteps mcMillanSteps;
-
+    protected AddShoesSteps addShoesSteps;
+    protected AddBikeSteps addBikeSteps;
+    protected AddRoutesSteps addRoutesSteps;
+    protected ViewVitalsSteps viewVitalsSteps;
+    protected AddVitalsSteps addVitalsSteps;
+    protected OpenWorkoutLibrarySteps openWorkoutLibrarySteps;
+    protected AddWorkoutSteps addWorkoutSteps;
+    protected AddNewActivityTypeSteps addNewActivityTypeSteps;
 
     @BeforeMethod
     public void setup() {
@@ -38,6 +45,14 @@ public class BaseTest {
         intensitySteps = new IntensitySteps(driver);
         tinmanSteps = new TinmanSteps(driver);
         mcMillanSteps = new McMillanSteps(driver);
+        addShoesSteps = new AddShoesSteps(driver);
+        addBikeSteps = new AddBikeSteps(driver);
+        addRoutesSteps = new AddRoutesSteps(driver);
+        viewVitalsSteps = new ViewVitalsSteps(driver);
+        addVitalsSteps = new AddVitalsSteps(driver);
+        openWorkoutLibrarySteps = new OpenWorkoutLibrarySteps(driver);
+        addWorkoutSteps = new AddWorkoutSteps(driver);
+        addNewActivityTypeSteps = new AddNewActivityTypeSteps(driver);
     }
 
     @AfterMethod

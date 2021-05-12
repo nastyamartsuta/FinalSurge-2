@@ -11,7 +11,7 @@ public class Autocomplete extends AbstractComponent {
 
     private static final String AUTOCOMPLETE_PATTERN = "%s";
     private static final String ELEMENTS_LINK = "//ul/li[contains(.,'12:45 AM')]";
-    private String label;
+    private final String label;
 
     public Autocomplete(WebDriver driver, String label) {
         super(driver);

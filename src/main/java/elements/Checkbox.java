@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class Checkbox extends AbstractComponent {
 
     private static final String CHECKBOX_PATTERN = "//input[@id='%s']";
-    private String label;
+    private final String label;
 
     public Checkbox(WebDriver driver, String label) {
         super(driver);

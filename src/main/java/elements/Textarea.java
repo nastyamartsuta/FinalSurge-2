@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class Textarea extends AbstractComponent {
 
     private static final String TEXTAREA_PATTERN = "//label[contains(.,'%s')]/ancestor::div/textarea";
-    private String label;
+    private final String label;
 
     public Textarea(WebDriver driver, String label) {
         super(driver);

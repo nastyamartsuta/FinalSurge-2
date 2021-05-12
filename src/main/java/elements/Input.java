@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class Input extends AbstractComponent {
 
     private static final String INPUT_PATTERN = "%s";
-    private String label;
+    private final String label;
 
 
     public Input(WebDriver driver, String label) {

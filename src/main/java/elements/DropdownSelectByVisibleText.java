@@ -8,12 +8,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class Dropdown extends AbstractComponent {
+public class DropdownSelectByVisibleText extends AbstractComponent {
 
     private static final String DROPDOWN_PATTERN = "//select[@id='%s']";
     private final String label;
 
-    public Dropdown(WebDriver driver, String label) {
+    public DropdownSelectByVisibleText(WebDriver driver, String label) {
         super(driver);
         this.label = label;
     }
@@ -27,11 +27,11 @@ public class Dropdown extends AbstractComponent {
         return By.xpath(String.format(DROPDOWN_PATTERN, label));
     }
 
-    public void select(String optionValue) {
+    public void select(String optionText) {
         WebElement dropdownElement = driver.findElement(locator());
         Select dropdown = new Select(dropdownElement);
 
-        dropdown.selectByValue(optionValue);
-        log.info("Select option {} in Dropdown {} ", optionValue, label);
+        dropdown.selectByVisibleText(optionText);
+        log.info("Select option {} in Dropdown {} ", optionText, label);
     }
 }

@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 public class DropdownMcMillan extends AbstractComponent {
 
     private static final String DROPDOWN_PATTERN = "//select[@name='%s']";
-    private String label;
+    private final String label;
 
     public DropdownMcMillan(WebDriver driver, String label) {
         super(driver);

@@ -5,37 +5,25 @@ import io.qameta.allure.Step;
 import lombok.extern.log4j.Log4j2;
 import model.WorkoutQuickModel;
 import org.openqa.selenium.WebDriver;
-import pages.CalendarPage;
-import pages.NewWorkoutQuickPage;
+
 
 @Log4j2
-public class AddWorkoutQuickSteps extends AbstractStep {
-
-    protected CalendarPage calendarPage;
-    protected NewWorkoutQuickPage newWorkoutQuickPage;
+public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
 
     public AddWorkoutQuickSteps(WebDriver driver) {
         super(driver);
     }
 
     @Step
-    public AddWorkoutQuickSteps openCalendarPage() {
-        calendarPage = new CalendarPage(driver);
-        calendarPage.openPage();
-        validateComponentIsLoaded(calendarPage);
-        return this;
-    }
-
-    @Step
     public AddWorkoutQuickSteps openNewWorkoutQuickPage() {
-        newWorkoutQuickPage = new NewWorkoutQuickPage(driver);
-        calendarPage.createNewWorkout();
+        openCalendarPage();
+        calendarPage.openQuickAddPanel();
         validateComponentIsLoaded(newWorkoutQuickPage);
         return this;
     }
 
     @Step
-    public void fillNewWorkoutQuickPage(WorkoutQuickModel workoutQuickModel) {
+    public AddWorkoutQuickSteps fillNewWorkoutQuickPage(WorkoutQuickModel workoutQuickModel) {
         //input
         new InputNewWorkoutQuick(driver, "Name", "Name").enterInput(workoutQuickModel.getName());
         new InputNewWorkoutQuick(driver, "WorkoutDate", "WorkoutDate").clear();
@@ -53,15 +41,14 @@ public class AddWorkoutQuickSteps extends AbstractStep {
         new Dropdown(driver, "PaceType").select(workoutQuickModel.getPaceType());
         new Dropdown(driver, "HowFeel").select(workoutQuickModel.getHowFeel());
         new Dropdown(driver, "PerEffort").select(workoutQuickModel.getPerceivedEffort());
-        new Dropdown(driver, "ActivityType").select(workoutQuickModel.getActivityType());
+        new DropdownSelectByVisibleText(driver, "ActivityType").select(workoutQuickModel.getActivityType());
 
         //autocomplete
         new Autocomplete(driver, "WorkoutTime").enterAutocomplete(workoutQuickModel.getTimeOfDay());
 
         //checkbox
         new Checkbox(driver, "SaveLibrary").selectCheckbox();
-
-        //TODO написать assert-ыЫы
+        return this;
     }
 
     @Step
@@ -69,4 +56,11 @@ public class AddWorkoutQuickSteps extends AbstractStep {
         newWorkoutQuickPage.saveNewWorkout();
         return this;
     }
+    @Step
+    public void checkingVitalsAdd(WorkoutQuickModel workoutQuickModel) {
+
+        //TODO написать assert-ыЫы как написать что в нужный день добавилась тренировка
+
+    }
+
 }

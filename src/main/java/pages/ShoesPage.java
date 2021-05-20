@@ -20,7 +20,7 @@ public class ShoesPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Shoes page has opened");
+        log.info("Checking that the Shoes page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIPMENT_SHOES_HEADER));
     }
 
@@ -36,6 +36,7 @@ public class ShoesPage extends BasePage {
     }
 
     public String getActualText() {
+        log.info("Get the actual text");
         WebElement element = driver.findElement(ACTUAL_INFORMATION);
         return element.getText();
     }

@@ -23,7 +23,7 @@ public class TinmanPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Tinman page has open");
+        log.info("Checking that the Tinman page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_TINMAN));
     }
 
@@ -39,13 +39,13 @@ public class TinmanPage extends BasePage {
     }
 
     public boolean checkCalculationsIsOpened() {
-        log.info("Checking that the Race Information had open");
+        log.info("Checking that the Race Information was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(RACE_INFORMATION_HEADER));
-        log.info("Checking that the Race Splits had open");
+        log.info("Checking that the Race Splits was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(RACE_SPLITS_HEADER));
-        log.info("Checking that the Training Paces By Intensity had open");
+        log.info("Checking that the Training Paces By Intensity was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TRAINING_PACES_BY_INTENSITY_HEADER));
-        log.info("Checking that the Equivalent Race Times had open");
+        log.info("Checking that the Equivalent Race Times was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIVALENT_RACE_TIMES_HEADER));
         return true;
     }

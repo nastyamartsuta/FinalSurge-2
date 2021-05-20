@@ -10,6 +10,7 @@ public class OtherCalculatorPage extends BasePage {
 
     private static final By OTHER_CALCULATOR_BUTTON = By.className("icsw16-calculator");
     private static final By HEADER_OTHER_CALCULATOR = By.xpath("//h4[contains(.,'Daily Caloric Needs Calculator')]/ancestor::div[@class='w-box-header']");
+    private static final String IFRAME_PATTERN = "OtherCalciFrame";
 
     public OtherCalculatorPage(WebDriver driver) {
         super(driver);
@@ -17,7 +18,7 @@ public class OtherCalculatorPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Other Calculator page has opened");
+        log.info("Checking that the Other Calculator page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_OTHER_CALCULATOR));
     }
 
@@ -25,6 +26,6 @@ public class OtherCalculatorPage extends BasePage {
     public void openPage() {
         log.info("Click {} in order to open other calculator page", OTHER_CALCULATOR_BUTTON);
         driver.findElement(OTHER_CALCULATOR_BUTTON).click();
-        driver.switchTo().frame("OtherCalciFrame");
+        driver.switchTo().frame(IFRAME_PATTERN);
     }
 }

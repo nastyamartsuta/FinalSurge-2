@@ -1,6 +1,5 @@
 package steps;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import elements.DropdownTinman;
 import elements.Input;
 import elements.RadioButton;
@@ -9,7 +8,6 @@ import model.TinmanModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.TinmanPage;
 
 public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
 
@@ -29,17 +27,12 @@ public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
 
     @Step
     public TinmanSteps fillITinman(TinmanModel tinmanModel) {
-        //input
+
         new Input(driver, "TimeHH").enterInput(tinmanModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(tinmanModel.getTimeMinutes());
         new Input(driver, "TimeSS").enterInput(tinmanModel.getTimeSeconds());
-
-        //radiobutton
         new RadioButton(driver, " Female").selectRadioButton();
-
-        //dropdown
         new DropdownTinman(driver).select(tinmanModel.getRaceDistance());
-
         return this;
     }
 
@@ -52,7 +45,8 @@ public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
     @Step
     public void checkCalculation(TinmanModel tinmanModel) {
         Assert.assertTrue(tinmanPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_TIME)).getText(),  tinmanModel.getTimeMinutes() + ":" +tinmanModel.getTimeSeconds(), "Entered data is not displayed");
+        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_TIME)).getText(),  tinmanModel.getTimeMinutes()
+                + ":" +tinmanModel.getTimeSeconds(), "Entered data is not displayed");
         Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_GENDER)).getText(), tinmanModel.getGender(),"Entered data is not displayed" );
     }
 }

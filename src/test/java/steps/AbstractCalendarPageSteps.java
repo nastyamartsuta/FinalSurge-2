@@ -1,14 +1,18 @@
 package steps;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import pages.CalendarPage;
-import pages.NewWorkoutQuickPage;
+import pages.*;
 
 public class AbstractCalendarPageSteps extends AbstractStep {
 
     protected CalendarPage calendarPage;
     protected NewWorkoutQuickPage newWorkoutQuickPage;
+    protected UploadWorkoutDataPage uploadWorkoutDataPage;
+    protected DeleteWorkoutPage deleteWorkoutPage;
+    protected ViewWorkoutPage viewWorkoutPage;
+    protected AddCommentPage commentPage;
+    protected MoveWorkoutPage moveWorkoutPage;
+
 
     public AbstractCalendarPageSteps(WebDriver driver) {
         super(driver);

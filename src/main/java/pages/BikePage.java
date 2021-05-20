@@ -20,7 +20,7 @@ public class BikePage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Bike page has opened");
+        log.info("Checking that the Bike page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIPMENT_SHOES_HEADER));
     }
 
@@ -31,7 +31,7 @@ public class BikePage extends BasePage {
     }
 
     public void clickAddBikeButton() {
-        log.info("Click {} in order to add new Bike", ADD_BIKE_BUTTON);
+        log.info("Click {} in order to add a new Bike", ADD_BIKE_BUTTON);
         driver.findElement(ADD_BIKE_BUTTON).click();
     }
 

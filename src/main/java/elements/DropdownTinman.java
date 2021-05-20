@@ -26,11 +26,9 @@ public class DropdownTinman extends AbstractComponent {
     }
 
     public void select(String optionValue) {
+        log.info("Select option {} in Dropdown", optionValue);
         WebElement dropdownElement = driver.findElement(locator());
         Select dropdown = new Select(dropdownElement);
-
         dropdown.selectByValue(optionValue);
-        log.info("Select option {} in Dropdown ", optionValue);
     }
-
 }

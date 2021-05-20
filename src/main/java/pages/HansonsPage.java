@@ -24,7 +24,7 @@ public class HansonsPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the HansonsPage page has open");
+        log.info("Checking that the HansonsPage page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_HANSONS));
     }
 
@@ -40,23 +40,25 @@ public class HansonsPage extends BasePage {
     }
 
     public boolean checkCalculationsIsOpened() {
-        log.info("Checking that the Recent race information had open");
+        log.info("Checking that the Recent race information was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(RECENT_RACE_INFORMATION_HEADER));
-        log.info("Checking that the Training paces had open");
+        log.info("Checking that the Training paces was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TRAINING_PACES_HEADER));
-        log.info("Checking that the Equivalent race performances had open");
+        log.info("Checking that the Equivalent race performances was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIVALENT_RACE_PERFORMANCES_HEADER));
-        log.info("Checking that the Alert info had open");
+        log.info("Checking that the Alert info was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(ALERT_INFO));
         return true;
     }
 
     public String text() {
+        log.info("Get the text");
         WebElement element = driver.findElement(ALERT_INFO);
         return element.getText();
     }
 
     public String textInTable() {
+        log.info("Get the text from the table");
         WebElement element = driver.findElement(TABLE_TEXT);
         return element.getText();
     }

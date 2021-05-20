@@ -16,7 +16,8 @@ public class DailyVitalsTest extends BaseTest {
                 .authentication();
         viewVitalsSteps
                 .openViewPage()
-                .viewLastMonthVitals();
+                .viewLastMonthVitals()
+                .checkLastMonthVitalsIsView();
     }
 
     @Test

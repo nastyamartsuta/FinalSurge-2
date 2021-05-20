@@ -22,7 +22,7 @@ public class RoutesPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Routes page has opened");
+        log.info("Checking that the Routes page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIPMENT_ROUTS_HEADER));
     }
 
@@ -37,11 +37,12 @@ public class RoutesPage extends BasePage {
     }
 
     public void clickAddRoutesButton() {
-        log.info("Click {} in order to add new Routes", ADD_ROUTE_BUTTON);
+        log.info("Click {} in order to add a new Routes", ADD_ROUTE_BUTTON);
         driver.findElement(ADD_ROUTE_BUTTON).click();
     }
 
     public String getActualText() {
+        log.info("Get the actual text");
         WebElement element = driver.findElement(ACTUAL_INFORMATION);
         return element.getText();
     }

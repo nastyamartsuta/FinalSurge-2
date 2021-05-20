@@ -18,7 +18,7 @@ public class PrintWorkoutsPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Print workouts page has opened");
+        log.info("Checking that the Print workouts page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PRINT_WORKOUTS_HEADER));
     }
 
@@ -32,5 +32,4 @@ public class PrintWorkoutsPage extends BasePage {
         log.info("Click {} in order to print workouts", PRINT_WORKOUTS_BUTTON);
         driver.findElement(PRINT_WORKOUTS_BUTTON).click();
     }
-
 }

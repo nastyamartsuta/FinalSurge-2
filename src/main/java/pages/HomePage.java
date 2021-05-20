@@ -18,7 +18,7 @@ public class HomePage extends BasePage{
     @Override
     public void waitPageLoaded() {
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(USER_PROFILE));
-        log.info("Checking that the Home page has opened");
+        log.info("Checking that the Home page was opened");
     }
 
     @Override

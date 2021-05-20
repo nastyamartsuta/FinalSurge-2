@@ -7,13 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PaceCalculatorModel {
 
-    //input
     private String TimeHours;
     private String TimeMinutes;
     private String TimeSeconds;
     private String Distance;
-
-    //dropdown
     private String DistType;
-
 }

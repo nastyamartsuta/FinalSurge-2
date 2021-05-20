@@ -31,9 +31,7 @@ public class PrintWorkoutsTest extends BaseTest {
 
     private void initPrintWorkoutModel() {
         printWorkoutsModel = new PrintWorkoutsModel();
-        //input
         printWorkoutsModel.setPrintStartingDate("01/01/2021");
         printWorkoutsModel.setPrintEndingDate("12/12/2021");
-
     }
 }

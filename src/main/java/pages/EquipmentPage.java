@@ -17,7 +17,7 @@ public class EquipmentPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Equipment page has opened");
+        log.info("Checking that the Equipment page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIPMENT_HEADER));
     }
 

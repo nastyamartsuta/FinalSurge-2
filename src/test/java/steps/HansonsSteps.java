@@ -22,15 +22,12 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
 
     @Step
     public HansonsSteps fillHansons(HansonsModel hansonsModel) {
-        //input
         new Input(driver, "TimeHH").enterInput(hansonsModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(hansonsModel.getTimeMinutes());
         new Input(driver, "TimeSS").enterInput(hansonsModel.getTimeSeconds());
         new Input(driver, "Temp").enterInput(hansonsModel.getTemperature());
         new Input(driver, "Wind").enterInput(hansonsModel.getWindSpeed());
         new Input(driver, "Humid").enterInput(hansonsModel.getHumidity());
-
-        //dropdown
         new Dropdown(driver, "RaceDist").select(hansonsModel.getRaceDistance());
         new Dropdown(driver, "TempType").select(hansonsModel.getTemperatureType());
         new Dropdown(driver, "SpeedType").select(hansonsModel.getSpeedType());

@@ -91,7 +91,7 @@
 | 4 | Choose Brand | Brand is select | 
 | 5 | Send Model | Model entered |  
 | 6 | Send cost | Cost entered |  
-| 7 | Send Date Purchased | Date Purchased entered |  
+| 7 | Send Date Purcwased | Date Purchased entered |  
 | 8 | Choose Shoe Size | Shoe Size is select | 
 | 9 | Send Starting Distance | Starting Distance entered | 
 | 10 | Send Distance Alert | Distance Alert entered | 

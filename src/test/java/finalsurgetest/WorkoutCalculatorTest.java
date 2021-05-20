@@ -16,12 +16,6 @@ public class WorkoutCalculatorTest extends BaseTest {
     TinmanModel tinmanModel = new TinmanModel();
     McMillanModel mcMillanModel = new McMillanModel();
 
-    @BeforeMethod
-    @Override
-    public void setup() {
-        super.setup();
-    }
-
     @Test
     @Description(value = "Calculate Hansons test")
     public void calculateHansonsTest() {
@@ -81,17 +75,12 @@ public class WorkoutCalculatorTest extends BaseTest {
 
     private void initMcMillanModel() {
         mcMillanModel = new McMillanModel();
-
-        //input
         mcMillanModel.setRecentTimeHours("1");
         mcMillanModel.setRecentTimeMinutes("20");
         mcMillanModel.setRecentTimeSeconds("30");
-
         mcMillanModel.setGoalTimeHours("1");
         mcMillanModel.setGoalTimeMinutes("05");
         mcMillanModel.setGoalTimeSeconds("10");
-
-        //dropdown
         mcMillanModel.setRecentDistanceType("1500m");
         mcMillanModel.setGoalDistanceType("1500m");
 
@@ -99,29 +88,21 @@ public class WorkoutCalculatorTest extends BaseTest {
 
     private void initTinmanModel() {
         tinmanModel = new TinmanModel();
-        //input
         tinmanModel.setTimeHours("00");
         tinmanModel.setTimeMinutes("30");
         tinmanModel.setTimeSeconds("00");
-
-        //dropdown
         tinmanModel.setRaceDistance("0.4");
-
-        //radiobutton
         tinmanModel.setGender("Female");
     }
 
     private void initHansonsModel() {
         hansonsModel = new HansonsModel();
-        //input
         hansonsModel.setTimeHours("5");
         hansonsModel.setTimeMinutes("30");
         hansonsModel.setTimeSeconds("00");
         hansonsModel.setTemperature("15");
         hansonsModel.setWindSpeed("10");
         hansonsModel.setHumidity("80");
-
-        //dropdown
         hansonsModel.setRaceDistance("1500m");
         hansonsModel.setTemperatureType("C");
         hansonsModel.setSpeedType("mph");
@@ -129,7 +110,6 @@ public class WorkoutCalculatorTest extends BaseTest {
 
     private void initIntensityModel() {
         intensityModel = new IntensityModel();
-        //input
         intensityModel.setTimeHours("1");
         intensityModel.setTimeMinutes("30");
         intensityModel.setTimeSeconds("00");

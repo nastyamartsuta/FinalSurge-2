@@ -22,7 +22,7 @@ public class CalendarPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Calender page has opened");
+        log.info("Checking that the Calender page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(CALENDAR));
     }
 
@@ -40,12 +40,12 @@ public class CalendarPage extends BasePage {
     public void openWorkoutLibraryPanel() {
         log.info("Click {} in order to open workout library", WORKOUT_LIBRARY_BUTTON);
         driver.findElement(WORKOUT_LIBRARY_BUTTON).click();
-        log.info("Checking that the workout library panel has open");
+        log.info("Checking that the workout library panel was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(WORKOUT_LIBRARY_HEADER));
     }
 
     public boolean checkingLibraryIsOpen() {
-        log.info("Checking that the workout library panel has open");
+        log.info("Checking that the workout library panel was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LIBRARY));
         return false;
     }

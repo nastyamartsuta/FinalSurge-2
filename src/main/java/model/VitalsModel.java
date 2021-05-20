@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class VitalsModel {
-    //input
+
     private String VitalsDate;
     private String Steps;
     private String CaloriesConsumed;
@@ -21,13 +21,9 @@ public class VitalsModel {
     private String Systolic;
     private String Diastolic;
     private String HealthNotes;
-
-    //dropdown
     private String WeightType;
     private String MuscleMassType;
     private String SleepAmount;
     private String SleepQuality;
     private String StressAmount;
-
-
 }

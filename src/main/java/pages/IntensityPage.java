@@ -22,7 +22,7 @@ public class IntensityPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Intensity page has open");
+        log.info("Checking that the Intensity page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_INTENSITY));
     }
 
@@ -38,11 +38,11 @@ public class IntensityPage extends BasePage {
     }
 
     public boolean checkCalculationsIsOpened() {
-        log.info("Checking that the Your Workout Paces had open");
+        log.info("Checking that the Your Workout Paces was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(YOUR_WORKOUT_PACES_HEADER));
-        log.info("Checking that the Equivalent Event Performance Times Based on your PR had open");
+        log.info("Checking that the Equivalent Event Performance Times Based on your PR was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIVALENT_EVENT_PERFORMANCE_TIMES_HEADER));
-        log.info("Checking that the VO2 Max Workout Splits had open");
+        log.info("Checking that the VO2 Max Workout Splits was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(VO2_MAX_WORKOUT_SPLITS_HEADER));
         return true;
     }

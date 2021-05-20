@@ -24,7 +24,7 @@ public class ActivityTypePage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Activity Type page is open");
+        log.info("Checking that the ActivityType page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(ADD_ACTIVITY_TYPE_HEADER));
     }
 
@@ -39,12 +39,12 @@ public class ActivityTypePage extends BasePage {
     }
 
     public void clickAddActivityTypeButton() {
-        log.info("Click {} in order to add new activity type", ADD_ACTIVITY_TYPE_BUTTON);
+        log.info("Click {} in order to add a new activity type", ADD_ACTIVITY_TYPE_BUTTON);
         driver.findElement(ADD_ACTIVITY_TYPE_BUTTON).click();
     }
 
     public boolean getTypeAdded(ActivityTypeModel activityTypeModel) {
-        log.info("Check that the new type has been added");
+        log.info("Check that the new type was added");
         driver.findElement(By.xpath(String.format(ADDED_NEW_ACTIVITY_TYPE, activityTypeModel.getATypeName())));
         return true;
     }

@@ -28,10 +28,9 @@ public class DropdownSelectByVisibleText extends AbstractComponent {
     }
 
     public void select(String optionText) {
+        log.info("Select option {} in Dropdown {} ", optionText, label);
         WebElement dropdownElement = driver.findElement(locator());
         Select dropdown = new Select(dropdownElement);
-
         dropdown.selectByVisibleText(optionText);
-        log.info("Select option {} in Dropdown {} ", optionText, label);
     }
 }

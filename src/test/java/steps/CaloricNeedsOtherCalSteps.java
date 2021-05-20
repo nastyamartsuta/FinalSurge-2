@@ -27,13 +27,10 @@ public class CaloricNeedsOtherCalSteps extends AbstractOtherCalculatorSteps {
 
     @Step
     public CaloricNeedsOtherCalSteps fillCaloricNeeds(CaloricNeedsModel caloricNeedsModel) {
-        //input
         new Input(driver, "Weight").enterInput(caloricNeedsModel.getWeight());
         new Input(driver, "HeightInchCent").enterInput(caloricNeedsModel.getHeight());
         new Input(driver, "Age").enterInput(caloricNeedsModel.getAge());
         new Input(driver, "RunDist").enterInput(caloricNeedsModel.getRunDistance());
-
-        //radiobutton
         new RadioButton(driver, "kg").selectRadioButton();
         new RadioButton(driver, "centimeters").selectRadioButton();
         new RadioButton(driver, "female").selectRadioButton();

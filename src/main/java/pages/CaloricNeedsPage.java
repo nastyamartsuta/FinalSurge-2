@@ -19,7 +19,7 @@ public class CaloricNeedsPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Caloric Needs Page page has open");
+        log.info("Checking that the Caloric Needs Page page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_CALORIC_NEEDS));
     }
 
@@ -34,7 +34,7 @@ public class CaloricNeedsPage extends BasePage {
         driver.findElement(SAVE_BUTTON).click();
     }
     public boolean checkCalculationsIsOpened(){
-        log.info("Checking that the Today's caloric needs has open");
+        log.info("Checking that the Today's caloric needs was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TODAY_CALORIC_NEEDS_HEADER));
         return true;
     }

@@ -1,7 +1,5 @@
 package finalsurgetest;
 
-import elements.Dropdown;
-import elements.Input;
 import io.qameta.allure.Description;
 import model.BikeModel;
 import model.RoutesModel;
@@ -58,13 +56,11 @@ public class EquipmentTest extends BaseTest {
 
     private void initRouteModel() {
         routesModel = new RoutesModel();
-        //input
         routesModel.setRouteName("Green Velo");
         routesModel.setDistance("200.00");
         routesModel.setRoutePersonalRecord("8:55:10");
         routesModel.setPersonalRecordDate("6/6/2021");
         routesModel.setNotes("Very beautiful route");
-        //dropdown
         routesModel.setDistanceType("km");
         routesModel.setActivity("Bike");
     }
@@ -72,21 +68,18 @@ public class EquipmentTest extends BaseTest {
 
     private void initBikeModel() {
         bikeModel = new BikeModel();
-        //input
         bikeModel.setBikeName("City bike");
         bikeModel.setModel("slr03");
         bikeModel.setCost("1,250.00");
         bikeModel.setDatePurchased("5/5/2021");
         bikeModel.setStartingDistance("0.00");
         bikeModel.setNotes("Lack of rearview mirror");
-        //dropdown
         bikeModel.setBrand("BMC");
         bikeModel.setDistanceType("km");
     }
 
     private void initShoesModel() {
         shoesModel = new ShoesModel();
-        //input
         shoesModel.setShoesName("Running shoes");
         shoesModel.setModel("Performance");
         shoesModel.setCost("99.00");
@@ -94,7 +87,6 @@ public class EquipmentTest extends BaseTest {
         shoesModel.setStartingDistance("5");
         shoesModel.setDistanceAlert("15");
         shoesModel.setNotes("Don't run when it's raining");
-        //dropdown
         shoesModel.setShoeSize("7.5");
         shoesModel.setDistanceType("km");
         shoesModel.setDistanceAlertType("km");

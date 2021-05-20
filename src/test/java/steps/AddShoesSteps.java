@@ -24,22 +24,17 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
 
     @Step
     public AddShoesSteps fillNewShoes(ShoesModel shoesModel){
-        //input
         new Input(driver, "ShoeName").enterInput(shoesModel.getShoesName());
-
-        //dropdown
         new DropdownEquipment(driver, "adidas").select();
         new Dropdown(driver, "ShoeSize").select(shoesModel.getShoeSize());
         new Dropdown(driver, "DistType").select(shoesModel.getDistanceType());
         new Dropdown(driver, "DistAlertType").select(shoesModel.getDistanceAlertType());
-
         new Input(driver, "ShoeModel").enterInput(shoesModel.getModel());
         new Input(driver, "ShoeCost").enterInput(shoesModel.getCost());
         new Input(driver, "ShoeDate").enterInput(shoesModel.getDatePurchased());
         new Input(driver, "StartDist").enterInput(shoesModel.getStartingDistance());
         new Input(driver, "DistAlert").enterInput(shoesModel.getDistanceAlert());
         new Input(driver, "ShoeNotes").enterInput(shoesModel.getNotes());
-
         return this;
     }
 

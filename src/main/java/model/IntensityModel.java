@@ -7,12 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class IntensityModel {
 
-    //input
     private String TimeHours;
     private String TimeMinutes;
     private String TimeSeconds;
-
-    //radiobutton
     private String EventType;
-
 }

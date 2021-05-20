@@ -24,7 +24,7 @@ public class McMillanPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the McMillanModel page has open");
+        log.info("Checking that the McMillanModel page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_MCMILLAN));
     }
 
@@ -40,18 +40,19 @@ public class McMillanPage extends BasePage {
     }
 
     public boolean checkCalculationsIsOpened() {
-        log.info("Checking that the McMillanModel Running Calculator had open");
+        log.info("Checking that the McMillanModel Running Calculator was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(MCMILLAN_RUNNING_CALCULATOR_HEADER));
-        log.info("Checking that the Training Paces had open");
+        log.info("Checking that the Training Paces was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TRAINING_PACES_HEADER));
-        log.info("Checking that the Current Race Times had open");
+        log.info("Checking that the Current Race Times was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(CURRENT_RACE_TIMES_HEADER));
-        log.info("Checking that the Goal Race Times had open");
+        log.info("Checking that the Goal Race Times was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(GOAL_RACE_TIME_HEADER));
         return true;
     }
 
     public String text() {
+        log.info("Get the text");
         WebElement element = driver.findElement(ACTUAL_INFORMATION);
         return element.getText();
     }

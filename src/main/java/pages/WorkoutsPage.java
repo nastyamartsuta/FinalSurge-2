@@ -25,7 +25,7 @@ public class WorkoutsPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Workouts page is open");
+        log.info("Checking that the Workouts page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(ADD_WORKOUTS_HEADER));
     }
 
@@ -42,7 +42,7 @@ public class WorkoutsPage extends BasePage {
     public void openAddNewWorkoutSwim() {
         log.info("Click {} in order to open new workout Swim panel", ADD_NEW_WORKOUT_SWIM_BUTTON);
         driver.findElement(ADD_NEW_WORKOUT_SWIM_BUTTON).click();
-        log.info("Checking that the new workout Swim panel is open");
+        log.info("Checking that the new workout Swim panel was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(ADD_NEW_WORKOUT_HEADER));
     }
 
@@ -51,13 +51,13 @@ public class WorkoutsPage extends BasePage {
         driver.findElement(ADD_NEW_WORKOUT_BUTTON).click();
     }
     public String getActualText() {
+        log.info("Get the actual text");
         WebElement element = driver.findElement(ACTUAL_INFORMATION);
         return element.getText();
     }
     public boolean chekWorkoutDetailsIsOpen(){
-        log.info("Checking that the new Workout Details is open");
-        //TODO спросить у А. почему не срабатывает
+        log.info("Checking that the new Workout Details was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(NEW_WORKOUT_DETAILS_HEADER));
-        return false;
+        return true;
     }
 }

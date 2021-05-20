@@ -7,17 +7,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class HansonsModel {
 
-        //input
         private String TimeHours;
         private String TimeMinutes;
         private String TimeSeconds;
         private String Temperature;
         private String WindSpeed;
         private String Humidity;
-
-        //dropdown
         private String RaceDistance;
         private String TemperatureType;
         private String SpeedType;
-
 }

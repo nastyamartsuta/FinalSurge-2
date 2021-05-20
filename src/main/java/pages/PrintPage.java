@@ -16,11 +16,10 @@ public class PrintPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Print page has opened and workout was printed");
+        log.info("Checking that the Print page was opened and workout was printed");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_PRINT_PAGE));
     }
 
     @Override
-    public void openPage() {
-    }
+    public void openPage() { }
 }

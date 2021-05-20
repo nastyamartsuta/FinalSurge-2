@@ -29,6 +29,11 @@ public class BaseTest {
     protected OpenWorkoutLibrarySteps openWorkoutLibrarySteps;
     protected AddWorkoutSteps addWorkoutSteps;
     protected AddNewActivityTypeSteps addNewActivityTypeSteps;
+    protected UploadWorkoutDataSteps uploadWorkoutDataSteps;
+    protected DeleteWorkoutSteps deleteWorkoutSteps;
+    protected ViewWorkoutDetailsStep viewWorkoutDetailsStep;
+    protected AddCommentsStep commentsStep;
+    protected MoveWorkoutSteps moveWorkoutSteps;
 
     @BeforeMethod
     public void setup() {
@@ -53,6 +58,11 @@ public class BaseTest {
         openWorkoutLibrarySteps = new OpenWorkoutLibrarySteps(driver);
         addWorkoutSteps = new AddWorkoutSteps(driver);
         addNewActivityTypeSteps = new AddNewActivityTypeSteps(driver);
+        uploadWorkoutDataSteps = new UploadWorkoutDataSteps(driver);
+        deleteWorkoutSteps = new DeleteWorkoutSteps(driver);
+        viewWorkoutDetailsStep = new ViewWorkoutDetailsStep(driver);
+        commentsStep = new AddCommentsStep(driver);
+        moveWorkoutSteps = new MoveWorkoutSteps(driver);
     }
 
     @AfterMethod

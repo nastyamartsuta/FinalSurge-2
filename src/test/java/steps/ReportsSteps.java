@@ -26,16 +26,12 @@ public class ReportsSteps extends AbstractStep {
 
     @Step
     public ReportsSteps fillReports(ReportsModel reportsModel) {
-        //input
+
         new Input(driver, "WorkoutDate").clear();
         new Input(driver, "WorkoutDate").enterInput(reportsModel.getStartDate());
         new Input(driver, "WorkoutDateEnd").clear();
         new Input(driver, "WorkoutDateEnd").enterInput(reportsModel.getEndDate());
-
-        //radiobutton
         new RadioButton(driver, "List View").selectRadioButton();
-
-        //dropdown
         new Dropdown(driver, "ActivityType").select(reportsModel.getActivityType());
         return this;
     }
@@ -48,7 +44,6 @@ public class ReportsSteps extends AbstractStep {
 
     @Step
     public void checkReportsOpened() {
-        //TODO на что тут еще можно написать assert?
         Assert.assertTrue(reportsPage.checkReportsOpened(), "Reports did not open");
     }
 }

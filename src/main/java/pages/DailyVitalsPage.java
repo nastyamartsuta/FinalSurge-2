@@ -7,6 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 @Log4j2
 public class DailyVitalsPage extends BasePage {
@@ -17,6 +20,11 @@ public class DailyVitalsPage extends BasePage {
     private static final By DAILY_VITALS_ADD_HEADER = By.xpath("//h4[contains(.,'Daily Vitals Add')]/ancestor::div[@class='w-box-header']");
     private static final By SAVE_NEW_VITALS_BUTTON =  By.id("saveButton");
     private static final String ACTUAL_INFORMATION = "//a[contains(.,'%s')]/ancestor::tr";
+    private static final By ACTUAL_START_DATE = By.xpath("//div[@class='w-box-content table-responsive']//tr[(last())]/td");
+    private static final By ACTUAL_END_DATE = By.xpath("//div[@class='w-box-content table-responsive']//tr/td[1]");
+    private static final String PAST_DAYS = "PastDays";
+    private static final String LAST_MONTH = "Last Month";
+    private static final String DATE_FORMAT ="M/d/yyyy" ;
 
     public DailyVitalsPage(WebDriver driver) {
         super(driver);
@@ -24,7 +32,7 @@ public class DailyVitalsPage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Daily Vitals page has open");
+        log.info("Checking that the Daily Vitals page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DAILY_VITALS_HEADER));
     }
 
@@ -37,12 +45,12 @@ public class DailyVitalsPage extends BasePage {
     public void openDailyVitalsAddPanel() {
         log.info("Click {} in order to open daily vitals add panel", ADD_VITALS_BUTTON);
         driver.findElement(ADD_VITALS_BUTTON).click();
-        log.info("Checking that the daily vitals add panel has open");
+        log.info("Checking that the daily vitals add panel was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(DAILY_VITALS_ADD_HEADER));
     }
 
     public void clickAddVitalsButton() {
-        log.info("Click {} in order to add new Vitals", SAVE_NEW_VITALS_BUTTON);
+        log.info("Click {} in order to add a new Vitals", SAVE_NEW_VITALS_BUTTON);
         driver.findElement(SAVE_NEW_VITALS_BUTTON).click();
     }
 
@@ -54,34 +62,35 @@ public class DailyVitalsPage extends BasePage {
 
     public void showLastMonthVitals() {
         log.info("View Last month vitals");
-        new DropdownSelectByVisibleText(driver, "PastDays").select("Last Month");
-    }
-/*
-    public static void main(String[] args) {
-        Calendar calendar = Calendar.getInstance();
-
-        calendar.set(Calendar.MONTH, 4);
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-        Date monthStart = calendar.getTime();
-        calendar.add(Calendar.MONTH, 1);
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        Date monthEnd = calendar.getTime();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-        System.out.println(calendar);
-
-        System.out.println("Calculated month start date : " + format.format(monthStart));
-        System.out.println("Calculated month end date : " + format.format(monthEnd));
+        new DropdownSelectByVisibleText(driver, PAST_DAYS).select(LAST_MONTH);
     }
 
+    public ArrayList<String> expectedDates() {
+        log.info("Expected data");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_FORMAT);
+        LocalDate prevMonthLocalDate = LocalDate
+                .now()
+                .minusMonths(1);
+        String prevMonthStartDate = prevMonthLocalDate
+                .withDayOfMonth(1)
+                .format(formatter);
+        String prevMonthEndDate = prevMonthLocalDate
+                .withDayOfMonth(prevMonthLocalDate.lengthOfMonth())
+                .format(formatter);
 
-    public void checkLastMonthIsOpen(){
+        ArrayList<String> dates = new ArrayList<>();
+        dates.add(prevMonthStartDate);
+        dates.add(prevMonthEndDate);
+        return dates;
+    }
 
-        //TODO как проверить что правильно открылось
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_MONTH, -1);
-        calendar.set(Calendar.DAY_OF_MONTH, 1);
-
-    }*/
-
-
+    public  ArrayList<WebElement> actualDates() {
+        log.info("Find actual data");
+        WebElement startDate = driver.findElement(ACTUAL_START_DATE);
+        WebElement endDate = driver.findElement(ACTUAL_END_DATE);
+        ArrayList<WebElement> actualDates = new ArrayList<>();
+        actualDates.add(startDate);
+        actualDates.add(endDate);
+        return actualDates;
+   }
 }

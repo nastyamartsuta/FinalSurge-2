@@ -1,12 +1,9 @@
 package steps;
 
-import elements.Dropdown;
-import elements.DropdownEquipment;
 import elements.Input;
 import elements.RadioButton;
 import io.qameta.allure.Step;
 import model.ActivityTypeModel;
-import model.BikeModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.ActivityTypePage;

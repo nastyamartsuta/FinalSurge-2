@@ -19,7 +19,7 @@ public class ReportsPage extends BasePage{
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Reports page has opened");
+        log.info("Checking that the Reports page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_REPORTS_PAGE));
     }
 
@@ -35,7 +35,7 @@ public class ReportsPage extends BasePage{
     }
 
     public boolean checkReportsOpened(){
-        log.info("Checking that the Reports opened");
+        log.info("Checking that the Reports was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TOTAL_REPORTS));
         return true;
     }

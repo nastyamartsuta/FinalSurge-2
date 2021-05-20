@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ShoesModel {
 
-    //input
     private String ShoesName;
     private String Model;
     private String Cost;
@@ -15,10 +14,7 @@ public class ShoesModel {
     private String StartingDistance;
     private String DistanceAlert;
     private String Notes;
-
-    //dropdown
     private String ShoeSize;
     private String DistanceType;
     private String DistanceAlertType;
-
 }

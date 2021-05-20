@@ -20,7 +20,7 @@ public class PaceCalculatePage extends BasePage {
 
     @Override
     public void waitPageLoaded() {
-        log.info("Checking that the Pace calculator page has opened");
+        log.info("Checking that the Pace calculator page was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(HEADER_PACE_CALCULATOR));
     }
 
@@ -36,7 +36,7 @@ public class PaceCalculatePage extends BasePage {
     }
 
     public boolean checkCalculationsIsOpened(){
-        log.info("Checking that the Pace chart ang Pace split has opened");
+        log.info("Checking that the Pace chart ang Pace split was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_CHART_HEADER));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_SPLITS_HEADER));
         return true;

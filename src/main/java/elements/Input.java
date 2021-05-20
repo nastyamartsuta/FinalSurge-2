@@ -11,7 +11,6 @@ public class Input extends AbstractComponent {
     private static final String INPUT_PATTERN = "%s";
     private final String label;
 
-
     public Input(WebDriver driver, String label) {
         super(driver);
         this.label = label;

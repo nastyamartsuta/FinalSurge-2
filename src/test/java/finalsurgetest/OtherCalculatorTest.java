@@ -12,11 +12,6 @@ public class OtherCalculatorTest extends BaseTest {
     CaloricNeedsModel caloricNeedsModel = new CaloricNeedsModel();
     PaceCalculatorModel paceCalculatorModel = new PaceCalculatorModel();
 
-    @BeforeMethod
-    @Override
-    public void setup() {
-        super.setup();
-    }
 
     @Test
     @Description(value = "Calculate needs test")
@@ -48,19 +43,15 @@ public class OtherCalculatorTest extends BaseTest {
 
     private void initPaceCalculateModel() {
         paceCalculatorModel = new PaceCalculatorModel();
-        //input
         paceCalculatorModel.setDistance("5");
         paceCalculatorModel.setTimeHours("01");
         paceCalculatorModel.setTimeMinutes("15");
         paceCalculatorModel.setTimeSeconds("20");
-
-        //dropdown
         paceCalculatorModel.setDistType("Kilometers");
     }
 
     private void initCaloricNeedsModel() {
         caloricNeedsModel = new CaloricNeedsModel();
-        //input
         caloricNeedsModel.setWeight("60");
         caloricNeedsModel.setHeight("180");
         caloricNeedsModel.setAge("25");

@@ -21,7 +21,7 @@ public abstract class BasePage extends AbstractComponent {
         try {
             waitPageLoaded();
         } catch (TimeoutException ex) {
-            log.info("EXCEPTION HAS BEEN CAUGHT");
+            log.info("The page was not opened");
             return false;
         }
         return true;

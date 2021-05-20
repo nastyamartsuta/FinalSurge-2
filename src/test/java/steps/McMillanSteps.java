@@ -22,16 +22,12 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
 
     @Step
     public McMillanSteps fillMcMillan(McMillanModel mcMillanModel) {
-        //input
         new Input(driver, "TimeHH").enterInput(mcMillanModel.getRecentTimeHours());
         new Input(driver, "TimeMM").enterInput(mcMillanModel.getRecentTimeMinutes());
         new Input(driver, "TimeSS").enterInput(mcMillanModel.getRecentTimeSeconds());
-
         new Input(driver, "GTimeHH").enterInput(mcMillanModel.getGoalTimeHours());
         new Input(driver, "GTimeMM").enterInput(mcMillanModel.getGoalTimeMinutes());
         new Input(driver, "GTimeSS").enterInput(mcMillanModel.getGoalTimeSeconds());
-
-        //dropdown
         new DropdownMcMillan(driver, "distance").select(mcMillanModel.getRecentDistanceType());
         new DropdownMcMillan(driver, "goaldistance").select(mcMillanModel.getGoalDistanceType());
         return this;
@@ -58,7 +54,5 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
                         + mcMillanModel.getGoalTimeMinutes() + ":"
                         + mcMillanModel.getGoalTimeSeconds()),
                 "Incorrect text");
-
-
     }
 }

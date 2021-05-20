@@ -26,7 +26,6 @@ public class AddVitalsSteps extends AbstractStep {
 
     @Step
     public AddVitalsSteps fillNewVitals(VitalsModel vitalsModel) {
-        //input
         new Input(driver, "VitalsDate").enterInput(vitalsModel.getVitalsDate());
         new Input(driver, "Steps").enterInput(vitalsModel.getSteps());
         new Input(driver, "Weight").enterInput(vitalsModel.getWeight());
@@ -41,8 +40,6 @@ public class AddVitalsSteps extends AbstractStep {
         new Input(driver, "Systolic").enterInput(vitalsModel.getSystolic());
         new Input(driver, "Diastolic").enterInput(vitalsModel.getDiastolic());
         new Input(driver, "HealthNotes").enterInput(vitalsModel.getHealthNotes());
-        //dropdown
-
         new DropdownSelectByVisibleText(driver, "WeightType").select(vitalsModel.getWeightType());
         new DropdownSelectByVisibleText(driver, "MuscleMassType").select(vitalsModel.getMuscleMassType());
         new DropdownSelectByVisibleText(driver, "SleepAmount").select(vitalsModel.getSleepAmount());
@@ -62,12 +59,12 @@ public class AddVitalsSteps extends AbstractStep {
         Assert.assertTrue(dailyVitalsPage.getActualText(vitalsModel).contains(
                 vitalsModel.getVitalsDate() + " " + vitalsModel.getSteps() + " " + vitalsModel.getWeight()
                         + " " + vitalsModel.getWeightType() + " " + vitalsModel.getBodyFat() + "% " +
-                        vitalsModel.getResting() + " bpm " +vitalsModel.getVariability() + " " + vitalsModel.getCaloriesConsumed() + " kCal " +
+                        vitalsModel.getResting() + " bpm " + vitalsModel.getVariability() + " " + vitalsModel.getCaloriesConsumed() + " kCal " +
                         vitalsModel.getWater() + "% " + vitalsModel.getMuscleMass() + " " + vitalsModel.getMuscleMassType()
-                        + " " + vitalsModel.getSleepHours() + " hrs " + vitalsModel.getTotalTimeAwake()  + " hrs " +
-                        vitalsModel.getSleepAmount()  + " " + vitalsModel.getSleepQuality()  + " " + vitalsModel.getStressAmount()
-                        + " " + vitalsModel.getSystolic()  + " / " + vitalsModel.getDiastolic()  + " mm Hg " +   vitalsModel.getHealthNotes()
-                        ),
+                        + " " + vitalsModel.getSleepHours() + " hrs " + vitalsModel.getTotalTimeAwake() + " hrs " +
+                        vitalsModel.getSleepAmount() + " " + vitalsModel.getSleepQuality() + " " + vitalsModel.getStressAmount()
+                        + " " + vitalsModel.getSystolic() + " / " + vitalsModel.getDiastolic() + " mm Hg " + vitalsModel.getHealthNotes()
+                ),
                 "Incorrect text");
     }
 }

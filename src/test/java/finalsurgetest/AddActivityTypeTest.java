@@ -4,7 +4,7 @@ import io.qameta.allure.Description;
 import model.ActivityTypeModel;
 import org.testng.annotations.Test;
 
-public class AddActivityTypeTest extends BaseTest {
+public class AddActivityTypeTest extends WithLoginTest {
 
     ActivityTypeModel activityTypeModel = new ActivityTypeModel();
 
@@ -12,10 +12,8 @@ public class AddActivityTypeTest extends BaseTest {
     @Description(value = "Add new activity type test")
     public void addNewActivityTypeTest() {
         initActivityTypeModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
-        addNewActivityTypeSteps.openActivityTypePage()
+        addNewActivityTypeSteps
+                .openActivityTypePage()
                 .fillNewActivityType(activityTypeModel)
                 .saveNewActivityType()
                 .checkingNewTypeAdded(activityTypeModel);

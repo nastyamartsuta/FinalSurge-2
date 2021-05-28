@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
-public class ReportsPage extends BasePage{
+public class ReportsPage extends BasePage {
 
     private static final By REPORTS_BUTTON = By.className("icsw16-graph");
     private static final By HEADER_REPORTS_PAGE = By.xpath("//h4[contains(.,'Report Filters')]/ancestor::div[@class='w-box-header']");
@@ -34,7 +34,7 @@ public class ReportsPage extends BasePage{
         driver.findElement(VIEW_REPORTS_BUTTON).click();
     }
 
-    public boolean checkReportsOpened(){
+    public boolean checkReportsOpened() {
         log.info("Checking that the Reports was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TOTAL_REPORTS));
         return true;

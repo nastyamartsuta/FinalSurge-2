@@ -1,5 +1,7 @@
-# Diploma project
-## Testing of "https://log.finalsurge.com/UserProfile.cshtml" website using following patterns:
+# Training test Framework
+## Training project on UI testing automation in Java language with selenium.
+Testing of "https://log.finalsurge.com/UserProfile.cshtml" website. It is the website for creating a workout plan.
+Using following patterns:
  
 1. Page Object
 2. Loadable Page/Component 
@@ -8,95 +10,186 @@
 5. Steps
 
 ## Use technologies:
-
-1. Maven
-2. TestNG
-3. Selenium
-4. Allure Reporting
-5. CircleCI
-6. Log4J
-7. Lombok
-8. Exception handling
+Java, Selenium, Maven, TestNG, Allure Reporting, CircleCI, Log4J, Lombok
  
 # Test suite
 ## Test case 1 - Login Test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Send email | email entered | 
-| 2 | Send password | password entered | 
-| 3 | Click checkbox | checkbox is select | 
-| 4 | Click "Login button" | open main page | 
+| 1 | Enter valid Email and Password | Successful validation. There are no error messages. | 
+| 2 | Enter invalid Email and Password | Failed validation. Error messages. | 
+| 3 | Enter valid Email and invalid Password | Failed validation. Error messages. | 
+| 4 | Enter invalid Email and valid Password | Failed validation. Error messages. | 
+| 5 | Enter empty Email and Password | Failed validation. Error messages. | 
+| 6 | Enter empty Email and valid Password | Failed validation. Error messages. | 
+| 7 | Enter valid Email and empty Password | Failed validation. Error messages. | 
 
-## Test case 2 - Workout quick add
+## Test case 2 - Activity Type Test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Calendar button" | open calender page | 
-| 2 | Click day of week | open list | 
-| 3 | Click "quick add" | open workout quick add menu | 
-| 4 | Choose a date | date selected | 
-| 5 | Choose a time | time selected | 
-| 6 | Choose activity type | activity type selected | 
-| 7 | Send workout name | workout name entered | 
-| 8 | Send workout description | workout description entered | 
-| 9 | Click checkbox | checkbox is select | 
-| 10 | Send Distance | Distance entered  | 
-| 11 | Choose DistType | DistType is select | 
-| 12 | Send Duration | Duration entered | 
-| 13 | Choose DistType | DistType is select | 
-| 14 | Send Pace | Pace entered | 
-| 15 | Choose How I Felt | How I Felt is select | 
-| 16 | Choose Perceived Effort | Perceived Effort is select | 
-| 17 | Send Results | Results  entered | 
-| 18 | Click "Add workout" button | Workout added to calendar | 
+| 1 | Open activity type page | Activity type page was opened |
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Save new activity type | The new activity type was successfully added |
 
-## Test case 3 - Сalculate training pace
+## Test case 3 - Workout quick add Test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Workout calculators" button | open Workout calculators page | 
-| 2 | Click "Hansons" button | open Hansons | 
-| 3 | Send Distance | Distance entered | 
-| 4 | Send Time | Time entered | 
-| 5 | Send Heat/Humidity/Wind Chill Adjustments | Heat/Humidity/Wind Chill Adjustments entered | 
-| 6 | Click "Calculate paces" button | open recent race information and training paces | 
+| 1 | Open calendar panel | Calendar panel was opened |
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Save new workout | The new workout was successfully added |
 
-## Test case 4 - Get report
+## Test case 4 - Calendar page test
+## Test 4.1 - Add workout quick test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Report and Statistics" button | open Report and Statistics page | 
-| 2 | Choose start date | start date is select | 
-| 3 | Choose end date | end date is select | 
-| 4 | Choose Activity Type | Activity Type is select | 
-| 5 | Choose Report View | Report View is select | 
-| 6 | Click "View Report" button | displayed Report and Statistics| 
-
-## Test case 5 - Print workouts
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Save new workout quick | The new workout quick was successfully added |
+## Test 4.2 - Move workout test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Print workouts" button | open Print workouts page | 
-| 2 | Choose Print Starting Date | Print Starting Date is select | 
-| 3 | Choose Print Ending Date | Print Ending Date is select | 
-| 4 | Click "Print workouts" button | the result is printed| 
-
-## Test case 6 - Send message
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Save new workout quick | The new workout quick was successfully added |
+| 4 | Open menu | Menu was opened |
+| 5 | Move workout | Workout was moved |
+## Test 4.3 - Add comment test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Mailbox" button | open Print workouts page | 
-
-## Test case 7 - Add Shoe
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Save new workout quick | The new workout quick was successfully added |
+| 4 | Open menu | Menu was opened |
+| 5 | Open comment page | Comment page was opened |
+| 6 | Save new comment | New comment was saved |
+## Test 4.4 - Open library test
 | Step | Description | Expected result |
 | --- | --- | --- | 
-| 1 | Click "Gear & Roules" button | open equipment page | 
-| 2 | Click "Shoes" | open shoes page | 
-| 3 | Send Shoe Name | Shoe Name entered | 
-| 4 | Choose Brand | Brand is select | 
-| 5 | Send Model | Model entered |  
-| 6 | Send cost | Cost entered |  
-| 7 | Send Date Purcwased | Date Purchased entered |  
-| 8 | Choose Shoe Size | Shoe Size is select | 
-| 9 | Send Starting Distance | Starting Distance entered | 
-| 10 | Send Distance Alert | Distance Alert entered | 
-| 11 | Send Notes | Notes entered | 
-| 12 | Click "Add Shoe" button | added shoe | 
+| 1 | Open workout library panel | Workout library panel was opened |
+| 2 | Select activity type filter | Activity type filter was selected |
+| 3 | Open library | Library was opened |
+## Test 4.5 - Upload workout data test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Open menu | Menu was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Upload workout | New workout was uploaded |
+## Test 4.6 - View workout details test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Open menu | Menu was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Upload workout | New workout was uploaded |
+| 5 | Open workout details | Workout details was opened |
+## Test 4.7 - Delete uploaded workout test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calendar page | Calendar page was opened |
+| 2 | Open menu | Menu was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Upload workout | New workout was uploaded |
+| 5 | Open calendar page | Calendar page was opened |
+| 6 | Open menu | Menu was opened |
+| 7 | Delete uploaded workout | Uploaded workout was deleted |
+
+## Test case 5 - Daily vitals page test
+## Test 5.1 - View vitals test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open Daily vitals page | Daily vitals page was opened |
+| 2 | View last month vitals | Last month vitals was viewed |
+## Test 5.2 - Add vitals test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open Daily vitals page | Daily vitals page was opened |
+| 2 | Open add vitals panel | Vitals panel was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Save new vitals | New vitals was added |
+
+## Test case 6 - Equipment page test
+## Test 6.1 - Add Shoes test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open equipment page | Equipment page was opened |
+| 2 | Open shoes page | Shoes page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Save new shoes | New shoes was added |
+## Test 6.2 - Add Bike test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open equipment page | Equipment page was opened |
+| 2 | Open bike page | Bike page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Save new bike | New bike was added |
+## Test 6.3 - Add Route test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open equipment page | Equipment page was opened |
+| 2 | Open route page | Route page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Save new route | New route was added |
+
+## Test case 7 - Other calculator page test
+## Test 7.1 - Calculate needs test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open other calculate page | Other calculator page was opened |
+| 2 | Open calculate needs page | Calculate needs page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate caloric needs | Today's caloric needs was calculated |
+## Test 7.2 - Pace calculate test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open other calculate page | Other calculator page was opened |
+| 2 | Open pace calculate page | Pace calculate page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate paces | Paces was calculated |
+
+## Test case 8 - Get report test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open Report and Statistics page | Report and Statistics page was opened | 
+| 2 | Fill in the fields | The fields was filled |
+| 3 | View Report | Report was viewed | 
+
+## Test case 9 - Print workouts test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open Print workouts page | Print workouts page was opened | 
+| 2 | Fill in the fields | The fields was filled |
+| 3 | Print workouts | Workouts was printed |
+
+## Test case 10 - Workout calculator page test
+## Test 10.1 - Tinman test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calculate page | Calculator page was opened |
+| 2 | Open tinman page | Tinman page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate paces | Paces was calculated |
+## Test 10.2 - Intensity test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calculate page | Calculator page was opened |
+| 2 | Open Intensity page | Intensity page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate paces | Paces was calculated |
+## Test 10.3 - Hansons test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calculate page | Calculator page was opened |
+| 2 | Open Hansons page | Hansons page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate paces | Paces was calculated |
+## Test 10.4 - McMillan test
+| Step | Description | Expected result |
+| --- | --- | --- | 
+| 1 | Open calculate page | Calculator page was opened |
+| 2 | Open McMillan page | McMillan page was opened |
+| 3 | Fill in the fields | The fields was filled |
+| 4 | Calculate my paces | My paces was calculated |
 
 Run tests:
 ```

@@ -6,10 +6,9 @@ import model.IntensityModel;
 import model.McMillanModel;
 import model.TinmanModel;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class WorkoutCalculatorTest extends BaseTest {
+public class WorkoutCalculatorTest extends WithLoginTest {
 
     HansonsModel hansonsModel = new HansonsModel();
     IntensityModel intensityModel = new IntensityModel();
@@ -20,9 +19,6 @@ public class WorkoutCalculatorTest extends BaseTest {
     @Description(value = "Calculate Hansons test")
     public void calculateHansonsTest() {
         initHansonsModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         hansonsSteps
                 .openHansons()
                 .fillHansons(hansonsModel)
@@ -34,9 +30,6 @@ public class WorkoutCalculatorTest extends BaseTest {
     @Description(value = "Calculate Intensity test")
     public void calculateIntensityTest() {
         initIntensityModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         intensitySteps
                 .openIntensity()
                 .fillIntensity(intensityModel)
@@ -48,9 +41,6 @@ public class WorkoutCalculatorTest extends BaseTest {
     @Description(value = "Calculate Tinman test")
     public void calculateTinmanTest() {
         initTinmanModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         tinmanSteps
                 .openTinman()
                 .fillITinman(tinmanModel)
@@ -62,9 +52,6 @@ public class WorkoutCalculatorTest extends BaseTest {
     @Description(value = "Calculate McMillan test")
     public void calculateMcMillanTest() {
         initMcMillanModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         mcMillanSteps
                 .openMcMillan()
                 .fillMcMillan(mcMillanModel)
@@ -103,8 +90,8 @@ public class WorkoutCalculatorTest extends BaseTest {
         hansonsModel.setTemperature("15");
         hansonsModel.setWindSpeed("10");
         hansonsModel.setHumidity("80");
-        hansonsModel.setRaceDistance("1500m");
-        hansonsModel.setTemperatureType("C");
+        hansonsModel.setRaceDistance("Marathon");
+        hansonsModel.setTemperatureType("°C");
         hansonsModel.setSpeedType("mph");
     }
 

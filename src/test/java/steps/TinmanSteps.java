@@ -32,7 +32,7 @@ public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
         new Input(driver, "TimeMM").enterInput(tinmanModel.getTimeMinutes());
         new Input(driver, "TimeSS").enterInput(tinmanModel.getTimeSeconds());
         new RadioButton(driver, " Female").selectRadioButton();
-        new DropdownTinman(driver).select(tinmanModel.getRaceDistance());
+        new DropdownTinman(driver, "Select...").select(tinmanModel.getRaceDistance());
         return this;
     }
 
@@ -42,11 +42,12 @@ public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
+    //TODO
     @Step
     public void checkCalculation(TinmanModel tinmanModel) {
         Assert.assertTrue(tinmanPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_TIME)).getText(),  tinmanModel.getTimeMinutes()
-                + ":" +tinmanModel.getTimeSeconds(), "Entered data is not displayed");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_GENDER)).getText(), tinmanModel.getGender(),"Entered data is not displayed" );
+        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_TIME)).getText(), tinmanModel.getTimeMinutes()
+                + ":" + tinmanModel.getTimeSeconds(), "Entered data is not displayed");
+        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_GENDER)).getText(), tinmanModel.getGender(), "Entered data is not displayed");
     }
 }

@@ -50,12 +50,14 @@ public class WorkoutsPage extends BasePage {
         log.info("Click {} in order to add new workouts", ADD_NEW_WORKOUT_BUTTON);
         driver.findElement(ADD_NEW_WORKOUT_BUTTON).click();
     }
+
     public String getActualText() {
         log.info("Get the actual text");
         WebElement element = driver.findElement(ACTUAL_INFORMATION);
         return element.getText();
     }
-    public boolean chekWorkoutDetailsIsOpen(){
+
+    public boolean chekWorkoutDetailsIsOpen() {
         log.info("Checking that the new Workout Details was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(NEW_WORKOUT_DETAILS_HEADER));
         return true;

@@ -26,7 +26,7 @@ public class OpenWorkoutLibrarySteps extends AbstractCalendarPageSteps {
 
     @Step
     public void checkingLibraryIsOpen() {
-        Assert.assertTrue(calendarPage.checkingLibraryIsOpen(),"Library didn't open");
+        Assert.assertTrue(calendarPage.checkingLibraryIsOpen(), "Library didn't open");
     }
 }
 

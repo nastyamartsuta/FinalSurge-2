@@ -33,7 +33,8 @@ public class CaloricNeedsPage extends BasePage {
         log.info("Click {} in order to save paces", SAVE_BUTTON);
         driver.findElement(SAVE_BUTTON).click();
     }
-    public boolean checkCalculationsIsOpened(){
+
+    public boolean checkCalculationsIsOpened() {
         log.info("Checking that the Today's caloric needs was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(TODAY_CALORIC_NEEDS_HEADER));
         return true;

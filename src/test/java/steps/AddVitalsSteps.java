@@ -54,6 +54,7 @@ public class AddVitalsSteps extends AbstractStep {
         return this;
     }
 
+    //TODO
     @Step
     public void checkingVitalsAdd(VitalsModel vitalsModel) {
         Assert.assertTrue(dailyVitalsPage.getActualText(vitalsModel).contains(

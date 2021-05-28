@@ -52,13 +52,13 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
     }
 
     @Step
-    public void checkingVitalsAdd(WorkoutQuickModel workoutQuickModel) {
+    public void checkingAddWorkoutQuick(WorkoutQuickModel workoutQuickModel) {
         Assert.assertTrue(newWorkoutQuickPage.checkingWorkoutAdded(), "Workout was not added");
-        Assert.assertTrue(newWorkoutQuickPage.getText().contains(
-                workoutQuickModel.getTimeOfDay() + "\n" +
-                        workoutQuickModel.getName() + ": " + workoutQuickModel.getActivityType() + "\n" +
-                        workoutQuickModel.getDistance() + " " + workoutQuickModel.getDistanceType() +
-                        " ~ " + workoutQuickModel.getDuration()),
-                "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutTime(), workoutQuickModel.getTimeOfDay(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutType(), workoutQuickModel.getActivityType(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutName(), workoutQuickModel.getName(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistance(), workoutQuickModel.getDistance(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistanceType(), workoutQuickModel.getDistanceType(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDuration(), workoutQuickModel.getDuration(), "Incorrect text");
     }
 }

@@ -3,7 +3,7 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 
-public class AbstractCalendarPageSteps extends AbstractStep {
+public abstract class AbstractCalendarPageSteps extends AbstractStep {
 
     protected CalendarPage calendarPage;
     protected NewWorkoutQuickPage newWorkoutQuickPage;

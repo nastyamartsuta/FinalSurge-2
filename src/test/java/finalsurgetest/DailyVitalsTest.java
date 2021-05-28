@@ -4,16 +4,13 @@ import io.qameta.allure.Description;
 import model.VitalsModel;
 import org.testng.annotations.Test;
 
-public class DailyVitalsTest extends BaseTest {
+public class DailyVitalsTest extends WithLoginTest {
 
     VitalsModel vitalsModel = new VitalsModel();
 
     @Test
     @Description(value = "View vitals test")
     public void viewVitalsTest() {
-        loginSteps
-                .openLoginPage()
-                .authentication();
         viewVitalsSteps
                 .openViewPage()
                 .viewLastMonthVitals()
@@ -24,9 +21,6 @@ public class DailyVitalsTest extends BaseTest {
     @Description(value = "Add vitals test")
     public void addVitalsTest() {
         initVitalsModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         addVitalsSteps
                 .openAddVitals()
                 .fillNewVitals(vitalsModel)
@@ -36,7 +30,7 @@ public class DailyVitalsTest extends BaseTest {
 
     private void initVitalsModel() {
         vitalsModel = new VitalsModel();
-        vitalsModel.setVitalsDate("5/11/2021");
+        vitalsModel.setVitalsDate("5/30/2021");
         vitalsModel.setSteps("8000");
         vitalsModel.setWeight("70");
         vitalsModel.setCaloriesConsumed("1500");

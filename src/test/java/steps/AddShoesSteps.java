@@ -23,9 +23,9 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
     }
 
     @Step
-    public AddShoesSteps fillNewShoes(ShoesModel shoesModel){
+    public AddShoesSteps fillNewShoes(ShoesModel shoesModel) {
         new Input(driver, "ShoeName").enterInput(shoesModel.getShoesName());
-        new DropdownEquipment(driver, "adidas").select();
+        new DropdownEquipment(driver, "s2id_ShoeBrand").select(shoesModel.getBrand());
         new Dropdown(driver, "ShoeSize").select(shoesModel.getShoeSize());
         new Dropdown(driver, "DistType").select(shoesModel.getDistanceType());
         new Dropdown(driver, "DistAlertType").select(shoesModel.getDistanceAlertType());
@@ -46,13 +46,14 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
 
     @Step
     public void checkingShoesAdd(ShoesModel shoesModel) {
-       Assert.assertTrue(shoesPage.getActualText().contains(shoesModel.getShoesName() + " ("
-                        + "adidas "+  shoesModel.getModel() +")" + "\n"
-                        + "Purchased: " + shoesModel.getDatePurchased () + " "
-                        + "Cost: $" + shoesModel.getCost() + " "
-                        + "Size: " + shoesModel.getShoeSize () + " "
-                        + "Alert at: " + shoesModel.getDistanceAlert () + " " + shoesModel.getDistanceAlertType ()
-                + "\n" + shoesModel.getNotes ()),
-                "Incorrect text");
+
+        Assert.assertEquals(shoesPage.getActualShoesBrandModel(), shoesModel.getBrand() + " " + shoesModel.getModel(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesCost(), shoesModel.getCost(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesName(), shoesModel.getShoesName(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesSize(), shoesModel.getShoeSize(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDatePurchased(), shoesModel.getDatePurchased(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDistanceAlert(), shoesModel.getDistanceAlert(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDistanceType(), shoesModel.getDistanceType(), "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesNotes(), shoesModel.getNotes(), "Incorrect text");
     }
 }

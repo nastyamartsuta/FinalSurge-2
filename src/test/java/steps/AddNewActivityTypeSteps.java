@@ -24,7 +24,7 @@ public class AddNewActivityTypeSteps extends AbstractEquipmentsSteps {
     }
 
     @Step
-    public AddNewActivityTypeSteps fillNewActivityType (ActivityTypeModel activityTypeModel) {
+    public AddNewActivityTypeSteps fillNewActivityType(ActivityTypeModel activityTypeModel) {
         new Input(driver, "ATypeName").enterInput(activityTypeModel.getATypeName());
         new RadioButton(driver, "Black").selectRadioButton();
         return this;

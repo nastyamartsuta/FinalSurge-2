@@ -15,24 +15,33 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <aspectj.version>1.9.5</aspectj.version>
         <allure-testng.version>2.13.8</allure-testng.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <testng.version>7.3.0</testng.version>
+        <junit.version>4.11</junit.version>
+        <log4j-api.version>2.14.1</log4j-api.version>
+        <log4j-core.version>2.14.1</log4j-core.version>
+        <lombok.version>1.18.20</lombok.version>
+        <jackson-dataformat-yaml.version>2.10.1</jackson-dataformat-yaml.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <allure-maven.report-version>2.6.0</allure-maven.report-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.3.0</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>${junit.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
@@ -43,17 +52,17 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <version>${log4j-api.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.1</version>
+            <version>${log4j-core.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
+            <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -65,7 +74,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
-            <version>2.10.1</version>
+            <version>${jackson-dataformat-yaml.version}</version>
         </dependency>
     </dependencies>
 
@@ -97,9 +106,9 @@
             <plugin>
                 <groupId>io.qameta.allure</groupId>
                 <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
+                <version>${allure-maven.version}</version>
                 <configuration>
-                    <reportVersion>2.6.0</reportVersion>
+                    <reportVersion>${allure-maven.report-version}</reportVersion>
                 </configuration>
             </plugin>
         </plugins>

@@ -17,4 +17,5 @@ public class ShoesModel {
     private String ShoeSize;
     private String DistanceType;
     private String DistanceAlertType;
+    private String Brand;
 }

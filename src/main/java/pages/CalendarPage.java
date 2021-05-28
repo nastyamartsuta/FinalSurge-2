@@ -3,6 +3,8 @@ package pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
@@ -14,7 +16,8 @@ public class CalendarPage extends BasePage {
     private static final By WORKOUT_LIBRARY_BUTTON = By.id("WorkoutLibAdd");
     private static final By WORKOUT_LIBRARY_HEADER = By.xpath("//h4[contains(.,'Workout Library')]/ancestor::div[@class='w-box-header']");
     private static final By LIBRARY = By.xpath("//option[contains(.,'Run')]/ancestor::div[@class='w-box-content']//ul");
-
+    private static final String DATA_PATTERN = "//td[@data-day='%s' and @data-month='%s' and @data-year='%s']";
+    public static final String WORKOUTS = "//td//div[@data-date='%s/%s/%s']";
 
     public CalendarPage(WebDriver driver) {
         super(driver);
@@ -47,6 +50,22 @@ public class CalendarPage extends BasePage {
     public boolean checkingLibraryIsOpen() {
         log.info("Checking that the workout library panel was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(LIBRARY));
-        return false;
+        return true;
+    }
+
+    public void openMenu(String locator, String day, String month, String year) {
+        log.info("Click {} in order to open Delete Workout", DATA_PATTERN);
+        new Actions(driver)
+                .moveToElement(findData(day, month, year))
+                .perform();
+        selectWorkout(locator, day, month, year).click();
+    }
+
+    public WebElement findData(String day, String month, String year) {
+        return driver.findElement(By.xpath(String.format(DATA_PATTERN, day, month, year)));
+    }
+
+    public WebElement selectWorkout(String locator,String month, String day, String year) {
+        return driver.findElement(By.xpath(String.format(locator, day, month, year)));
     }
 }

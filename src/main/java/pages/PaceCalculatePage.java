@@ -35,7 +35,7 @@ public class PaceCalculatePage extends BasePage {
         driver.findElement(SAVE_BUTTON).click();
     }
 
-    public boolean checkCalculationsIsOpened(){
+    public boolean checkCalculationsIsOpened() {
         log.info("Checking that the Pace chart ang Pace split was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_CHART_HEADER));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_SPLITS_HEADER));

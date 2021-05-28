@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 @Log4j2
-public class Dropdown extends AbstractDropdown {
+public class DropdownSelectByValue extends AbstractDropdown {
 
-    private static final String DROPDOWN_PATTERN = "//select[@id='%s']";
+    private static final String DROPDOWN_PATTERN = "//select[@name='%s']";
 
-    public Dropdown(WebDriver driver, String label) {
+    public DropdownSelectByValue(WebDriver driver, String label) {
         super(driver, label, DROPDOWN_PATTERN);
     }
 

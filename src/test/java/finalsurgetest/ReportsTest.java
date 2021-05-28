@@ -5,7 +5,7 @@ import model.ReportsModel;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class ReportsTest extends BaseTest {
+public class ReportsTest extends WithLoginTest {
 
     ReportsModel reportsModel = new ReportsModel();
 
@@ -19,9 +19,6 @@ public class ReportsTest extends BaseTest {
     @Test
     @Description(value = "Reports test")
     public void reportsTest() {
-        loginSteps
-                .openLoginPage()
-                .authentication();
         reportsSteps
                 .openReportsPage()
                 .fillReports(reportsModel)

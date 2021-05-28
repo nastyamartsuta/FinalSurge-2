@@ -3,7 +3,7 @@ package steps;
 import org.openqa.selenium.WebDriver;
 import pages.*;
 
-public class AbstractWorkoutCalculatorSteps extends AbstractStep {
+public abstract class AbstractWorkoutCalculatorSteps extends AbstractStep {
 
     HansonsPage hansonsPage = new HansonsPage(driver);
     IntensityPage intensityPage = new IntensityPage(driver);

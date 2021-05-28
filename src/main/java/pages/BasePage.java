@@ -1,13 +1,18 @@
 package pages;
 
-import components.AbstractComponent;
+import elements.AbstractElements;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
+//TODO дописать suite
 
 @Log4j2
-public abstract class BasePage extends AbstractComponent {
+public abstract class BasePage extends AbstractElements {
+
+    public static final String DAY_PATTERN = "30";
+    public static final String MONTH_PATTERN = "5";
+    public static final String YEAR_PATTERN = "2021";
 
     public BasePage(WebDriver driver) {
         super(driver);

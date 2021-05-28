@@ -1,13 +1,16 @@
 package finalsurgetest;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import steps.*;
 
 import java.util.concurrent.TimeUnit;
 
+@Log4j2
 public class BaseTest {
 
     protected WebDriver driver;
@@ -37,8 +40,12 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup() {
+        log.info("Driver initialization");
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+        //options.addArguments("--disable-gpu");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginSteps = new LoginSteps(driver);
         addWorkoutQuickSteps = new AddWorkoutQuickSteps(driver);
@@ -67,6 +74,7 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
+        log.info("Quit from driver");
         driver.quit();
     }
 }

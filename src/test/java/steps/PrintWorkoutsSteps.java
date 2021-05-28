@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import pages.PrintPage;
 import pages.PrintWorkoutsPage;
 
+import java.util.ArrayList;
+
 public class PrintWorkoutsSteps extends AbstractStep {
 
     PrintWorkoutsPage printWorkoutsPage = new PrintWorkoutsPage(driver);
@@ -24,8 +26,8 @@ public class PrintWorkoutsSteps extends AbstractStep {
 
     @Step
     public PrintWorkoutsSteps fillPrintWorkout(PrintWorkoutsModel printWorkoutsModel) {
-        new Input(driver, "WorkoutDate").enterInput(printWorkoutsModel.getPrintEndingDate());
-        new Input(driver, "WorkoutDateEnd").enterInput(printWorkoutsModel.getPrintStartingDate());
+        new Input(driver, "PrintStartDate").enterInput(printWorkoutsModel.getPrintStartingDate());
+        new Input(driver, "PrintEndDate").enterInput(printWorkoutsModel.getPrintEndingDate());
         return this;
     }
 
@@ -39,5 +41,13 @@ public class PrintWorkoutsSteps extends AbstractStep {
     public void checkingResultIsPrinted() {
         PrintPage printPage = new PrintPage(driver);
         validateComponentIsLoaded(printPage);
+    }
+
+    @Step
+    public PrintWorkoutsSteps switchToPrintTab() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+
+        return this;
     }
 }

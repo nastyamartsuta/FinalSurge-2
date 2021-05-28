@@ -13,16 +13,17 @@ public class DeleteWorkoutSteps extends AbstractCalendarPageSteps {
     }
 
     @Step
-    public DeleteWorkoutSteps openDeletePage() {
+    public DeleteWorkoutSteps openDeletePage(String locator, String day, String month, String year) {
         deleteWorkoutPage = new DeleteWorkoutPage(driver);
         openCalendarPage();
-        deleteWorkoutPage.openPage();
-        validateComponentIsLoaded(deleteWorkoutPage);
+        calendarPage.openMenu(locator, day, month, year);
         return this;
     }
 
     @Step
-    public DeleteWorkoutSteps deleteWorkoutPage() {
+    public DeleteWorkoutSteps deleteWorkoutPage(String day, String month, String year) {
+        deleteWorkoutPage.findDeleteWorkoutButton(day, month, year);
+        validateComponentIsLoaded(deleteWorkoutPage);
         deleteWorkoutPage.clickDeleteButton();
         return this;
     }

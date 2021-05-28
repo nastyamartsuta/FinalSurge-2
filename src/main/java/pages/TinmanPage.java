@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class TinmanPage extends BasePage {
 
     private static final By TINMAN_BUTTON = By.xpath("//a[@href='https://log.finalsurge.com/TinmanCalc.cshtml?c=1&ssl=1']");
-    private static final By HEADER_TINMAN= By.xpath("//h4[contains(.,'Running Workout Intensity Calculator')]/ancestor::div[@class='w-box-header']");
+    private static final By HEADER_TINMAN = By.xpath("//h4[contains(.,'Running Workout Intensity Calculator')]/ancestor::div[@class='w-box-header']");
     private static final By SAVE_BUTTON = By.xpath("//div[@id='CalcBox']//input[@id='saveButtonSettings']");
     private static final By RACE_INFORMATION_HEADER = By.xpath("//h4[contains(.,'Race Information')]/ancestor::div[@class='w-box-header']");
     private static final By RACE_SPLITS_HEADER = By.xpath("//h4[contains(.,'Race Splits')]/ancestor::div[@class='w-box-header']");

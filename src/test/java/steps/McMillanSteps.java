@@ -1,6 +1,6 @@
 package steps;
 
-import elements.DropdownMcMillan;
+import elements.DropdownSelectByValue;
 import elements.Input;
 import io.qameta.allure.Step;
 import model.McMillanModel;
@@ -28,8 +28,8 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
         new Input(driver, "GTimeHH").enterInput(mcMillanModel.getGoalTimeHours());
         new Input(driver, "GTimeMM").enterInput(mcMillanModel.getGoalTimeMinutes());
         new Input(driver, "GTimeSS").enterInput(mcMillanModel.getGoalTimeSeconds());
-        new DropdownMcMillan(driver, "distance").select(mcMillanModel.getRecentDistanceType());
-        new DropdownMcMillan(driver, "goaldistance").select(mcMillanModel.getGoalDistanceType());
+        new DropdownSelectByValue(driver, "distance").select(mcMillanModel.getRecentDistanceType());
+        new DropdownSelectByValue(driver, "goaldistance").select(mcMillanModel.getGoalDistanceType());
         return this;
     }
 
@@ -39,6 +39,7 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
+    //TODO
     @Step
     public void checkCalculation(McMillanModel mcMillanModel) {
         Assert.assertTrue(mcMillanPage.checkCalculationsIsOpened(), "Calculations did not open");

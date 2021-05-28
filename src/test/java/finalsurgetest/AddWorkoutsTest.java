@@ -4,18 +4,16 @@ import io.qameta.allure.Description;
 import model.SwimWorkoutModel;
 import org.testng.annotations.Test;
 
-public class AddWorkoutsTest extends BaseTest {
+public class AddWorkoutsTest extends WithLoginTest {
 
-   SwimWorkoutModel swimWorkoutModel = new SwimWorkoutModel();
+    SwimWorkoutModel swimWorkoutModel = new SwimWorkoutModel();
 
     @Test
-    @Description(value = "View vitals test")
-    public void viewVitalsTest() {
+    @Description(value = "Add workoutы test")
+    public void addWorkoutsTest() {
         initSwimWorkoutModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
-        addWorkoutSteps.openAddWorkoutPanel()
+        addWorkoutSteps
+                .openAddWorkoutPanel()
                 .fillNewWorkoutSwim(swimWorkoutModel)
                 .saveNewWorkout()
                 .checkingNewWorkoutAdd(swimWorkoutModel);

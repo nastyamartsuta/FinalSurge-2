@@ -4,10 +4,9 @@ import io.qameta.allure.Description;
 import model.CaloricNeedsModel;
 import model.PaceCalculatorModel;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class OtherCalculatorTest extends BaseTest {
+public class OtherCalculatorTest extends WithLoginTest {
 
     CaloricNeedsModel caloricNeedsModel = new CaloricNeedsModel();
     PaceCalculatorModel paceCalculatorModel = new PaceCalculatorModel();
@@ -17,9 +16,6 @@ public class OtherCalculatorTest extends BaseTest {
     @Description(value = "Calculate needs test")
     public void calculateNeedsTest() {
         initCaloricNeedsModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         caloricNeedsOtherCalSteps
                 .openCaloricNeeds()
                 .fillCaloricNeeds(caloricNeedsModel)
@@ -31,9 +27,6 @@ public class OtherCalculatorTest extends BaseTest {
     @Description(value = "Pace Calculate test")
     public void paceCalculateTest() {
         initPaceCalculateModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         paceCalculatorOtherCalSteps
                 .openPaceCalculator()
                 .fillPaceCalculator(paceCalculatorModel)
@@ -47,7 +40,7 @@ public class OtherCalculatorTest extends BaseTest {
         paceCalculatorModel.setTimeHours("01");
         paceCalculatorModel.setTimeMinutes("15");
         paceCalculatorModel.setTimeSeconds("20");
-        paceCalculatorModel.setDistType("Kilometers");
+        paceCalculatorModel.setDistType("km");
     }
 
     private void initCaloricNeedsModel() {

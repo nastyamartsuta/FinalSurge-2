@@ -46,12 +46,13 @@ public class AddRoutesSteps extends AbstractStep {
 
     @Step
     public void checkingRotesAdd(RoutesModel routesModel) {
-        Assert.assertTrue(routesPage.getActualText().contains(
-                routesModel.getActivity() + " "
-                        + routesModel.getRouteName() + "\n"
-                        + routesModel.getNotes() + "\n"
-                        + "PR of " + routesModel.getRoutePersonalRecord()
-                        + " on " + routesModel.getPersonalRecordDate()),
-                "Incorrect text");
+
+        Assert.assertEquals(routesPage.getActualRoutesName(), routesModel.getRouteName(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesActivity(), routesModel.getActivity(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesDistance(), routesModel.getDistance(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesDistanceType(), routesModel.getDistanceType(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesTime(), routesModel.getRoutePersonalRecord(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesData(), routesModel.getPersonalRecordDate(), "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesNotes(), routesModel.getNotes(), "Incorrect text");
     }
 }

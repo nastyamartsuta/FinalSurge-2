@@ -6,7 +6,7 @@ import model.RoutesModel;
 import model.ShoesModel;
 import org.testng.annotations.Test;
 
-public class EquipmentTest extends BaseTest {
+public class EquipmentTest extends WithLoginTest {
 
     ShoesModel shoesModel = new ShoesModel();
     BikeModel bikeModel = new BikeModel();
@@ -16,9 +16,6 @@ public class EquipmentTest extends BaseTest {
     @Description(value = "Add new shoes test")
     public void addNewShoesTest() {
         initShoesModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         addShoesSteps
                 .openShoesPage()
                 .fillNewShoes(shoesModel)
@@ -28,11 +25,8 @@ public class EquipmentTest extends BaseTest {
 
     @Test
     @Description(value = "Add new bike test")
-    public void addNewBikeTest(){
+    public void addNewBikeTest() {
         initBikeModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         addBikeSteps
                 .openBikePage()
                 .fillNewBike(bikeModel)
@@ -42,11 +36,8 @@ public class EquipmentTest extends BaseTest {
 
     @Test
     @Description(value = "Add new route test")
-    public void addNewRouteTest(){
+    public void addNewRouteTest() {
         initRouteModel();
-        loginSteps
-                .openLoginPage()
-                .authentication();
         addRoutesSteps
                 .openRoutesPage()
                 .fillNewRoutes(routesModel)
@@ -64,7 +55,6 @@ public class EquipmentTest extends BaseTest {
         routesModel.setDistanceType("km");
         routesModel.setActivity("Bike");
     }
-
 
     private void initBikeModel() {
         bikeModel = new BikeModel();
@@ -90,6 +80,7 @@ public class EquipmentTest extends BaseTest {
         shoesModel.setShoeSize("7.5");
         shoesModel.setDistanceType("km");
         shoesModel.setDistanceAlertType("km");
+        shoesModel.setBrand("adidas");
     }
 }
 

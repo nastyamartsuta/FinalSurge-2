@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public class PrintPage extends BasePage {
 
-    private static final By HEADER_PRINT_PAGE = By.id("printlink");
+    private static final By HEADER_PRINT_PAGE = By.id("EditProfile");
 
     public PrintPage(WebDriver driver) {
         super(driver);
@@ -21,5 +21,5 @@ public class PrintPage extends BasePage {
     }
 
     @Override
-    public void openPage() { }
+    public void openPage() {}
 }

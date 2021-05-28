@@ -1,6 +1,7 @@
 package steps;
 
 import elements.Dropdown;
+import elements.DropdownSelectByVisibleText;
 import elements.Input;
 import io.qameta.allure.Step;
 import model.HansonsModel;
@@ -29,7 +30,7 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
         new Input(driver, "Wind").enterInput(hansonsModel.getWindSpeed());
         new Input(driver, "Humid").enterInput(hansonsModel.getHumidity());
         new Dropdown(driver, "RaceDist").select(hansonsModel.getRaceDistance());
-        new Dropdown(driver, "TempType").select(hansonsModel.getTemperatureType());
+        new DropdownSelectByVisibleText(driver, "TempType").select(hansonsModel.getTemperatureType());
         new Dropdown(driver, "SpeedType").select(hansonsModel.getSpeedType());
         return this;
     }
@@ -43,12 +44,13 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
     @Step
     public void checkCalculation(HansonsModel hansonsModel) {
         Assert.assertTrue(hansonsPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertTrue(hansonsPage.text().contains("Temperature: " + hansonsModel.getTemperature() + " °"
-                + hansonsModel.getTemperatureType() + ","), "Incorrect text");
-        Assert.assertTrue(hansonsPage.text().contains("Humidity: " + hansonsModel.getHumidity() + "%,"), "Incorrect text");
-        Assert.assertTrue(hansonsPage.text().contains("Wind Speed: " + hansonsModel.getWindSpeed() + " "
-                + hansonsModel.getSpeedType()), "Incorrect text");
-        Assert.assertTrue(hansonsPage.textInTable().contains(hansonsModel.getTimeHours() + ":" + hansonsModel.getTimeMinutes()
-                + ":" + hansonsModel.getTimeSeconds()), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualTemperature(), hansonsModel.getTemperature(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualTemperatureType(), hansonsModel.getTemperatureType(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualHumidity(), hansonsModel.getHumidity(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualWindySpeed(), hansonsModel.getWindSpeed(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualDistance(), hansonsModel.getRaceDistance(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualHours(), hansonsModel.getTimeHours(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualMinutes(), hansonsModel.getTimeMinutes(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualSeconds(), hansonsModel.getTimeSeconds(), "Incorrect text");
     }
 }

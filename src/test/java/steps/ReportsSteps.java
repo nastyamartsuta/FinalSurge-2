@@ -1,6 +1,6 @@
 package steps;
 
-import elements.Dropdown;
+import elements.DropdownSelectByVisibleText;
 import elements.Input;
 import elements.RadioButton;
 import io.qameta.allure.Step;
@@ -32,7 +32,7 @@ public class ReportsSteps extends AbstractStep {
         new Input(driver, "WorkoutDateEnd").clear();
         new Input(driver, "WorkoutDateEnd").enterInput(reportsModel.getEndDate());
         new RadioButton(driver, "List View").selectRadioButton();
-        new Dropdown(driver, "ActivityType").select(reportsModel.getActivityType());
+        new DropdownSelectByVisibleText(driver, "ActivityType").select(reportsModel.getActivityType());
         return this;
     }
 

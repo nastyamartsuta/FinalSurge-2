@@ -10,6 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.UploadWorkoutDataPage;
 
+import static pages.BasePage.*;
+import static pages.UploadWorkoutDataPage.PLUS;
+
 
 public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
 
@@ -24,13 +27,14 @@ public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
     public UploadWorkoutDataSteps openUploadPage() {
         uploadWorkoutDataPage = new UploadWorkoutDataPage(driver);
         openCalendarPage();
-        uploadWorkoutDataPage.openPage();
+        calendarPage.openMenu(PLUS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+        uploadWorkoutDataPage.findUploadWorkoutDataButton(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
         validateComponentIsLoaded(uploadWorkoutDataPage);
         return this;
     }
 
     @Step
-    public UploadWorkoutDataSteps fillUploadWorkoutData(UploadWorkoutDataModel uploadWorkoutDataModel) {
+    public UploadWorkoutDataSteps fillUploadWorkoutData(UploadWorkoutDataModel uploadWorkoutDataModel) throws InterruptedException {
 
         new DropdownSelectByVisibleText(driver, "ActivityType").select(uploadWorkoutDataModel.getActivityType());
         new Input(driver, "WorkoutDateAdd").clear();
@@ -42,18 +46,19 @@ public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
     }
 
     @Step
-    public UploadWorkoutDataSteps saveUploadFile(){
+    public UploadWorkoutDataSteps saveUploadFile() {
         uploadWorkoutDataPage.clickUploadFileButton();
         return this;
     }
 
+    //TODO
     @Step
     public void checkingFileAdded(UploadWorkoutDataModel uploadWorkoutDataModel) {
         Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_ACTIVITY_TYPE)).getText(),
                 uploadWorkoutDataModel.getActivityType(), "Entered data is not displayed");
         Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_DESCRIPTION)).getText(),
-                "Workout Description:"+"\n" +
-                uploadWorkoutDataModel.getDescription(), "Entered data is not displayed");
+                "Workout Description:" + "\n" +
+                        uploadWorkoutDataModel.getDescription(), "Entered data is not displayed");
     }
 }
 

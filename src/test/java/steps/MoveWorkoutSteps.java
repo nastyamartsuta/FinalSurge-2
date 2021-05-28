@@ -5,6 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.MoveWorkoutPage;
 
+import static pages.BasePage.*;
+import static pages.CalendarPage.WORKOUTS;
+
 public class MoveWorkoutSteps extends AbstractCalendarPageSteps {
 
     private String newDay;
@@ -17,7 +20,8 @@ public class MoveWorkoutSteps extends AbstractCalendarPageSteps {
     public MoveWorkoutSteps openMoveMenu() {
         moveWorkoutPage = new MoveWorkoutPage(driver);
         openCalendarPage();
-        moveWorkoutPage.openPage();
+        calendarPage.openMenu(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+        moveWorkoutPage.findMoveWorkoutButton(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
         return this;
     }
 
@@ -29,8 +33,7 @@ public class MoveWorkoutSteps extends AbstractCalendarPageSteps {
 
     @Step
     public void checkingWorkoutsWasMoved() {
-        Assert.assertTrue(moveWorkoutPage.checkingCommentAdded(MoveWorkoutPage.MONTH_PATTERN,
-                newDay, MoveWorkoutPage.YEAR_PATTERN),
+        Assert.assertTrue(moveWorkoutPage.checkingCommentAdded(MONTH_PATTERN, newDay, YEAR_PATTERN),
                 "Workout wasn't moved");
     }
 }

@@ -1,6 +1,9 @@
 package steps;
 
-import elements.*;
+import elements.DropdownSelectByVisibleText;
+import elements.Input;
+import elements.RadioButton;
+import elements.Textarea;
 import io.qameta.allure.Step;
 import model.SwimWorkoutModel;
 import org.openqa.selenium.WebDriver;
@@ -47,6 +50,7 @@ public class AddWorkoutSteps extends AbstractStep {
         return this;
     }
 
+    //TODO
     @Step
     public void checkingNewWorkoutAdd(SwimWorkoutModel swimWorkoutModel) {
         Assert.assertTrue(workoutsPage.chekWorkoutDetailsIsOpen(), "Workout Details is not open");

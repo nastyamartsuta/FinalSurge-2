@@ -1,14 +1,14 @@
-package components;
+package elements;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public abstract class AbstractComponent {
+public abstract class AbstractElements {
 
     protected WebDriver driver;
     protected WebDriverWait explicitlyWait;
 
-    public AbstractComponent(WebDriver driver) {
+    public AbstractElements(WebDriver driver) {
         this.driver = driver;
         this.explicitlyWait = new WebDriverWait(driver, 10);
     }

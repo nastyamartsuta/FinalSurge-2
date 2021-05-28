@@ -11,6 +11,7 @@ public class PrintWorkoutsPage extends BasePage {
     private static final By PRINT_WORKOUTS_PAGE_BUTTON = By.className("icsw16-printer");
     private static final By PRINT_WORKOUTS_HEADER = By.xpath("//h4[contains(.,'Print Workouts')]/ancestor::div[@class='w-box-header']");
     private static final By PRINT_WORKOUTS_BUTTON = By.id("saveButtonPrint");
+    private static final String IFRAME_PATTERN = "PrintWorkoutsiFrame";
 
     public PrintWorkoutsPage(WebDriver driver) {
         super(driver);
@@ -26,6 +27,7 @@ public class PrintWorkoutsPage extends BasePage {
     public void openPage() {
         log.info("Click {} in order to open print workouts page", PRINT_WORKOUTS_PAGE_BUTTON);
         driver.findElement(PRINT_WORKOUTS_PAGE_BUTTON).click();
+        driver.switchTo().frame(IFRAME_PATTERN);
     }
 
     public void clickPrintWorkoutsButton() {

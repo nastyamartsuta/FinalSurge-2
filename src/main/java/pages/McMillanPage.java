@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class McMillanPage extends BasePage {
 
     private static final By MCMILLAN_BUTTON = By.xpath("//a[@href='https://log.finalsurge.com/McMillanCalc.cshtml?c=1&ssl=1']");
-    private static final By HEADER_MCMILLAN= By.xpath("//h4[contains(.,'Running Workout Intensity Calculator')]/ancestor::div[@class='w-box-header']");
+    private static final By HEADER_MCMILLAN = By.xpath("//h4[contains(.,'Running Workout Intensity Calculator')]/ancestor::div[@class='w-box-header']");
     private static final By SAVE_BUTTON = By.xpath("//div[@id='CalcBox']//input[@id='saveButtonSettings']");
     private static final By MCMILLAN_RUNNING_CALCULATOR_HEADER = By.xpath("//h4[contains(.,'McMillan Running Calculator')]/ancestor::div[@class='w-box-header']");
     private static final By TRAINING_PACES_HEADER = By.xpath("//h4[contains(.,'Training Paces')]/ancestor::div[@class='w-box-header']");

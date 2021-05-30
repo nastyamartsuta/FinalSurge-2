@@ -16,7 +16,6 @@ public class ActivityTypePage extends BasePage {
     private static final By ADD_ACTIVITY_TYPE_BUTTON = By.id("saveButton");
     private static final String ADDED_NEW_ACTIVITY_TYPE = "//h4[contains(.,'%s')]/ancestor::div[@class='w-box-header']";
 
-
     public ActivityTypePage(WebDriver driver) {
         super(driver);
     }

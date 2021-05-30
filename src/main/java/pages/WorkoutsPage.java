@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.StringUtils;
 
 @Log4j2
 public class WorkoutsPage extends BasePage {
@@ -16,8 +17,13 @@ public class WorkoutsPage extends BasePage {
     private static final By ADD_NEW_WORKOUT_SWIM_BUTTON = By.xpath("//a[contains(.,'Swim')]/ancestor::div[@class='accordion-heading'] ");
     private static final By ADD_NEW_WORKOUT_HEADER = By.xpath("//h4[contains(.,'Add New Workout')]/ancestor::div[@class='w-box-header']");
     private static final By ADD_NEW_WORKOUT_BUTTON = By.id("saveButton");
-    private static final By ACTUAL_INFORMATION = By.xpath("//div[@class='w-box-content cnt_a user_profile']");
     private static final By NEW_WORKOUT_DETAILS_HEADER = By.xpath("//h4[contains(.,'Workout Details')]/ancestor::div[@class='w-box-header']");
+    private static final By ACTUAL_TIME_OF_DAY = By.xpath("//div[@class='formSep']/div/small");
+    private static final By ACTUAL_WORKOUT_NAME = By.xpath("//div[@class='formSep']/div[3]");
+    private static final By ACTUAL_WORKOUT_DESCRIPTION = By.xpath("//small[contains(.,'Workout Description:')]/ancestor::p");
+    private static final By ACTUAL_DISTANCE_DURATION = By.xpath("//span[@class='label label-info']");
+    private static final By ACTUAL_PERCEIVED_EFFORT = By.xpath("//div[@class='formSep'][3]");
+    private static final By ACTUAL_CALORIES = By.xpath("//p[@class='formSep']/span");
 
     public WorkoutsPage(WebDriver driver) {
         super(driver);
@@ -51,15 +57,59 @@ public class WorkoutsPage extends BasePage {
         driver.findElement(ADD_NEW_WORKOUT_BUTTON).click();
     }
 
-    public String getActualText() {
-        log.info("Get the actual text");
-        WebElement element = driver.findElement(ACTUAL_INFORMATION);
-        return element.getText();
-    }
-
     public boolean chekWorkoutDetailsIsOpen() {
         log.info("Checking that the new Workout Details was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(NEW_WORKOUT_DETAILS_HEADER));
         return true;
+    }
+
+    public String getActualTimeOfDay() {
+        log.info("Get the actual time of day");
+        WebElement element = driver.findElement(ACTUAL_TIME_OF_DAY);
+        return element.getText().split("-")[1].trim();
+    }
+
+    public String getActualWorkoutName() {
+        log.info("Get the actual workout name");
+        WebElement element = driver.findElement(ACTUAL_WORKOUT_NAME);
+        return element.getText().trim();
+    }
+
+    public String getActualWorkoutDescription() {
+        log.info("Get the actual workout description");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_WORKOUT_DESCRIPTION);
+        return nodeText.trim();
+    }
+
+    public String getActualDistance() {
+        log.info("Get the actual distance");
+        WebElement element = driver.findElement(ACTUAL_DISTANCE_DURATION);
+        String elementPrefix = element.getText().split("~")[0].trim();
+        return elementPrefix.split(" ")[0];
+    }
+
+    public String getActualDistanceType() {
+        log.info("Get the actual distance type");
+        WebElement element = driver.findElement(ACTUAL_DISTANCE_DURATION);
+        String elementPrefix = element.getText().split("~")[0].trim();
+        return elementPrefix.split(" ")[1];
+    }
+
+    public String getActualDuration() {
+        log.info("Get the actual duration");
+        WebElement element = driver.findElement(ACTUAL_DISTANCE_DURATION);
+        return element.getText().split("~")[1].trim();
+    }
+
+    public String getActualPerceivedEffort() {
+        log.info("Get the actual perceived effort");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_PERCEIVED_EFFORT);
+        return nodeText.trim();
+    }
+
+    public String getActualCalories() {
+        log.info("Get the actual calories");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_CALORIES);
+        return nodeText.trim().split(" ")[0];
     }
 }

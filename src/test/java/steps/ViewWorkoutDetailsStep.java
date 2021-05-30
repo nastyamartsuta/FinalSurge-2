@@ -13,7 +13,7 @@ public class ViewWorkoutDetailsStep extends AbstractCalendarPageSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open Workouts details page")
     public ViewWorkoutDetailsStep openWorkoutsDetailsPage() {
         viewWorkoutPage = new ViewWorkoutPage(driver);
         openCalendarPage();
@@ -22,8 +22,8 @@ public class ViewWorkoutDetailsStep extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
-    public void checkingWorkoutsDetailsPageOpened() {
+    @Step("Checking workouts details page was opened")
+    public void checkingWorkoutsDetailsPageWasOpened() {
         validateComponentIsLoaded(viewWorkoutPage);
     }
 }

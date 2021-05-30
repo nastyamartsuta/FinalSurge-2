@@ -20,7 +20,8 @@ public class EquipmentTest extends WithLoginTest {
                 .openShoesPage()
                 .fillNewShoes(shoesModel)
                 .saveNewShoes()
-                .checkingShoesAdd(shoesModel);
+                .checkingShoesAdd(shoesModel)
+                .deleteNewShoes();
     }
 
     @Test
@@ -31,7 +32,8 @@ public class EquipmentTest extends WithLoginTest {
                 .openBikePage()
                 .fillNewBike(bikeModel)
                 .saveNewBike()
-                .checkingBikeAdd(bikeModel);
+                .checkingBikeAdd(bikeModel)
+                .deleteNewBike();
     }
 
     @Test
@@ -42,7 +44,8 @@ public class EquipmentTest extends WithLoginTest {
                 .openRoutesPage()
                 .fillNewRoutes(routesModel)
                 .saveNewRoutes()
-                .checkingRotesAdd(routesModel);
+                .checkingRotesAdd(routesModel)
+                .deleteNewRoutes();
     }
 
     private void initRouteModel() {
@@ -62,7 +65,7 @@ public class EquipmentTest extends WithLoginTest {
         bikeModel.setModel("slr03");
         bikeModel.setCost("1,250.00");
         bikeModel.setDatePurchased("5/5/2021");
-        bikeModel.setStartingDistance("0.00");
+        bikeModel.setStartingDistance("200.00");
         bikeModel.setNotes("Lack of rearview mirror");
         bikeModel.setBrand("BMC");
         bikeModel.setDistanceType("km");

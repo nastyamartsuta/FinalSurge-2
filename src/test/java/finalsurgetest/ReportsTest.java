@@ -23,8 +23,7 @@ public class ReportsTest extends WithLoginTest {
                 .openReportsPage()
                 .fillReports(reportsModel)
                 .viewReport()
-                .checkReportsOpened();
-
+                .checkingReportsWasOpened();
     }
 
     private void initReportsModel() {

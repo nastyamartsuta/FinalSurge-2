@@ -3,8 +3,8 @@ package pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.StringUtils;
 
 @Log4j2
 public class McMillanPage extends BasePage {
@@ -16,7 +16,7 @@ public class McMillanPage extends BasePage {
     private static final By TRAINING_PACES_HEADER = By.xpath("//h4[contains(.,'Training Paces')]/ancestor::div[@class='w-box-header']");
     private static final By CURRENT_RACE_TIMES_HEADER = By.xpath("//h4[contains(.,'Current Race Times')]/ancestor::div[@class='w-box-header']");
     private static final By GOAL_RACE_TIME_HEADER = By.xpath("//h4[contains(.,'Goal Race Times')]/ancestor::div[@class='w-box-header']");
-    private static final By ACTUAL_INFORMATION = By.xpath("//div[@id='CalcBox']/div/div/div[2]");
+    private static final By ACTUAL_INFORMATION = By.xpath("//h4[contains(.,'McMillan Running Calculator')]/ancestor::div[@class='w-box w-box-blue']//div[@class='row-fluid']//div[2]");
 
     public McMillanPage(WebDriver driver) {
         super(driver);
@@ -51,9 +51,65 @@ public class McMillanPage extends BasePage {
         return true;
     }
 
-    public String text() {
-        log.info("Get the text");
-        WebElement element = driver.findElement(ACTUAL_INFORMATION);
-        return element.getText();
+    public String getActualRecentDistance() {
+        log.info("Get the actual recent distance");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[0].trim();
+        return firstLine.split("time of")[0].trim();
+    }
+
+    public String getActualRecentHours() {
+        log.info("Get the actual recent hours");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[0].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[0].trim();
+    }
+
+    public String getActualRecentMinutes() {
+        log.info("Get the actual recent minutes");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[0].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[1].trim();
+    }
+
+    public String getActualRecentSeconds() {
+        log.info("Get the actual recent seconds");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[0].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[2].trim();
+    }
+
+    public String getActualGoalDistance() {
+        log.info("Get the actual goal distance");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[1].trim();
+        return firstLine.split("time of")[0].trim();
+    }
+
+    public String getActualGoalHours() {
+        log.info("Get the actual goal hours");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[1].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[0].trim();
+    }
+
+    public String getActualGoalMinutes() {
+        log.info("Get the actual goal minutes");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[1].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[1].trim();
+    }
+
+    public String getActualGoalSeconds() {
+        log.info("Get the actual goal seconds");
+        String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
+        String firstLine = nodeText.split("\n")[1].trim();
+        String timePrefix = firstLine.split("time of")[1].trim();
+        return timePrefix.split(":")[2].trim();
     }
 }

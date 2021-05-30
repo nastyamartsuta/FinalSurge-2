@@ -13,14 +13,14 @@ public class IntensitySteps extends AbstractWorkoutCalculatorSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open intensity page")
     public IntensitySteps openIntensity() {
         openCalculatorPage();
         intensityPage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the Intensity fields")
     public IntensitySteps fillIntensity(IntensityModel intensityModel) {
         new Input(driver, "TimeHH").enterInput(intensityModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(intensityModel.getTimeMinutes());
@@ -29,14 +29,14 @@ public class IntensitySteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
-    @Step
-    public IntensitySteps saveCalculatorPaces() {
+    @Step("Calculate intensity paces")
+    public IntensitySteps calculatePaces() {
         intensityPage.clickCalculatePacesButton();
         return this;
     }
 
-    @Step
-    public void checkCalculation() {
+    @Step("Checking intensity paces was opened")
+    public void checkingCalculationWasOpened() {
         Assert.assertTrue(intensityPage.checkCalculationsIsOpened(), "Calculations did not open");
     }
 }

@@ -15,7 +15,6 @@ public class IntensityPage extends BasePage {
     private static final By EQUIVALENT_EVENT_PERFORMANCE_TIMES_HEADER = By.xpath("//h4[contains(.,'Equivalent Event Performance Times Based on your PR')]/ancestor::div[@class='w-box-header']");
     private static final By VO2_MAX_WORKOUT_SPLITS_HEADER = By.xpath("//h4[contains(.,'VO2 Max Workout Splits')]/ancestor::div[@class='w-box-header']");
 
-
     public IntensityPage(WebDriver driver) {
         super(driver);
     }

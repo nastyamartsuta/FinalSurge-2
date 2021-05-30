@@ -13,7 +13,6 @@ public abstract class AbstractCalendarPageSteps extends AbstractStep {
     protected AddCommentPage commentPage;
     protected MoveWorkoutPage moveWorkoutPage;
 
-
     public AbstractCalendarPageSteps(WebDriver driver) {
         super(driver);
     }

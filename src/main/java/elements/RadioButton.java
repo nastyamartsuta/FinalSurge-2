@@ -1,7 +1,6 @@
 package elements;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.LocatorUtils;
@@ -28,5 +27,4 @@ public class RadioButton extends AbstractElements {
         log.info("Select Radio Button {} ", label);
         element.click();
     }
-
 }

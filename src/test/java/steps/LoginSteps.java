@@ -18,7 +18,7 @@ public class LoginSteps extends AbstractStep {
         super(driver);
     }
 
-    @Step
+    @Step("Open login page")
     public LoginSteps openLoginPage() {
         loginPage.setExplicitlyWaitTimeout(10);
         loginPage.openPage();
@@ -26,20 +26,20 @@ public class LoginSteps extends AbstractStep {
         return this;
     }
 
-    @Step
+    @Step("Authentication with valid data")
     public void authenticationWithValidData() {
         loginPage.sendData(VALID_EMAIL, VALID_PASSWORD);
         validateComponentIsLoaded(homePage);
     }
 
-    @Step
+    @Step("Authentication with invalid data")
     public void authenticationWithInvalidData(String email, String password) {
         loginPage.sendData(email, password);
         loginPage.alertOpen(ERROR_ALERT);
         validateComponentIsLoaded(loginPage);
     }
 
-    @Step
+    @Step("Authentication with valid empty data")
     public void authenticationWithEmptyData() {
         loginPage.sendData("", "");
         loginPage.alertOpen(ENTER_PASSWORD_ERROR_ALERT);
@@ -47,14 +47,14 @@ public class LoginSteps extends AbstractStep {
         validateComponentIsLoaded(loginPage);
     }
 
-    @Step
+    @Step("Authentication with valid empty password")
     public void authenticationWithEmptyPassword() {
         loginPage.sendData(VALID_PASSWORD, "");
         loginPage.alertOpen(ENTER_PASSWORD_ERROR_ALERT);
         validateComponentIsLoaded(loginPage);
     }
 
-    @Step
+    @Step("Authentication with valid empty email")
     public void authenticationWithEmptyEmail() {
         loginPage.sendData("", VALID_PASSWORD);
         loginPage.alertOpen(ENTER_EMAIL_ERROR_ALERT);

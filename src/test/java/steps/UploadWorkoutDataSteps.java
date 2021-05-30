@@ -17,13 +17,12 @@ import static pages.UploadWorkoutDataPage.PLUS;
 public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
 
     private static final String ACTUAL_ACTIVITY_TYPE = "//span[@class='activityTypeName']";
-    private static final String ACTUAL_DESCRIPTION = "//p[@class=' testme dont-break-out']";
 
     public UploadWorkoutDataSteps(WebDriver driver) {
         super(driver);
     }
 
-    @Step
+    @Step("Open upload workout data page ")
     public UploadWorkoutDataSteps openUploadPage() {
         uploadWorkoutDataPage = new UploadWorkoutDataPage(driver);
         openCalendarPage();
@@ -33,9 +32,8 @@ public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
-    public UploadWorkoutDataSteps fillUploadWorkoutData(UploadWorkoutDataModel uploadWorkoutDataModel) throws InterruptedException {
-
+    @Step("Fill in the upload workout data page fields")
+    public UploadWorkoutDataSteps fillUploadWorkoutData(UploadWorkoutDataModel uploadWorkoutDataModel) {
         new DropdownSelectByVisibleText(driver, "ActivityType").select(uploadWorkoutDataModel.getActivityType());
         new Input(driver, "WorkoutDateAdd").clear();
         new Input(driver, "WorkoutDateAdd").enterInput(uploadWorkoutDataModel.getWorkoutDateAdd());
@@ -45,20 +43,19 @@ public class UploadWorkoutDataSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
-    public UploadWorkoutDataSteps saveUploadFile() {
+    @Step("Upload file")
+    public UploadWorkoutDataSteps uploadFile() {
         uploadWorkoutDataPage.clickUploadFileButton();
         return this;
     }
 
-    //TODO
-    @Step
-    public void checkingFileAdded(UploadWorkoutDataModel uploadWorkoutDataModel) {
+    @Step("Checking file was uploaded")
+    public void checkingFileWasUploaded(UploadWorkoutDataModel uploadWorkoutDataModel) {
         Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_ACTIVITY_TYPE)).getText(),
                 uploadWorkoutDataModel.getActivityType(), "Entered data is not displayed");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_DESCRIPTION)).getText(),
-                "Workout Description:" + "\n" +
-                        uploadWorkoutDataModel.getDescription(), "Entered data is not displayed");
+        Assert.assertEquals(uploadWorkoutDataPage.getActualName(), uploadWorkoutDataModel.getName(), "Entered data is not displayed");
+        Assert.assertEquals(uploadWorkoutDataPage.getActualActivityType(), uploadWorkoutDataModel.getActivityType(), "Entered data is not displayed");
+        Assert.assertEquals(uploadWorkoutDataPage.getActualDescription(), uploadWorkoutDataModel.getDescription(), "Entered data is not displayed");
     }
 }
 

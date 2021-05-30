@@ -4,7 +4,6 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
@@ -18,6 +17,7 @@ public class AddCommentPage extends CalendarPage {
     private static final String IFRAME_PATTERN = "WorkoutCommentsiFrame";
     private static final By DELETE_NEW_COMMENT = By.xpath("//i[@class='icon-trash']");
     private static final By OK_BUTTON = By.xpath("//a[contains(.,'OK')]");
+    private static final By CLOSE_BUTTON = By.xpath("//div[@id='WorkoutComments']//a[@class='close-reveal-modal']");
 
     public AddCommentPage(WebDriver driver) {
         super(driver);
@@ -55,6 +55,11 @@ public class AddCommentPage extends CalendarPage {
         log.info("Click {} in order to delete comment", DELETE_NEW_COMMENT);
         driver.findElement(DELETE_NEW_COMMENT).click();
         explicitlyWait.until(ExpectedConditions.visibilityOf(driver.findElement(OK_BUTTON))).click();
+    }
+
+    public void clickCloseCommentButton() {
+        log.info("Click {} in order to close comment page", CLOSE_BUTTON);
+        driver.findElement(CLOSE_BUTTON).click();
     }
 
     public boolean checkingNewCommentDeleted() {

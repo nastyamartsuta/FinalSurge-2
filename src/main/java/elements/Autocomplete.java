@@ -1,11 +1,9 @@
 package elements;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.LocatorUtils;
-import utils.StringUtils;
 
 @Log4j2
 public class Autocomplete extends AbstractElements {
@@ -32,7 +30,7 @@ public class Autocomplete extends AbstractElements {
         clickLinkElement();
     }
 
-    public void clickLinkElement() {
+    private void clickLinkElement() {
         WebElement linkElement = LocatorUtils.createByXpath(driver, ELEMENTS_LINK, label);
         linkElement.click();
     }

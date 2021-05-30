@@ -16,27 +16,27 @@ public class AddNewActivityTypeSteps extends AbstractEquipmentsSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open activity type page")
     public AddNewActivityTypeSteps openActivityTypePage() {
         activityTypePage.openPage();
         validateComponentIsLoaded(activityTypePage);
         return this;
     }
 
-    @Step
+    @Step("Fill in the fields to add a new activity type")
     public AddNewActivityTypeSteps fillNewActivityType(ActivityTypeModel activityTypeModel) {
         new Input(driver, "ATypeName").enterInput(activityTypeModel.getATypeName());
         new RadioButton(driver, "Black").selectRadioButton();
         return this;
     }
 
-    @Step
+    @Step("Save new activity type")
     public AddNewActivityTypeSteps saveNewActivityType() {
         activityTypePage.clickAddActivityTypeButton();
         return this;
     }
 
-    @Step
+    @Step("Checking that the new activity type was added ")
     public void checkingNewTypeAdded(ActivityTypeModel activityTypeModel) {
         Assert.assertTrue(activityTypePage.getTypeAdded(activityTypeModel), "New activity type was not added");
     }

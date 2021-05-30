@@ -13,8 +13,8 @@ public class DailyVitalsTest extends WithLoginTest {
     public void viewVitalsTest() {
         viewVitalsSteps
                 .openViewPage()
-                .viewLastMonthVitals()
-                .checkLastMonthVitalsIsView();
+                .viewLastMonthDailyVitals()
+                .checkingLastMonthDailyVitalsWasViewed();
     }
 
     @Test
@@ -22,10 +22,11 @@ public class DailyVitalsTest extends WithLoginTest {
     public void addVitalsTest() {
         initVitalsModel();
         addVitalsSteps
-                .openAddVitals()
-                .fillNewVitals(vitalsModel)
-                .saveNewVitals()
-                .checkingVitalsAdd(vitalsModel);
+                .openAddDailyVitals()
+                .fillNewDailyVitals(vitalsModel)
+                .saveNewDailyVitals()
+                .showThisYear()
+                .checkingNewDailyVitalsWasAdded(vitalsModel);
     }
 
     private void initVitalsModel() {

@@ -14,7 +14,7 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open shoes page")
     public AddShoesSteps openShoesPage() {
         openEquipmentPage();
         shoesPage.openPage();
@@ -22,7 +22,7 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
         return this;
     }
 
-    @Step
+    @Step("Fill in the fields to add a new shoes")
     public AddShoesSteps fillNewShoes(ShoesModel shoesModel) {
         new Input(driver, "ShoeName").enterInput(shoesModel.getShoesName());
         new DropdownEquipment(driver, "s2id_ShoeBrand").select(shoesModel.getBrand());
@@ -38,15 +38,14 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
         return this;
     }
 
-    @Step
+    @Step("Save new shoes")
     public AddShoesSteps saveNewShoes() {
         shoesPage.clickAddShoesButton();
         return this;
     }
 
-    @Step
-    public void checkingShoesAdd(ShoesModel shoesModel) {
-
+    @Step("Checking that the shoes was added")
+    public AddShoesSteps checkingShoesAdd(ShoesModel shoesModel) {
         Assert.assertEquals(shoesPage.getActualShoesBrandModel(), shoesModel.getBrand() + " " + shoesModel.getModel(), "Incorrect text");
         Assert.assertEquals(shoesPage.getActualShoesCost(), shoesModel.getCost(), "Incorrect text");
         Assert.assertEquals(shoesPage.getActualShoesName(), shoesModel.getShoesName(), "Incorrect text");
@@ -55,5 +54,12 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
         Assert.assertEquals(shoesPage.getActualShoesDistanceAlert(), shoesModel.getDistanceAlert(), "Incorrect text");
         Assert.assertEquals(shoesPage.getActualShoesDistanceType(), shoesModel.getDistanceType(), "Incorrect text");
         Assert.assertEquals(shoesPage.getActualShoesNotes(), shoesModel.getNotes(), "Incorrect text");
+        return this;
+    }
+
+    @Step("Delete new shoes")
+    public void deleteNewShoes() {
+        equipmentPage.deleteNewEquipment();
+        Assert.assertTrue(equipmentPage.checkingNewNewEquipmentWasDeleted(), " Equipment was not deleted");
     }
 }

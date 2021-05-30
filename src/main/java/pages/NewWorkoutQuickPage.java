@@ -9,13 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 @Log4j2
 public class NewWorkoutQuickPage extends BasePage {
 
-    public static final String ACTUAL_TEXT = "//td//div[@data-date='%s/%s/%s']//div[@class='fc-event-inner fc-event-skin']";
     private static final By WORKOUT_HEADER = By.id("WorkoutAddHeader");
     private static final By SAVE_BUTTON = By.id("saveButton");
     private static final String WORKOUTS = "//td//div[@data-date='%s/%s/%s']";
     private static final String ACTUAL_QUICK_WORKOUT_ACTIVITY_TYPE = "//td//div[@data-date='%s/%s/%s']//div[@class='fc-event-activity-title']";
     private static final String ACTUAL_QUICK_WORKOUT_TIME = "//td//div[@data-date='%s/%s/%s']//div[@class='fc-event-workouttime']";
-    private static final String  ACTUAL_QUICK_WORKOUT_DISTANCE = "//td//div[@data-date='%s/%s/%s']//div[@class='fc-event-activity-amounts']";
+    private static final String ACTUAL_QUICK_WORKOUT_DISTANCE = "//td//div[@data-date='%s/%s/%s']//div[@class='fc-event-activity-amounts']";
 
     public NewWorkoutQuickPage(WebDriver driver) {
         super(driver);
@@ -73,7 +72,7 @@ public class NewWorkoutQuickPage extends BasePage {
 
     public String getActualQuickWorkoutDistanceType() {
         log.info("Get the actual quick workout distance type");
-        WebElement element =  driver.findElement(By.xpath(String.format(
+        WebElement element = driver.findElement(By.xpath(String.format(
                 ACTUAL_QUICK_WORKOUT_DISTANCE, MONTH_PATTERN, DAY_PATTERN, YEAR_PATTERN)));
         return element.getText().split("~")[0].split(" ")[1].trim();
     }

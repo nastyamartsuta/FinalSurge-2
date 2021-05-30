@@ -16,16 +16,15 @@ public class PaceCalculatorOtherCalSteps extends AbstractOtherCalculatorSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open pace calculator")
     public PaceCalculatorOtherCalSteps openPaceCalculator() {
         openOtherCalculatorPage();
         paceCalculatePage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the Pace calculator fields")
     public PaceCalculatorOtherCalSteps fillPaceCalculator(PaceCalculatorModel paceCalculatorModel) {
-
         new Input(driver, "RunDist").enterInput(paceCalculatorModel.getDistance());
         new Input(driver, "TimeHH").enterInput(paceCalculatorModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(paceCalculatorModel.getTimeMinutes());
@@ -34,14 +33,14 @@ public class PaceCalculatorOtherCalSteps extends AbstractOtherCalculatorSteps {
         return this;
     }
 
-    @Step
-    public PaceCalculatorOtherCalSteps saveCalculatePace() {
-        paceCalculatePage.saveCalculatePaces();
+    @Step("Calculate paces")
+    public PaceCalculatorOtherCalSteps calculatePaces() {
+        paceCalculatePage.calculatePaces();
         return this;
     }
 
-    @Step
-    public void checkCalculation() {
-        Assert.assertTrue(paceCalculatePage.checkCalculationsIsOpened(), "Calculations did not open");
+    @Step("Checking calculation was opened")
+    public void checkingCalculationWasOpened() {
+        Assert.assertTrue(paceCalculatePage.checkCalculationsWasOpened(), "Calculations did not open");
     }
 }

@@ -17,17 +17,17 @@ public class CalendarTest extends WithLoginTest {
 
     @Test
     @Description(value = "Delete workout test")
-    public void deleteUploadedWorkoutTest() throws InterruptedException {
+    public void deleteUploadedWorkoutTest() {
         initUploadWorkoutData();
         uploadWorkoutDataSteps
                 .openUploadPage()
                 .fillUploadWorkoutData(uploadWorkoutDataModel)
-                .saveUploadFile()
-                .checkingFileAdded(uploadWorkoutDataModel);
+                .uploadFile()
+                .checkingFileWasUploaded(uploadWorkoutDataModel);
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .deleteWorkoutPage(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .checkingWorkoutDeleted();
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
+                .checkingWorkoutWasDeleted();
     }
 
     @Test
@@ -37,11 +37,11 @@ public class CalendarTest extends WithLoginTest {
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
                 .fillNewWorkoutQuickPage(workoutQuickModel)
-                .saveNewWorkout()
-                .checkingAddWorkoutQuick(workoutQuickModel);
+                .saveNewQuickWorkout()
+                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .deleteWorkoutPage(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
     }
 
     @Test
@@ -51,17 +51,16 @@ public class CalendarTest extends WithLoginTest {
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
                 .fillNewWorkoutQuickPage(workoutQuickModel)
-                .saveNewWorkout()
-                .checkingAddWorkoutQuick(workoutQuickModel);
+                .saveNewQuickWorkout()
+                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
         moveWorkoutSteps
                 .openMoveMenu()
                 .moveWorkout()
                 .checkingWorkoutsWasMoved();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, MOVE_DAY_PATTERN, MOVE_MONTH_PATTERN, MOVE_YEAR_PATTERN)
-                .deleteWorkoutPage(MOVE_DAY_PATTERN, MOVE_MONTH_PATTERN, MOVE_YEAR_PATTERN);
+                .deleteWorkout(MOVE_DAY_PATTERN, MOVE_MONTH_PATTERN, MOVE_YEAR_PATTERN);
     }
-
 
     @Test
     @Description(value = "Add new comment test")
@@ -71,26 +70,27 @@ public class CalendarTest extends WithLoginTest {
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
                 .fillNewWorkoutQuickPage(workoutQuickModel)
-                .saveNewWorkout()
-                .checkingAddWorkoutQuick(workoutQuickModel);
+                .saveNewQuickWorkout()
+                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
         commentsStep
                 .openNewCommentPage()
                 .sendComment(commentModel)
                 .saveNewComment()
                 .checkingNewCommentWasAdded(commentModel)
-                .deleteNewComment();
+                .deleteNewComment()
+                .closeCommentPage();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .deleteWorkoutPage(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
     }
 
     @Test
     @Description(value = "Open workout library test")
     public void openLibraryTest() {
         openWorkoutLibrarySteps
-                .openWorkoutLibraryPanel()
+                .openWorkoutsLibraryPanel()
                 .selectActivityTypeFilter()
-                .checkingLibraryIsOpen();
+                .checkingLibraryWasOpened();
     }
 
 
@@ -101,14 +101,14 @@ public class CalendarTest extends WithLoginTest {
         uploadWorkoutDataSteps
                 .openUploadPage()
                 .fillUploadWorkoutData(uploadWorkoutDataModel)
-                .saveUploadFile()
-                .checkingFileAdded(uploadWorkoutDataModel);
+                .uploadFile()
+                .checkingFileWasUploaded(uploadWorkoutDataModel);
         viewWorkoutDetailsStep
                 .openWorkoutsDetailsPage()
-                .checkingWorkoutsDetailsPageOpened();
+                .checkingWorkoutsDetailsPageWasOpened();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .deleteWorkoutPage(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
     }
 
     @Test
@@ -118,11 +118,11 @@ public class CalendarTest extends WithLoginTest {
         uploadWorkoutDataSteps
                 .openUploadPage()
                 .fillUploadWorkoutData(uploadWorkoutDataModel)
-                .saveUploadFile()
-                .checkingFileAdded(uploadWorkoutDataModel);
+                .uploadFile()
+                .checkingFileWasUploaded(uploadWorkoutDataModel);
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
-                .deleteWorkoutPage(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
     }
 
     private void initUploadWorkoutData() {

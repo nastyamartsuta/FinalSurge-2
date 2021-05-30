@@ -3,6 +3,7 @@ package pages;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 @Log4j2
@@ -15,7 +16,8 @@ public class TinmanPage extends BasePage {
     private static final By RACE_SPLITS_HEADER = By.xpath("//h4[contains(.,'Race Splits')]/ancestor::div[@class='w-box-header']");
     private static final By TRAINING_PACES_BY_INTENSITY_HEADER = By.xpath("//h4[contains(.,'Training Paces By Intensity')]/ancestor::div[@class='w-box-header']");
     private static final By EQUIVALENT_RACE_TIMES_HEADER = By.xpath("//h4[contains(.,'Equivalent Race Times')]/ancestor::div[@class='w-box-header']");
-
+    private static final By ACTUAL_TIME = By.xpath("//h4[contains(.,'Race Information')]/ancestor::div[@class='w-box w-box-green']//tbody//td[2]");
+    private static final By ACTUAL_GENDER = By.xpath("//h4[contains(.,'Race Information')]/ancestor::div[@class='w-box w-box-green']//tbody//td[3]");
 
     public TinmanPage(WebDriver driver) {
         super(driver);
@@ -48,5 +50,29 @@ public class TinmanPage extends BasePage {
         log.info("Checking that the Equivalent Race Times was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(EQUIVALENT_RACE_TIMES_HEADER));
         return true;
+    }
+
+    public String getActualHours() {
+        log.info("Get the actual hours");
+        WebElement element = driver.findElement(ACTUAL_TIME);
+        return element.getText().trim().split(":")[0];
+    }
+
+    public String getActualMinutes() {
+        log.info("Get the actual minutes");
+        WebElement element = driver.findElement(ACTUAL_TIME);
+        return element.getText().trim().split(":")[1];
+    }
+
+    public String getActualSeconds() {
+        log.info("Get the actual seconds");
+        WebElement element = driver.findElement(ACTUAL_TIME);
+        return element.getText().trim().split(":")[2];
+    }
+
+    public String getActualGender() {
+        log.info("Get the actual gender");
+        WebElement element = driver.findElement(ACTUAL_GENDER);
+        return element.getText().trim();
     }
 }

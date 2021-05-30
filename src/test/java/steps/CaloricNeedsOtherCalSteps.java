@@ -18,14 +18,14 @@ public class CaloricNeedsOtherCalSteps extends AbstractOtherCalculatorSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open caloric needs page")
     public CaloricNeedsOtherCalSteps openCaloricNeeds() {
         openOtherCalculatorPage();
         caloricNeedsPage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the Caloric needs fields")
     public CaloricNeedsOtherCalSteps fillCaloricNeeds(CaloricNeedsModel caloricNeedsModel) {
         new Input(driver, "Weight").enterInput(caloricNeedsModel.getWeight());
         new Input(driver, "HeightInchCent").enterInput(caloricNeedsModel.getHeight());
@@ -38,14 +38,14 @@ public class CaloricNeedsOtherCalSteps extends AbstractOtherCalculatorSteps {
         return this;
     }
 
-    @Step
-    public CaloricNeedsOtherCalSteps saveCalculateCaloricNeeds() {
+    @Step("Calculate caloric needs")
+    public CaloricNeedsOtherCalSteps calculateCaloricNeeds() {
         caloricNeedsPage.saveCalculateCaloricNeeds();
         return this;
     }
 
-    @Step
-    public void checkCalculation() {
+    @Step("Checking calculation was opened")
+    public void checkingCalculationWasOpened() {
         Assert.assertTrue(caloricNeedsPage.checkCalculationsIsOpened(), "Calculations did not open");
     }
 }

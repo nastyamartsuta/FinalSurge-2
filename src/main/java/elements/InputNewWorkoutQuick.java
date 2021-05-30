@@ -21,10 +21,6 @@ public class InputNewWorkoutQuick extends AbstractElements {
         return driver.findElement(locator()).isDisplayed();
     }
 
-    private By locator() {
-        return By.xpath(String.format(INPUT_PATTERN, label, label));
-    }
-
     public void enterInput(String text) {
         log.info("Send text to input {} ", label);
         driver.findElement(locator()).sendKeys(text);
@@ -32,5 +28,9 @@ public class InputNewWorkoutQuick extends AbstractElements {
 
     public void clear() {
         driver.findElement(locator()).clear();
+    }
+
+    private By locator() {
+        return By.xpath(String.format(INPUT_PATTERN, label, label));
     }
 }

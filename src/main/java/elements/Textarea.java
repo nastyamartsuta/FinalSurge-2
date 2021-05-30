@@ -1,7 +1,6 @@
 package elements;
 
 import lombok.extern.log4j.Log4j2;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import utils.LocatorUtils;
@@ -16,7 +15,7 @@ public class Textarea extends AbstractElements {
     public Textarea(WebDriver driver, String label) {
         super(driver);
         this.label = label;
-        this.element = LocatorUtils.createByXpath(driver, TEXTAREA_PATTERN , label);
+        this.element = LocatorUtils.createByXpath(driver, TEXTAREA_PATTERN, label);
     }
 
     @Override

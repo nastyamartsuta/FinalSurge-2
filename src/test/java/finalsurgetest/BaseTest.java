@@ -27,9 +27,9 @@ public class BaseTest {
     protected AddShoesSteps addShoesSteps;
     protected AddBikeSteps addBikeSteps;
     protected AddRoutesSteps addRoutesSteps;
-    protected ViewVitalsSteps viewVitalsSteps;
-    protected AddVitalsSteps addVitalsSteps;
-    protected OpenWorkoutLibrarySteps openWorkoutLibrarySteps;
+    protected ViewDailyVitalsSteps viewVitalsSteps;
+    protected AddDailyVitalsSteps addVitalsSteps;
+    protected OpenWorkoutsLibrarySteps openWorkoutLibrarySteps;
     protected AddWorkoutSteps addWorkoutSteps;
     protected AddNewActivityTypeSteps addNewActivityTypeSteps;
     protected UploadWorkoutDataSteps uploadWorkoutDataSteps;
@@ -43,8 +43,9 @@ public class BaseTest {
         log.info("Driver initialization");
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--headless");
-        //options.addArguments("--disable-gpu");
+        options.addArguments("--headless");
+        options.addArguments("--window-size=1280,1024");
+        options.addArguments("--disable-gpu");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginSteps = new LoginSteps(driver);
@@ -60,9 +61,9 @@ public class BaseTest {
         addShoesSteps = new AddShoesSteps(driver);
         addBikeSteps = new AddBikeSteps(driver);
         addRoutesSteps = new AddRoutesSteps(driver);
-        viewVitalsSteps = new ViewVitalsSteps(driver);
-        addVitalsSteps = new AddVitalsSteps(driver);
-        openWorkoutLibrarySteps = new OpenWorkoutLibrarySteps(driver);
+        viewVitalsSteps = new ViewDailyVitalsSteps(driver);
+        addVitalsSteps = new AddDailyVitalsSteps(driver);
+        openWorkoutLibrarySteps = new OpenWorkoutsLibrarySteps(driver);
         addWorkoutSteps = new AddWorkoutSteps(driver);
         addNewActivityTypeSteps = new AddNewActivityTypeSteps(driver);
         uploadWorkoutDataSteps = new UploadWorkoutDataSteps(driver);

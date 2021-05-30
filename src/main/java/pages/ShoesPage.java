@@ -51,49 +51,42 @@ public class ShoesPage extends BasePage {
         log.info("Get the actual shoes brand and model");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
         String firstLine = nodeText.split("\n")[0].trim();
-
         return firstLine.substring(1, firstLine.length() - 1);
     }
 
     public String getActualShoesDatePurchased() {
         log.info("Get the actual shoes data purchased");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_SHOES_DATE_PURCHASED);
-
         return nodeText.trim();
     }
 
     public String getActualShoesCost() {
         log.info("Get the actual shoes cost");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_SHOES_COST);
-
         return nodeText.substring(1).trim();
     }
 
     public String getActualShoesSize() {
         log.info("Get the actual shoes size");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_SHOES_SIZE);
-
         return nodeText.trim();
     }
 
     public String getActualShoesDistanceAlert() {
         log.info("Get the actual shoes size");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_DISTANCE_ALERT);
-
         return nodeText.split(":")[1].trim().split(" ")[0];
     }
 
     public String getActualShoesDistanceType() {
         log.info("Get the actual shoes size");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_DISTANCE_ALERT);
-
         return nodeText.split(":")[1].trim().split(" ")[1];
     }
 
     public String getActualShoesNotes() {
         log.info("Get the actual shoes notes");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_INFORMATION);
-
         return nodeText.split("\n")[2].trim();
     }
 }

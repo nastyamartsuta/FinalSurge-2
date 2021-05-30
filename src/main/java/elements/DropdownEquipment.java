@@ -11,7 +11,6 @@ public class DropdownEquipment extends AbstractDropdown {
     private static final String DROPDOWN_PATTERN = "//div[@id='%s']/a";
     private static final String DROPDOWN_ITEM_PATTERN = "//ul[@class='select2-results']//div[contains(.,'%s')]";
 
-
     public DropdownEquipment(WebDriver driver, String label) {
         super(driver, label, DROPDOWN_PATTERN);
     }

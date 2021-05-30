@@ -17,16 +17,15 @@ public class ReportsSteps extends AbstractStep {
         super(driver);
     }
 
-    @Step
+    @Step("Open reports page")
     public ReportsSteps openReportsPage() {
         reportsPage.openPage();
         validateComponentIsLoaded(reportsPage);
         return this;
     }
 
-    @Step
+    @Step("Fill in the reports fields")
     public ReportsSteps fillReports(ReportsModel reportsModel) {
-
         new Input(driver, "WorkoutDate").clear();
         new Input(driver, "WorkoutDate").enterInput(reportsModel.getStartDate());
         new Input(driver, "WorkoutDateEnd").clear();
@@ -36,14 +35,14 @@ public class ReportsSteps extends AbstractStep {
         return this;
     }
 
-    @Step
+    @Step("View report")
     public ReportsSteps viewReport() {
         reportsPage.viewReportButton();
         return this;
     }
 
-    @Step
-    public void checkReportsOpened() {
+    @Step("Checking reports was opened")
+    public void checkingReportsWasOpened() {
         Assert.assertTrue(reportsPage.checkReportsOpened(), "Reports did not open");
     }
 }

@@ -16,7 +16,7 @@ public class MoveWorkoutSteps extends AbstractCalendarPageSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open move workout menu")
     public MoveWorkoutSteps openMoveMenu() {
         moveWorkoutPage = new MoveWorkoutPage(driver);
         openCalendarPage();
@@ -25,15 +25,17 @@ public class MoveWorkoutSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
+    @Step("Move workout")
     public MoveWorkoutSteps moveWorkout() {
         newDay = moveWorkoutPage.selectNewWorkoutDay();
         return this;
     }
 
-    @Step
+    @Step("Checking workouts was moved")
     public void checkingWorkoutsWasMoved() {
-        Assert.assertTrue(moveWorkoutPage.checkingCommentAdded(MONTH_PATTERN, newDay, YEAR_PATTERN),
+        Assert.assertTrue(moveWorkoutPage.checkingWorkoutWasMoved(MONTH_PATTERN, newDay, YEAR_PATTERN),
+                "Workout wasn't moved");
+        Assert.assertTrue(moveWorkoutPage.checkingPreviousDataIsNull(),
                 "Workout wasn't moved");
     }
 }

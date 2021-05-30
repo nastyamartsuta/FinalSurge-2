@@ -2,7 +2,6 @@ package pages;
 
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -15,7 +14,7 @@ public class BikePage extends BasePage {
     private static final By EQUIPMENT_SHOES_HEADER = By.xpath("//h4[contains(.,'Current Bikes')]/ancestor::div[@class='w-box-header']");
     private static final By ADD_BIKE_BUTTON = By.id("saveButton");
     private static final By ACTUAL_INFORMATION = By.xpath("//table[@class='table']//td[2]");
-    private static final By ACTUAL_BIKE_NAME = By.xpath("//table[@class='table']//td[2]/strong");
+    private static final By ACTUAL_BIKE_NAME = By.xpath("//table[@class='table']//td[2]/strong/a");
     private static final By ACTUAL_BIKE_DATE_PURCHASED = By.xpath("//table[@class='table']//td[2]/span[@class='label'][1]");
     private static final By ACTUAL_BIKE_COST = By.xpath("//table[@class='table']//td[2]/span[@class='label'][2]");
 

@@ -5,14 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.DeleteWorkoutPage;
 
-
 public class DeleteWorkoutSteps extends AbstractCalendarPageSteps {
 
     public DeleteWorkoutSteps(WebDriver driver) {
         super(driver);
     }
 
-    @Step
+    @Step("Open delete page")
     public DeleteWorkoutSteps openDeletePage(String locator, String day, String month, String year) {
         deleteWorkoutPage = new DeleteWorkoutPage(driver);
         openCalendarPage();
@@ -20,16 +19,16 @@ public class DeleteWorkoutSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
-    public DeleteWorkoutSteps deleteWorkoutPage(String day, String month, String year) {
+    @Step("Delete workout")
+    public DeleteWorkoutSteps deleteWorkout(String day, String month, String year) {
         deleteWorkoutPage.findDeleteWorkoutButton(day, month, year);
         validateComponentIsLoaded(deleteWorkoutPage);
         deleteWorkoutPage.clickDeleteButton();
         return this;
     }
 
-    @Step
-    public void checkingWorkoutDeleted() {
+    @Step("Checking workouts was deleted")
+    public void checkingWorkoutWasDeleted() {
         Assert.assertTrue(deleteWorkoutPage.checkingWorkoutDeleted(), "Workout not deleted");
     }
 }

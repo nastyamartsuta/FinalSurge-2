@@ -4,10 +4,7 @@ import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import static pages.UploadWorkoutDataPage.*;
 
 
 @Log4j2
@@ -27,7 +24,7 @@ public class ViewWorkoutPage extends CalendarPage {
     }
 
     public void findViewButton(String day, String month, String year) {
-       WebElement element = driver.findElement(By.xpath(String.format(VIEW_WORKOUT_DATA_BUTTON, day, month, year)));
-       element.click();
+        WebElement element = driver.findElement(By.xpath(String.format(VIEW_WORKOUT_DATA_BUTTON, day, month, year)));
+        element.click();
     }
 }

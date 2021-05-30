@@ -11,7 +11,6 @@ public class OtherCalculatorTest extends WithLoginTest {
     CaloricNeedsModel caloricNeedsModel = new CaloricNeedsModel();
     PaceCalculatorModel paceCalculatorModel = new PaceCalculatorModel();
 
-
     @Test
     @Description(value = "Calculate needs test")
     public void calculateNeedsTest() {
@@ -19,8 +18,8 @@ public class OtherCalculatorTest extends WithLoginTest {
         caloricNeedsOtherCalSteps
                 .openCaloricNeeds()
                 .fillCaloricNeeds(caloricNeedsModel)
-                .saveCalculateCaloricNeeds()
-                .checkCalculation();
+                .calculateCaloricNeeds()
+                .checkingCalculationWasOpened();
     }
 
     @Test
@@ -30,8 +29,8 @@ public class OtherCalculatorTest extends WithLoginTest {
         paceCalculatorOtherCalSteps
                 .openPaceCalculator()
                 .fillPaceCalculator(paceCalculatorModel)
-                .saveCalculatePace()
-                .checkCalculation();
+                .calculatePaces()
+                .checkingCalculationWasOpened();
     }
 
     private void initPaceCalculateModel() {

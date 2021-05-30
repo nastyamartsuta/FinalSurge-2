@@ -5,29 +5,29 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import pages.DailyVitalsPage;
 
-public class ViewVitalsSteps extends AbstractStep {
+public class ViewDailyVitalsSteps extends AbstractStep {
 
     DailyVitalsPage dailyVitalsPage = new DailyVitalsPage(driver);
 
-    public ViewVitalsSteps(WebDriver driver) {
+    public ViewDailyVitalsSteps(WebDriver driver) {
         super(driver);
     }
 
-    @Step
-    public ViewVitalsSteps openViewPage() {
+    @Step("Open view page")
+    public ViewDailyVitalsSteps openViewPage() {
         dailyVitalsPage.openPage();
         validateComponentIsLoaded(dailyVitalsPage);
         return this;
     }
 
-    @Step
-    public ViewVitalsSteps viewLastMonthVitals() {
+    @Step("View last month daily vitals")
+    public ViewDailyVitalsSteps viewLastMonthDailyVitals() {
         dailyVitalsPage.showLastMonthVitals();
         return this;
     }
 
-    @Step
-    public void checkLastMonthVitalsIsView() {
+    @Step("Checking Last Month Daily Vitals was viewed")
+    public void checkingLastMonthDailyVitalsWasViewed() {
         Assert.assertEquals(
                 dailyVitalsPage.actualDates().get(0).getText(),
                 dailyVitalsPage.expectedDates().get(0),

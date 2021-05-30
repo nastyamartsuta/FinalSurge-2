@@ -18,7 +18,7 @@ public class AddWorkoutSteps extends AbstractStep {
         super(driver);
     }
 
-    @Step
+    @Step("Open add a new workout panel ")
     public AddWorkoutSteps openAddWorkoutPanel() {
         workoutsPage.openPage();
         validateComponentIsLoaded(workoutsPage);
@@ -26,8 +26,8 @@ public class AddWorkoutSteps extends AbstractStep {
         return this;
     }
 
-    @Step
-    public AddWorkoutSteps fillNewWorkoutSwim(SwimWorkoutModel swimWorkoutModel) {
+    @Step("Fill in the fields to add a new workout")
+    public AddWorkoutSteps fillNewWorkout(SwimWorkoutModel swimWorkoutModel) {
         new Input(driver, "WorkoutDate").clear();
         new Input(driver, "WorkoutDate").enterInput(swimWorkoutModel.getDate());
         new Input(driver, "WorkoutTime").enterInput(swimWorkoutModel.getWorkoutTime());
@@ -44,31 +44,23 @@ public class AddWorkoutSteps extends AbstractStep {
         return this;
     }
 
-    @Step
+    @Step("Save a new workout")
     public AddWorkoutSteps saveNewWorkout() {
         workoutsPage.clickAddWorkoutsButton();
         return this;
     }
 
-    //TODO
-    @Step
-    public void checkingNewWorkoutAdd(SwimWorkoutModel swimWorkoutModel) {
+    @Step("Checking that the new workout was added")
+    public void checkingNewWorkoutWasAdded(SwimWorkoutModel swimWorkoutModel) {
         Assert.assertTrue(workoutsPage.chekWorkoutDetailsIsOpen(), "Workout Details is not open");
-        Assert.assertTrue(workoutsPage.getActualText().contains(
-                "Thursday, May 13, 2021 - " + swimWorkoutModel.getWorkoutTime() + "\n"
-                        + "Swim" + "\n" +
-                        swimWorkoutModel.getWorkoutName() + "\n" +
-                        "Workout Description:" + "\n" +
-                        swimWorkoutModel.getWorkoutDescription() + "\n" +
-                        "Workout Statistics:" + "\n" +
-                        swimWorkoutModel.getDistance() + " " + swimWorkoutModel.getDistanceType()
-                        + " ~ " + swimWorkoutModel.getDuration() + " " + swimWorkoutModel.getPace() + " "
-                        + swimWorkoutModel.getPaceType() + "\n" +
-                        "How I Felt: Good   Perceived Effort " + swimWorkoutModel.getPerceivedEffort() + "\n" +
-                        "Calories Burned: " + swimWorkoutModel.getCaloriesBurned() + " kCal" + "\n" +
-                        "+Share"
-                ),
-                "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualTimeOfDay(), swimWorkoutModel.getWorkoutTime(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualWorkoutName(), swimWorkoutModel.getWorkoutName(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualWorkoutDescription(), swimWorkoutModel.getWorkoutDescription(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDistance(), swimWorkoutModel.getDistance(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDistanceType(), swimWorkoutModel.getDistanceType(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDuration(), swimWorkoutModel.getDuration(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualPerceivedEffort(), swimWorkoutModel.getPerceivedEffort(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualCalories(), swimWorkoutModel.getCaloriesBurned(), "Incorrect text");
     }
 }
 

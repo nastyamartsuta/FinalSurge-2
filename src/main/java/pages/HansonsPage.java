@@ -1,6 +1,5 @@
 package pages;
 
-import com.fasterxml.jackson.core.JsonToken;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

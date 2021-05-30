@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.DriverUtils;
 
 @Log4j2
 public class CalendarPage extends BasePage {
@@ -31,8 +32,10 @@ public class CalendarPage extends BasePage {
 
     @Override
     public void openPage() {
+        log.info("Scroll to the top");
+        DriverUtils.scrollToTop(driver);
         log.info("Click {} in order to open calendar page", CALENDAR_BUTTON);
-        driver.findElement(CALENDAR_BUTTON).click();
+        explicitlyWait.until(ExpectedConditions.elementToBeClickable(CALENDAR_BUTTON)).click();
     }
 
     public void openQuickAddPanel() {
@@ -61,11 +64,11 @@ public class CalendarPage extends BasePage {
         selectWorkout(locator, day, month, year).click();
     }
 
-    public WebElement findData(String day, String month, String year) {
+    private WebElement findData(String day, String month, String year) {
         return driver.findElement(By.xpath(String.format(DATA_PATTERN, day, month, year)));
     }
 
-    public WebElement selectWorkout(String locator,String month, String day, String year) {
+    private WebElement selectWorkout(String locator, String month, String day, String year) {
         return driver.findElement(By.xpath(String.format(locator, day, month, year)));
     }
 }

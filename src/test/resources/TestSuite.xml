@@ -2,17 +2,81 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Final Surge Test">
     <!--<suite name="Final Surge Test" parallel="tests" thread-count="2">-->
-    <test name="**********">
+    <test name="Add activity type test">
         <classes>
-            <class name="">
+            <class name="finalsurgetest.AddActivityTypeTest">
                 <methods>
                 </methods>
             </class>
         </classes>
     </test>
-    <test name="**********">
+    <test name="Add workouts test">
         <classes>
-            <class name="">
+            <class name="finalsurgetest.AddWorkoutsTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Calendar test">
+        <classes>
+            <class name="finalsurgetest.CalendarTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Daily vitals test">
+        <classes>
+            <class name="finalsurgetest.DailyVitalsTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Equipment test">
+        <classes>
+            <class name="finalsurgetest.EquipmentTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Login test">
+        <classes>
+            <class name="finalsurgetest.LoginTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Other calculator test">
+        <classes>
+            <class name="finalsurgetest.OtherCalculatorTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Print workouts test">
+        <classes>
+            <class name="finalsurgetest.PrintWorkoutsTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Reports test">
+        <classes>
+            <class name="finalsurgetest.ReportsTest">
+                <methods>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Workout calculator test">
+        <classes>
+            <class name="finalsurgetest.WorkoutCalculatorTest">
                 <methods>
                 </methods>
             </class>

@@ -14,14 +14,14 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
         super(driver);
     }
 
-    @Step
-    public HansonsSteps openHansons() {
+    @Step("Open hansons page")
+    public HansonsSteps openHansonsPage() {
         openCalculatorPage();
         hansonsPage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the Hansons fields")
     public HansonsSteps fillHansons(HansonsModel hansonsModel) {
         new Input(driver, "TimeHH").enterInput(hansonsModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(hansonsModel.getTimeMinutes());
@@ -35,14 +35,14 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
-    @Step
-    public HansonsSteps saveCalculatorPaces() {
+    @Step("Calculate paces")
+    public HansonsSteps calculatePaces() {
         hansonsPage.clickCalculatePacesButton();
         return this;
     }
 
-    @Step
-    public void checkCalculation(HansonsModel hansonsModel) {
+    @Step("Checking hansons calculation was opened")
+    public void checkingCalculationWasOpened(HansonsModel hansonsModel) {
         Assert.assertTrue(hansonsPage.checkCalculationsIsOpened(), "Calculations did not open");
         Assert.assertEquals(hansonsPage.getActualTemperature(), hansonsModel.getTemperature(), "Incorrect text");
         Assert.assertEquals(hansonsPage.getActualTemperatureType(), hansonsModel.getTemperatureType(), "Incorrect text");

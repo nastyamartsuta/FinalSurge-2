@@ -17,37 +17,36 @@ public class PrintWorkoutsSteps extends AbstractStep {
         super(driver);
     }
 
-    @Step
-    public PrintWorkoutsSteps openReportsPage() {
+    @Step("Open print page")
+    public PrintWorkoutsSteps openPrintPage() {
         printWorkoutsPage.openPage();
         validateComponentIsLoaded(printWorkoutsPage);
         return this;
     }
 
-    @Step
+    @Step("Fill in the print workout fields")
     public PrintWorkoutsSteps fillPrintWorkout(PrintWorkoutsModel printWorkoutsModel) {
         new Input(driver, "PrintStartDate").enterInput(printWorkoutsModel.getPrintStartingDate());
         new Input(driver, "PrintEndDate").enterInput(printWorkoutsModel.getPrintEndingDate());
         return this;
     }
 
-    @Step
+    @Step("Print workouts")
     public PrintWorkoutsSteps printWorkout() {
         printWorkoutsPage.clickPrintWorkoutsButton();
         return this;
     }
 
-    @Step
-    public void checkingResultIsPrinted() {
+    @Step("Checking result was printed")
+    public void checkingResultWasPrinted() {
         PrintPage printPage = new PrintPage(driver);
         validateComponentIsLoaded(printPage);
     }
 
-    @Step
+    @Step("Switch to print tab")
     public PrintWorkoutsSteps switchToPrintTab() {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-
         return this;
     }
 }

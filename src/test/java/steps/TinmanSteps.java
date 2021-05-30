@@ -7,27 +7,24 @@ import io.qameta.allure.Step;
 import model.TinmanModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
-
-    private static final String ACTUAL_TIME = "//h4[contains(.,'Race Information')]/ancestor::div[@class='w-box w-box-green']//tbody//td[2]";
-    private static final String ACTUAL_GENDER = "//h4[contains(.,'Race Information')]/ancestor::div[@class='w-box w-box-green']//tbody//td[3]";
 
     public TinmanSteps(WebDriver driver) {
         super(driver);
     }
 
-    @Step
-    public TinmanSteps openTinman() {
+    @Step("Open Tinman page")
+    public TinmanSteps openTinmanPage() {
         openCalculatorPage();
         tinmanPage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the Tinman fields")
     public TinmanSteps fillITinman(TinmanModel tinmanModel) {
-
         new Input(driver, "TimeHH").enterInput(tinmanModel.getTimeHours());
         new Input(driver, "TimeMM").enterInput(tinmanModel.getTimeMinutes());
         new Input(driver, "TimeSS").enterInput(tinmanModel.getTimeSeconds());
@@ -36,18 +33,18 @@ public class TinmanSteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
-    @Step
-    public TinmanSteps saveCalculatorPaces() {
+    @Step("Calculate Tinman paces")
+    public TinmanSteps calculatePaces() {
         tinmanPage.clickCalculatePacesButton();
         return this;
     }
 
-    //TODO
-    @Step
-    public void checkCalculation(TinmanModel tinmanModel) {
+    @Step("Checking Tinman calculation was opened")
+    public void checkingCalculationWasOpened(TinmanModel tinmanModel) {
         Assert.assertTrue(tinmanPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_TIME)).getText(), tinmanModel.getTimeMinutes()
-                + ":" + tinmanModel.getTimeSeconds(), "Entered data is not displayed");
-        Assert.assertEquals(driver.findElement(By.xpath(ACTUAL_GENDER)).getText(), tinmanModel.getGender(), "Entered data is not displayed");
+        Assert.assertEquals(tinmanPage.getActualHours(), tinmanModel.getTimeHours(), "Incorrect text");
+        Assert.assertEquals(tinmanPage.getActualMinutes(), tinmanModel.getTimeMinutes(), "Incorrect text");
+        Assert.assertEquals(tinmanPage. getActualSeconds(), tinmanModel.getTimeSeconds(), "Incorrect text");
+        Assert.assertEquals(tinmanPage.getActualGender(), tinmanModel.getGender(), "Incorrect text");
     }
 }

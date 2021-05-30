@@ -4,24 +4,31 @@ import io.qameta.allure.Description;
 import model.SwimWorkoutModel;
 import org.testng.annotations.Test;
 
+import static pages.BasePage.*;
+import static pages.CalendarPage.WORKOUTS;
+
 public class AddWorkoutsTest extends WithLoginTest {
 
     SwimWorkoutModel swimWorkoutModel = new SwimWorkoutModel();
 
     @Test
-    @Description(value = "Add workoutы test")
+    @Description(value = "Add workout test")
     public void addWorkoutsTest() {
         initSwimWorkoutModel();
         addWorkoutSteps
                 .openAddWorkoutPanel()
-                .fillNewWorkoutSwim(swimWorkoutModel)
+                .fillNewWorkout(swimWorkoutModel)
                 .saveNewWorkout()
-                .checkingNewWorkoutAdd(swimWorkoutModel);
+                .checkingNewWorkoutWasAdded(swimWorkoutModel);
+        deleteWorkoutSteps
+                .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
+                .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
+
     }
 
     private void initSwimWorkoutModel() {
         swimWorkoutModel = new SwimWorkoutModel();
-        swimWorkoutModel.setDate("05/13/2021");
+        swimWorkoutModel.setDate("05/30/2021");
         swimWorkoutModel.setWorkoutTime("8:00 AM");
         swimWorkoutModel.setWorkoutName("Swim");
         swimWorkoutModel.setDistance("100.00");

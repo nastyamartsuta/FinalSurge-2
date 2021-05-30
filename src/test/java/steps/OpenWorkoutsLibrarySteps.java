@@ -5,27 +5,27 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class OpenWorkoutLibrarySteps extends AbstractCalendarPageSteps {
+public class OpenWorkoutsLibrarySteps extends AbstractCalendarPageSteps {
 
-    public OpenWorkoutLibrarySteps(WebDriver driver) {
+    public OpenWorkoutsLibrarySteps(WebDriver driver) {
         super(driver);
     }
 
-    @Step
-    public OpenWorkoutLibrarySteps openWorkoutLibraryPanel() {
+    @Step("Open workouts library panel")
+    public OpenWorkoutsLibrarySteps openWorkoutsLibraryPanel() {
         openCalendarPage();
         calendarPage.openWorkoutLibraryPanel();
         return this;
     }
 
-    @Step
-    public OpenWorkoutLibrarySteps selectActivityTypeFilter() {
+    @Step("Select activity type filter")
+    public OpenWorkoutsLibrarySteps selectActivityTypeFilter() {
         new DropdownSelectByVisibleText(driver, "ActivityTypeFilter").select("Run");
         return this;
     }
 
-    @Step
-    public void checkingLibraryIsOpen() {
+    @Step("Checking workouts library was opened")
+    public void checkingLibraryWasOpened() {
         Assert.assertTrue(calendarPage.checkingLibraryIsOpen(), "Library didn't open");
     }
 }

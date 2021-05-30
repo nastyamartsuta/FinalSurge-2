@@ -5,6 +5,7 @@ import org.testng.Assert;
 import pages.BasePage;
 
 public abstract class AbstractStep {
+
     WebDriver driver;
 
     public AbstractStep(WebDriver driver) {

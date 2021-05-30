@@ -21,5 +21,6 @@ public class PrintPage extends BasePage {
     }
 
     @Override
-    public void openPage() {}
+    public void openPage() {
+    }
 }

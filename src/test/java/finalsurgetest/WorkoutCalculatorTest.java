@@ -20,10 +20,10 @@ public class WorkoutCalculatorTest extends WithLoginTest {
     public void calculateHansonsTest() {
         initHansonsModel();
         hansonsSteps
-                .openHansons()
+                .openHansonsPage()
                 .fillHansons(hansonsModel)
-                .saveCalculatorPaces()
-                .checkCalculation(hansonsModel);
+                .calculatePaces()
+                .checkingCalculationWasOpened(hansonsModel);
     }
 
     @Test
@@ -33,8 +33,8 @@ public class WorkoutCalculatorTest extends WithLoginTest {
         intensitySteps
                 .openIntensity()
                 .fillIntensity(intensityModel)
-                .saveCalculatorPaces()
-                .checkCalculation();
+                .calculatePaces()
+                .checkingCalculationWasOpened();
     }
 
     @Test
@@ -42,10 +42,10 @@ public class WorkoutCalculatorTest extends WithLoginTest {
     public void calculateTinmanTest() {
         initTinmanModel();
         tinmanSteps
-                .openTinman()
+                .openTinmanPage()
                 .fillITinman(tinmanModel)
-                .saveCalculatorPaces()
-                .checkCalculation(tinmanModel);
+                .calculatePaces()
+                .checkingCalculationWasOpened(tinmanModel);
     }
 
     @Test
@@ -53,10 +53,10 @@ public class WorkoutCalculatorTest extends WithLoginTest {
     public void calculateMcMillanTest() {
         initMcMillanModel();
         mcMillanSteps
-                .openMcMillan()
+                .openMcMillanPage()
                 .fillMcMillan(mcMillanModel)
-                .saveCalculatorPaces()
-                .checkCalculation(mcMillanModel);
+                .calculatePaces()
+                .checkingCalculationWasOpened(mcMillanModel);
     }
 
 
@@ -75,7 +75,7 @@ public class WorkoutCalculatorTest extends WithLoginTest {
 
     private void initTinmanModel() {
         tinmanModel = new TinmanModel();
-        tinmanModel.setTimeHours("00");
+        tinmanModel.setTimeHours("1");
         tinmanModel.setTimeMinutes("30");
         tinmanModel.setTimeSeconds("00");
         tinmanModel.setRaceDistance("0.4");

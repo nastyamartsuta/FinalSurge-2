@@ -30,12 +30,12 @@ public class PaceCalculatePage extends BasePage {
         driver.findElement(PACE_CALCULATOR_BUTTON).click();
     }
 
-    public void saveCalculatePaces() {
+    public void calculatePaces() {
         log.info("Click {} in order to save paces", SAVE_BUTTON);
         driver.findElement(SAVE_BUTTON).click();
     }
 
-    public boolean checkCalculationsIsOpened() {
+    public boolean checkCalculationsWasOpened() {
         log.info("Checking that the Pace chart ang Pace split was opened");
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_CHART_HEADER));
         explicitlyWait.until(ExpectedConditions.visibilityOfElementLocated(PACE_SPLITS_HEADER));

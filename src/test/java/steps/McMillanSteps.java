@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import model.McMillanModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import utils.StringUtils;
 
 public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
 
@@ -13,14 +14,14 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
         super(driver);
     }
 
-    @Step
-    public McMillanSteps openMcMillan() {
+    @Step("Open McMillan page")
+    public McMillanSteps openMcMillanPage() {
         openCalculatorPage();
         mcMillanPage.openPage();
         return this;
     }
 
-    @Step
+    @Step("Fill in the McMillan fields")
     public McMillanSteps fillMcMillan(McMillanModel mcMillanModel) {
         new Input(driver, "TimeHH").enterInput(mcMillanModel.getRecentTimeHours());
         new Input(driver, "TimeMM").enterInput(mcMillanModel.getRecentTimeMinutes());
@@ -33,27 +34,22 @@ public class McMillanSteps extends AbstractWorkoutCalculatorSteps {
         return this;
     }
 
-    @Step
-    public McMillanSteps saveCalculatorPaces() {
+    @Step("Calculate McMillan paces")
+    public McMillanSteps calculatePaces() {
         mcMillanPage.clickCalculatePacesButton();
         return this;
     }
-
-    //TODO
-    @Step
-    public void checkCalculation(McMillanModel mcMillanModel) {
+    
+    @Step("Checking McMillan calculation was opened")
+    public void checkingCalculationWasOpened(McMillanModel mcMillanModel) {
         Assert.assertTrue(mcMillanPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertTrue(mcMillanPage.text().contains("Recent Race: "
-                        + mcMillanModel.getRecentDistanceType() + " time of "
-                        + mcMillanModel.getRecentTimeHours() + ":"
-                        + mcMillanModel.getRecentTimeMinutes() + ":"
-                        + mcMillanModel.getRecentTimeSeconds()),
-                "Incorrect text");
-        Assert.assertTrue(mcMillanPage.text().contains("Goal Race: "
-                        + mcMillanModel.getGoalDistanceType() + " time of "
-                        + mcMillanModel.getGoalTimeHours() + ":"
-                        + mcMillanModel.getGoalTimeMinutes() + ":"
-                        + mcMillanModel.getGoalTimeSeconds()),
-                "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualRecentDistance(), mcMillanModel.getRecentDistanceType(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualRecentHours(), mcMillanModel.getRecentTimeHours(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualRecentMinutes(), mcMillanModel.getRecentTimeMinutes(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualRecentSeconds(), mcMillanModel.getRecentTimeSeconds(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualGoalDistance(), mcMillanModel.getGoalDistanceType(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualGoalHours(), mcMillanModel.getGoalTimeHours(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualGoalMinutes(), mcMillanModel.getGoalTimeMinutes(), "Incorrect text");
+        Assert.assertEquals(mcMillanPage.getActualGoalSeconds(), mcMillanModel.getGoalTimeSeconds(), "Incorrect text");
     }
 }

@@ -15,7 +15,7 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open add new workout quick page")
     public AddWorkoutQuickSteps openNewWorkoutQuickPage() {
         openCalendarPage();
         calendarPage.openQuickAddPanel();
@@ -24,7 +24,7 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
+    @Step("Fill in the fields to add a new workout quick")
     public AddWorkoutQuickSteps fillNewWorkoutQuickPage(WorkoutQuickModel workoutQuickModel) {
         new InputNewWorkoutQuick(driver, "Name", "Name").enterInput(workoutQuickModel.getName());
         new InputNewWorkoutQuick(driver, "WorkoutDate", "WorkoutDate").clear();
@@ -45,14 +45,14 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
-    public AddWorkoutQuickSteps saveNewWorkout() {
+    @Step("Save new quick workout")
+    public AddWorkoutQuickSteps saveNewQuickWorkout() {
         newWorkoutQuickPage.saveNewWorkout();
         return this;
     }
 
-    @Step
-    public void checkingAddWorkoutQuick(WorkoutQuickModel workoutQuickModel) {
+    @Step("Checking that the new quick workout was added")
+    public void checkingNewWorkoutQuickWasAdded(WorkoutQuickModel workoutQuickModel) {
         Assert.assertTrue(newWorkoutQuickPage.checkingWorkoutAdded(), "Workout was not added");
         Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutTime(), workoutQuickModel.getTimeOfDay(), "Incorrect text");
         Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutType(), workoutQuickModel.getActivityType(), "Incorrect text");

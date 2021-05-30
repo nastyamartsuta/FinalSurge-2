@@ -16,7 +16,7 @@ public class AddCommentsStep extends AbstractCalendarPageSteps {
         super(driver);
     }
 
-    @Step
+    @Step("Open Comment page")
     public AddCommentsStep openNewCommentPage() {
         commentPage = new AddCommentPage(driver);
         openCalendarPage();
@@ -25,29 +25,40 @@ public class AddCommentsStep extends AbstractCalendarPageSteps {
         return this;
     }
 
-    @Step
+    @Step("Add a comment")
     public AddCommentsStep sendComment(CommentModel commentModel) {
         new Textarea(driver, "Workout Comment").enterTextarea(commentModel.getWorkoutComment());
         return this;
     }
 
-    @Step
+    @Step("Save new comment")
     public AddCommentsStep saveNewComment() {
         commentPage.addCommentButton();
         return this;
     }
 
-    @Step
+    @Step("Checking that the new comment was added")
     public AddCommentsStep checkingNewCommentWasAdded(CommentModel commentModel) {
         Assert.assertTrue(commentPage.checkingCommentAdded(), "Comment wasn't added");
         Assert.assertTrue(commentPage.getActualTextComment().contains(commentModel.getWorkoutComment()), "Incorrect text");
         return this;
     }
 
-    @Step
-    public void deleteNewComment() {
+    @Step("Delete the comment")
+    public AddCommentsStep deleteNewComment() {
         commentPage.deleteCommentButton();
         Assert.assertTrue(commentPage.checkingNewCommentDeleted(), "The comment has wasn't deleted");
+        return this;
+    }
+
+    @Step("Close comment page")
+    public void closeCommentPage() {
+
+        driver.switchTo().defaultContent();
+
+        commentPage.clickCloseCommentButton();
+
+        validateComponentIsLoaded(calendarPage);
     }
 }
 

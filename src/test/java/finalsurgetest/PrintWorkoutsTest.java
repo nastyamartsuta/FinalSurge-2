@@ -19,11 +19,11 @@ public class PrintWorkoutsTest extends WithLoginTest {
     @Test
     @Description(value = "Print workout test")
     public void printWorkoutTest() {
-        printWorkoutsSteps.openReportsPage()
+        printWorkoutsSteps.openPrintPage()
                 .fillPrintWorkout(printWorkoutsModel)
                 .printWorkout()
                 .switchToPrintTab()
-                .checkingResultIsPrinted();
+                .checkingResultWasPrinted();
     }
 
     private void initPrintWorkoutModel() {

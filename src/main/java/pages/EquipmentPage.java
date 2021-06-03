@@ -40,7 +40,7 @@ public class EquipmentPage extends BasePage {
         log.info("Scroll to the top");
         DriverUtils.scrollToTop(driver);
         log.info("Click {} in order to confirm delete new Equipment", OK_BUTTON);
-        driver.findElement(OK_BUTTON).click();
+        explicitlyWait.until(ExpectedConditions.visibilityOf(driver.findElement(OK_BUTTON))).click();
     }
 
     public boolean checkingNewNewEquipmentWasDeleted() {

@@ -30,7 +30,7 @@ public class DeleteWorkoutPage extends CalendarPage {
 
     public void clickDeleteButton() {
         log.info("Click {} in order to delete workout", OK_BUTTON);
-        driver.findElement(OK_BUTTON).click();
+        explicitlyWait.until(ExpectedConditions.visibilityOf(driver.findElement(OK_BUTTON))).click();
     }
 
     public boolean checkingWorkoutDeleted() {

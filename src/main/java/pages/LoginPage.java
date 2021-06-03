@@ -5,11 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import static utils.PropertiesUtils.getSystemProperty;
+
 @Log4j2
 public class LoginPage extends BasePage {
 
-    public static final String VALID_EMAIL = System.getProperty("email_account");
-    public static final String VALID_PASSWORD = System.getProperty("password_account");
+    public static final String VALID_EMAIL = getSystemProperty("email_account");
+    public static final String VALID_PASSWORD = getSystemProperty("password_account");
     public static final String INVALID_PASSWORD = "invalid_password";
     public static final String INVALID_EMAIL = "jb@gmail.com";
     public static final By ERROR_ALERT = By.xpath("//div[@class='alert alert-error']");

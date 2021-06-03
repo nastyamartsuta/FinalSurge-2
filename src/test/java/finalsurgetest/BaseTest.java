@@ -41,11 +41,13 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
         log.info("Driver initialization");
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/chromedriver/chromedriver");
+//        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        options.addArguments("--window-size=1280,1024");
-        options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--window-size=1920x1080");
+
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         loginSteps = new LoginSteps(driver);

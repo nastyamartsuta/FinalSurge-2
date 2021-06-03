@@ -4,10 +4,6 @@ import io.qameta.allure.Description;
 import model.ActivityTypeModel;
 import org.testng.annotations.Test;
 
-import static pages.BasePage.*;
-import static pages.BasePage.YEAR_PATTERN;
-import static pages.CalendarPage.WORKOUTS;
-
 public class AddActivityTypeTest extends WithLoginTest {
 
     ActivityTypeModel activityTypeModel = new ActivityTypeModel();

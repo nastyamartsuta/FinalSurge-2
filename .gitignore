@@ -4,4 +4,4 @@ build
 target
 allure-results
 src/test/resources/config.properties
-src/test/resources/chromedriver.exe
+LOG_FILE.txt

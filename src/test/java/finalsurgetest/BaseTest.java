@@ -1,5 +1,6 @@
 package finalsurgetest;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -41,20 +42,22 @@ public class BaseTest {
     @BeforeMethod
     public void setup() {
         log.info("Driver initialization");
-        System.setProperty("webdriver.chrome.driver", "/chromedriver/chromedriver");
-//        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--window-size=1920x1080");
 
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
         loginSteps = new LoginSteps(driver);
+        reportsSteps = new ReportsSteps(driver);
         addWorkoutQuickSteps = new AddWorkoutQuickSteps(driver);
         hansonsSteps = new HansonsSteps(driver);
         caloricNeedsOtherCalSteps = new CaloricNeedsOtherCalSteps(driver);
-        reportsSteps = new ReportsSteps(driver);
         printWorkoutsSteps = new PrintWorkoutsSteps(driver);
         paceCalculatorOtherCalSteps = new PaceCalculatorOtherCalSteps(driver);
         intensitySteps = new IntensitySteps(driver);

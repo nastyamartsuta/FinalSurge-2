@@ -24,6 +24,7 @@
         <jackson-dataformat-yaml.version>2.10.1</jackson-dataformat-yaml.version>
         <allure-maven.version>2.10.0</allure-maven.version>
         <allure-maven.report-version>2.6.0</allure-maven.report-version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -33,8 +34,14 @@
             <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
+            <artifactId>testng</artifactId> 
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
@@ -88,6 +95,17 @@
                             <value>${project.build.directory}/allure-results</value>
                         </property>
                     </systemProperties>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/TestSuite.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <parallel>all</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
+                    <properties>
+                        <property>
+                            <name>suitethreadpoolsize</name>
+                            <value>20</value>
+                        </property>
+                    </properties>
                 </configuration>
                 <dependencies>
                     <dependency>

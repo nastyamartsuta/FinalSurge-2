@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Final Surge Test" parallel="tests">
+<suite name="Final Surge Test">
     <test name="Add activity type test">
         <classes>
             <class name="finalsurgetest.AddActivityTypeTest"/>

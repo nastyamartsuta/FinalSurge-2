@@ -1,17 +1,26 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class RoutesModel {
 
-    private String RouteName;
-    private String Distance;
-    private String RoutePersonalRecord;
-    private String PersonalRecordDate;
-    private String Notes;
-    private String Activity;
-    private String DistanceType;
+    @Builder.Default
+    public static String routeName = "Green Velo";
+    @Builder.Default
+    public static String distance = "200.00";
+    @Builder.Default
+    public static String routePersonalRecord = "8:55:10";
+    @Builder.Default
+    public static String personalRecordDate = "6/6/2021";
+    @Builder.Default
+    public static String notes = "Very beautiful route";
+    @Builder.Default
+    public static String activity = "Bike";
+    @Builder.Default
+    public static String distanceType = "km";
 }

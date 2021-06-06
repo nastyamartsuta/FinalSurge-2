@@ -1,14 +1,18 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class IntensityModel {
 
-    private String TimeHours;
-    private String TimeMinutes;
-    private String TimeSeconds;
-    private String EventType;
+    @Builder.Default
+    public static String timeHours = "1";
+    @Builder.Default
+    public static String timeMinutes = "30";
+    @Builder.Default
+    public static String timeSeconds = "00";
 }

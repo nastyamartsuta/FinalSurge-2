@@ -1,15 +1,22 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class PaceCalculatorModel {
 
-    private String TimeHours;
-    private String TimeMinutes;
-    private String TimeSeconds;
-    private String Distance;
-    private String DistType;
+    @Builder.Default
+    public static String timeHours = "01";
+    @Builder.Default
+    public static String timeMinutes = "15";
+    @Builder.Default
+    public static String timeSeconds = "20";
+    @Builder.Default
+    public static String distance = "5";
+    @Builder.Default
+    public static String distType = "km";
 }

@@ -1,9 +1,6 @@
 package finalsurgetest;
 
 import io.qameta.allure.Description;
-import model.CommentModel;
-import model.UploadWorkoutDataModel;
-import model.WorkoutQuickModel;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
@@ -11,19 +8,14 @@ import static pages.MoveWorkoutPage.*;
 
 public class CalendarTest extends WithLoginTest {
 
-    WorkoutQuickModel workoutQuickModel;
-    UploadWorkoutDataModel uploadWorkoutDataModel;
-    CommentModel commentModel;
-
     @Test
     @Description(value = "Delete workout test")
     public void deleteUploadedWorkoutTest() {
-        initUploadWorkoutData();
         uploadWorkoutDataSteps
                 .openUploadPage()
-                .fillUploadWorkoutData(uploadWorkoutDataModel)
+                .fillUploadWorkoutData()
                 .uploadFile()
-                .checkingFileWasUploaded(uploadWorkoutDataModel);
+                .checkingFileWasUploaded();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
                 .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
@@ -33,12 +25,11 @@ public class CalendarTest extends WithLoginTest {
     @Test
     @Description(value = "Add workout quick test")
     public void addWorkoutQuickTest() {
-        initWorkoutQuick();
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
-                .fillNewWorkoutQuickPage(workoutQuickModel)
+                .fillNewWorkoutQuickPage()
                 .saveNewQuickWorkout()
-                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
+                .checkingNewWorkoutQuickWasAdded();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
                 .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
@@ -47,12 +38,11 @@ public class CalendarTest extends WithLoginTest {
     @Test
     @Description(value = "Move workout test")
     public void moveWorkoutTest() {
-        initWorkoutQuick();
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
-                .fillNewWorkoutQuickPage(workoutQuickModel)
+                .fillNewWorkoutQuickPage()
                 .saveNewQuickWorkout()
-                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
+                .checkingNewWorkoutQuickWasAdded();
         moveWorkoutSteps
                 .openMoveMenu()
                 .moveWorkout()
@@ -65,18 +55,16 @@ public class CalendarTest extends WithLoginTest {
     @Test
     @Description(value = "Add new comment test")
     public void addCommentTest() {
-        initWorkoutQuick();
-        initNewComment();
         addWorkoutQuickSteps
                 .openNewWorkoutQuickPage()
-                .fillNewWorkoutQuickPage(workoutQuickModel)
+                .fillNewWorkoutQuickPage()
                 .saveNewQuickWorkout()
-                .checkingNewWorkoutQuickWasAdded(workoutQuickModel);
+                .checkingNewWorkoutQuickWasAdded();
         commentsStep
                 .openNewCommentPage()
-                .sendComment(commentModel)
+                .sendComment()
                 .saveNewComment()
-                .checkingNewCommentWasAdded(commentModel)
+                .checkingNewCommentWasAdded()
                 .deleteNewComment()
                 .closeCommentPage();
         deleteWorkoutSteps
@@ -93,16 +81,14 @@ public class CalendarTest extends WithLoginTest {
                 .checkingLibraryWasOpened();
     }
 
-
     @Test
     @Description(value = "View workout details test")
-    public void viewWorkoutDetailsTest() throws InterruptedException {
-        initUploadWorkoutData();
+    public void viewWorkoutDetailsTest(){
         uploadWorkoutDataSteps
                 .openUploadPage()
-                .fillUploadWorkoutData(uploadWorkoutDataModel)
+                .fillUploadWorkoutData()
                 .uploadFile()
-                .checkingFileWasUploaded(uploadWorkoutDataModel);
+                .checkingFileWasUploaded();
         viewWorkoutDetailsStep
                 .openWorkoutsDetailsPage()
                 .checkingWorkoutsDetailsPageWasOpened();
@@ -113,47 +99,15 @@ public class CalendarTest extends WithLoginTest {
 
     @Test
     @Description(value = "Upload workout data test")
-    public void uploadWorkoutDataTest() throws InterruptedException {
-        initUploadWorkoutData();
+    public void uploadWorkoutDataTest(){
         uploadWorkoutDataSteps
                 .openUploadPage()
-                .fillUploadWorkoutData(uploadWorkoutDataModel)
+                .fillUploadWorkoutData()
                 .uploadFile()
-                .checkingFileWasUploaded(uploadWorkoutDataModel);
+                .checkingFileWasUploaded();
         deleteWorkoutSteps
                 .openDeletePage(WORKOUTS, DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN)
                 .deleteWorkout(DAY_PATTERN, MONTH_PATTERN, YEAR_PATTERN);
-    }
-
-    private void initUploadWorkoutData() {
-        uploadWorkoutDataModel = new UploadWorkoutDataModel();
-        uploadWorkoutDataModel.setWorkoutDateAdd(MONTH_PATTERN + "/" + DAY_PATTERN + "/" + YEAR_PATTERN);
-        uploadWorkoutDataModel.setDescription("Walking bike");
-        uploadWorkoutDataModel.setName("Bike");
-        uploadWorkoutDataModel.setActivityType("Bike");
-    }
-
-
-    private void initWorkoutQuick() {
-        workoutQuickModel = new WorkoutQuickModel();
-        workoutQuickModel.setName("Run/swim");
-        workoutQuickModel.setWorkoutDate("5/30/2021");
-        workoutQuickModel.setDistance("5");
-        workoutQuickModel.setDuration("0:50");
-        workoutQuickModel.setPace("12000");
-        workoutQuickModel.setWorkoutDescription("Warm-up, run, stretching");
-        workoutQuickModel.setResults("Check pulse and blood pressure");
-        workoutQuickModel.setDistanceType("km");
-        workoutQuickModel.setPaceType("km");
-        workoutQuickModel.setHowFeel("2");
-        workoutQuickModel.setPerceivedEffort("3");
-        workoutQuickModel.setActivityType("Run");
-        workoutQuickModel.setTimeOfDay("12:45 AM");
-    }
-
-    private void initNewComment() {
-        commentModel = new CommentModel();
-        commentModel.setWorkoutComment("Test comment");
     }
 
     @AfterMethod

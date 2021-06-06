@@ -25,26 +25,26 @@ public class AddDailyVitalsSteps extends AbstractStep {
     }
 
     @Step("Fill in the fields to add new daily vitals")
-    public AddDailyVitalsSteps fillNewDailyVitals(VitalsModel vitalsModel) {
-        new Input(driver, "VitalsDate").enterInput(vitalsModel.getVitalsDate());
-        new Input(driver, "Steps").enterInput(vitalsModel.getSteps());
-        new Input(driver, "Weight").enterInput(vitalsModel.getWeight());
-        new Input(driver, "Calories").enterInput(vitalsModel.getCaloriesConsumed());
-        new Input(driver, "BodyFat").enterInput(vitalsModel.getBodyFat());
-        new Input(driver, "WaterPercent").enterInput(vitalsModel.getWater());
-        new Input(driver, "MuscleMass").enterInput(vitalsModel.getMuscleMass());
-        new Input(driver, "RestHR").enterInput(vitalsModel.getResting());
-        new Input(driver, "HRVar").enterInput(vitalsModel.getVariability());
-        new Input(driver, "SleepHours").enterInput(vitalsModel.getSleepHours());
-        new Input(driver, "AwakeTime").enterInput(vitalsModel.getTotalTimeAwake());
-        new Input(driver, "Systolic").enterInput(vitalsModel.getSystolic());
-        new Input(driver, "Diastolic").enterInput(vitalsModel.getDiastolic());
-        new Input(driver, "HealthNotes").enterInput(vitalsModel.getHealthNotes());
-        new DropdownSelectByVisibleText(driver, "WeightType").select(vitalsModel.getWeightType());
-        new DropdownSelectByVisibleText(driver, "MuscleMassType").select(vitalsModel.getMuscleMassType());
-        new DropdownSelectByVisibleText(driver, "SleepAmount").select(vitalsModel.getSleepAmount());
-        new DropdownSelectByVisibleText(driver, "SleepQuality").select(vitalsModel.getSleepQuality());
-        new DropdownSelectByVisibleText(driver, "Stress").select(vitalsModel.getStressAmount());
+    public AddDailyVitalsSteps fillNewDailyVitals() {
+        new Input(driver, "VitalsDate").enterInput(VitalsModel.vitalsDate);
+        new Input(driver, "Steps").enterInput(VitalsModel.steps);
+        new Input(driver, "Weight").enterInput(VitalsModel.weight);
+        new Input(driver, "Calories").enterInput(VitalsModel.caloriesConsumed);
+        new Input(driver, "BodyFat").enterInput(VitalsModel.bodyFat);
+        new Input(driver, "WaterPercent").enterInput(VitalsModel.water);
+        new Input(driver, "MuscleMass").enterInput(VitalsModel.muscleMass);
+        new Input(driver, "RestHR").enterInput(VitalsModel.resting);
+        new Input(driver, "HRVar").enterInput(VitalsModel.variability);
+        new Input(driver, "SleepHours").enterInput(VitalsModel.sleepHours);
+        new Input(driver, "AwakeTime").enterInput(VitalsModel.totalTimeAwake);
+        new Input(driver, "Systolic").enterInput(VitalsModel.systolic);
+        new Input(driver, "Diastolic").enterInput(VitalsModel.diastolic);
+        new Input(driver, "HealthNotes").enterInput(VitalsModel.healthNotes);
+        new DropdownSelectByVisibleText(driver, "WeightType").select(VitalsModel.weightType);
+        new DropdownSelectByVisibleText(driver, "MuscleMassType").select(VitalsModel.muscleMassType);
+        new DropdownSelectByVisibleText(driver, "SleepAmount").select(VitalsModel.sleepAmount);
+        new DropdownSelectByVisibleText(driver, "SleepQuality").select(VitalsModel.sleepQuality);
+        new DropdownSelectByVisibleText(driver, "Stress").select(VitalsModel.stressAmount);
         return this;
     }
 
@@ -61,25 +61,25 @@ public class AddDailyVitalsSteps extends AbstractStep {
     }
 
     @Step("Checking that the new daily vitals was added")
-    public void checkingNewDailyVitalsWasAdded(VitalsModel vitalsModel) {
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsData(vitalsModel), vitalsModel.getVitalsDate(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSteps(vitalsModel), vitalsModel.getSteps(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWeight(vitalsModel), vitalsModel.getWeight(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWeightType(vitalsModel), vitalsModel.getWeightType(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBodyFat(vitalsModel), vitalsModel.getBodyFat(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsResting(vitalsModel), vitalsModel.getResting(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsHRV(vitalsModel), vitalsModel.getVariability(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsCalories(vitalsModel), vitalsModel.getCaloriesConsumed(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWater(vitalsModel), vitalsModel.getWater(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsMuscleMass(vitalsModel), vitalsModel.getMuscleMass(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsMuscleMassType(vitalsModel), vitalsModel.getMuscleMassType(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleep(vitalsModel), vitalsModel.getSleepHours(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsAwake(vitalsModel), vitalsModel.getTotalTimeAwake(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleepAmount(vitalsModel), vitalsModel.getSleepAmount(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleepQuality(vitalsModel), vitalsModel.getSleepQuality(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsStress(vitalsModel), vitalsModel.getStressAmount(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBloodPressureSystolic(vitalsModel), vitalsModel.getSystolic(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBloodPressureDiastolic(vitalsModel), vitalsModel.getDiastolic(), "Incorrect text");
-        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsNotes(vitalsModel), vitalsModel.getHealthNotes(), "Incorrect text");
+    public void checkingNewDailyVitalsWasAdded() {
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsData(), VitalsModel.vitalsDate, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSteps(), VitalsModel.steps, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWeight(), VitalsModel.weight, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWeightType(), VitalsModel.weightType, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBodyFat(), VitalsModel.bodyFat, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsResting(), VitalsModel.resting, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsHRV(), VitalsModel.variability, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsCalories(), VitalsModel.caloriesConsumed, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsWater(), VitalsModel.water, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsMuscleMass(), VitalsModel.muscleMass, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsMuscleMassType(), VitalsModel.muscleMassType, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleep(), VitalsModel.sleepHours, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsAwake(), VitalsModel.totalTimeAwake, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleepAmount(), VitalsModel.sleepAmount, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsSleepQuality(), VitalsModel.sleepQuality, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsStress(), VitalsModel.stressAmount, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBloodPressureSystolic(), VitalsModel.systolic, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsBloodPressureDiastolic(), VitalsModel.diastolic, "Incorrect text");
+        Assert.assertEquals(dailyVitalsPage.getActualDailyVitalsNotes(), VitalsModel.healthNotes, "Incorrect text");
     }
 }

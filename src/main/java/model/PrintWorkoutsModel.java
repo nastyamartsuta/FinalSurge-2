@@ -1,12 +1,16 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class PrintWorkoutsModel {
 
-    private String PrintStartingDate;
-    private String PrintEndingDate;
+    @Builder.Default
+    public static String printStartingDate = "1/1/2021";
+    @Builder.Default
+    public static String printEndingDate = "12/12/2021";
 }

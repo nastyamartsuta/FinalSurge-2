@@ -1,29 +1,50 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class VitalsModel {
 
-    private String VitalsDate;
-    private String Steps;
-    private String CaloriesConsumed;
-    private String Weight;
-    private String BodyFat;
-    private String Water;
-    private String MuscleMass;
-    private String Resting;
-    private String Variability;
-    private String SleepHours;
-    private String TotalTimeAwake;
-    private String Systolic;
-    private String Diastolic;
-    private String HealthNotes;
-    private String WeightType;
-    private String MuscleMassType;
-    private String SleepAmount;
-    private String SleepQuality;
-    private String StressAmount;
+    @Builder.Default
+    public static String vitalsDate = "5/30/2021";
+    @Builder.Default
+    public static String steps = "8000";
+    @Builder.Default
+    public static String caloriesConsumed = "1500";
+    @Builder.Default
+    public static String weight = "70";
+    @Builder.Default
+    public static String bodyFat = "18.5";
+    @Builder.Default
+    public static String water = "10";
+    @Builder.Default
+    public static String muscleMass = "27";
+    @Builder.Default
+    public static String resting = "80";
+    @Builder.Default
+    public static String variability = "80";
+    @Builder.Default
+    public static String sleepHours = "8";
+    @Builder.Default
+    public static String totalTimeAwake = "16";
+    @Builder.Default
+    public static String systolic = "120";
+    @Builder.Default
+    public static String diastolic = "80";
+    @Builder.Default
+    public static String healthNotes = "The body is healthy";
+    @Builder.Default
+    public static String weightType = "kg";
+    @Builder.Default
+    public static String muscleMassType = "kg";
+    @Builder.Default
+    public static String sleepAmount = "Enough";
+    @Builder.Default
+    public static String sleepQuality = "Good";
+    @Builder.Default
+    public static String stressAmount = "Moderate";
 }

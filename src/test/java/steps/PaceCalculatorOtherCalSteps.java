@@ -24,12 +24,12 @@ public class PaceCalculatorOtherCalSteps extends AbstractOtherCalculatorSteps {
     }
 
     @Step("Fill in the Pace calculator fields")
-    public PaceCalculatorOtherCalSteps fillPaceCalculator(PaceCalculatorModel paceCalculatorModel) {
-        new Input(driver, "RunDist").enterInput(paceCalculatorModel.getDistance());
-        new Input(driver, "TimeHH").enterInput(paceCalculatorModel.getTimeHours());
-        new Input(driver, "TimeMM").enterInput(paceCalculatorModel.getTimeMinutes());
-        new Input(driver, "TimeSS").enterInput(paceCalculatorModel.getTimeSeconds());
-        new Dropdown(driver, "DistType").select(paceCalculatorModel.getDistType());
+    public PaceCalculatorOtherCalSteps fillPaceCalculator() {
+        new Input(driver, "RunDist").enterInput(PaceCalculatorModel.distance);
+        new Input(driver, "TimeHH").enterInput(PaceCalculatorModel.timeHours);
+        new Input(driver, "TimeMM").enterInput(PaceCalculatorModel.timeMinutes);
+        new Input(driver, "TimeSS").enterInput(PaceCalculatorModel.timeSeconds);
+        new Dropdown(driver, "DistType").select(PaceCalculatorModel.distType);
         return this;
     }
 

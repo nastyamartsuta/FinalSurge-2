@@ -23,18 +23,18 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Fill in the fields to add a new shoes")
-    public AddShoesSteps fillNewShoes(ShoesModel shoesModel) {
-        new Input(driver, "ShoeName").enterInput(shoesModel.getShoesName());
-        new DropdownEquipment(driver, "s2id_ShoeBrand").select(shoesModel.getBrand());
-        new Dropdown(driver, "ShoeSize").select(shoesModel.getShoeSize());
-        new Dropdown(driver, "DistType").select(shoesModel.getDistanceType());
-        new Dropdown(driver, "DistAlertType").select(shoesModel.getDistanceAlertType());
-        new Input(driver, "ShoeModel").enterInput(shoesModel.getModel());
-        new Input(driver, "ShoeCost").enterInput(shoesModel.getCost());
-        new Input(driver, "ShoeDate").enterInput(shoesModel.getDatePurchased());
-        new Input(driver, "StartDist").enterInput(shoesModel.getStartingDistance());
-        new Input(driver, "DistAlert").enterInput(shoesModel.getDistanceAlert());
-        new Input(driver, "ShoeNotes").enterInput(shoesModel.getNotes());
+    public AddShoesSteps fillNewShoes() {
+        new Input(driver, "ShoeName").enterInput(ShoesModel.shoesName);
+        new DropdownEquipment(driver, "s2id_ShoeBrand").select(ShoesModel.brand);
+        new Dropdown(driver, "ShoeSize").select(ShoesModel.shoeSize);
+        new Dropdown(driver, "DistType").select(ShoesModel.distanceType);
+        new Dropdown(driver, "DistAlertType").select(ShoesModel.distanceAlertType);
+        new Input(driver, "ShoeModel").enterInput(ShoesModel.model);
+        new Input(driver, "ShoeCost").enterInput(ShoesModel.cost);
+        new Input(driver, "ShoeDate").enterInput(ShoesModel.datePurchased);
+        new Input(driver, "StartDist").enterInput(ShoesModel.startingDistance);
+        new Input(driver, "DistAlert").enterInput(ShoesModel.distanceAlert);
+        new Input(driver, "ShoeNotes").enterInput(ShoesModel.notes);
         return this;
     }
 
@@ -45,15 +45,15 @@ public class AddShoesSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Checking that the shoes was added")
-    public AddShoesSteps checkingShoesAdd(ShoesModel shoesModel) {
-        Assert.assertEquals(shoesPage.getActualShoesBrandModel(), shoesModel.getBrand() + " " + shoesModel.getModel(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesCost(), shoesModel.getCost(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesName(), shoesModel.getShoesName(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesSize(), shoesModel.getShoeSize(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesDatePurchased(), shoesModel.getDatePurchased(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesDistanceAlert(), shoesModel.getDistanceAlert(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesDistanceType(), shoesModel.getDistanceType(), "Incorrect text");
-        Assert.assertEquals(shoesPage.getActualShoesNotes(), shoesModel.getNotes(), "Incorrect text");
+    public AddShoesSteps checkingShoesAdd() {
+        Assert.assertEquals(shoesPage.getActualShoesBrandModel(), ShoesModel.brand + " " + ShoesModel.model, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesCost(),ShoesModel.cost, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesName(), ShoesModel.shoesName, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesSize(), ShoesModel.shoeSize, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDatePurchased(), ShoesModel.datePurchased, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDistanceAlert(), ShoesModel.distanceAlert, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesDistanceType(), ShoesModel.distanceType, "Incorrect text");
+        Assert.assertEquals(shoesPage.getActualShoesNotes(), ShoesModel.notes, "Incorrect text");
         return this;
     }
 

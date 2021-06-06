@@ -25,22 +25,22 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
     }
 
     @Step("Fill in the fields to add a new workout quick")
-    public AddWorkoutQuickSteps fillNewWorkoutQuickPage(WorkoutQuickModel workoutQuickModel) {
-        new InputNewWorkoutQuick(driver, "Name", "Name").enterInput(workoutQuickModel.getName());
+    public AddWorkoutQuickSteps fillNewWorkoutQuickPage() {
+        new InputNewWorkoutQuick(driver, "Name", "Name").enterInput(WorkoutQuickModel.name);
         new InputNewWorkoutQuick(driver, "WorkoutDate", "WorkoutDate").clear();
-        new InputNewWorkoutQuick(driver, "WorkoutDate", "WorkoutDate").enterInput(workoutQuickModel.getWorkoutDate());
-        new InputNewWorkoutQuick(driver, "Distance", "Distance").enterInput(workoutQuickModel.getDistance());
-        new InputNewWorkoutQuick(driver, "Duration", "Duration").enterInput(workoutQuickModel.getDuration());
+        new InputNewWorkoutQuick(driver, "WorkoutDate", "WorkoutDate").enterInput(WorkoutQuickModel.workoutDate);
+        new InputNewWorkoutQuick(driver, "Distance", "Distance").enterInput(WorkoutQuickModel.distance);
+        new InputNewWorkoutQuick(driver, "Duration", "Duration").enterInput(WorkoutQuickModel.duration);
         new InputNewWorkoutQuick(driver, "Pace", "Pace").clear();
-        new InputNewWorkoutQuick(driver, "Pace", "Pace").enterInput(workoutQuickModel.getPace());
-        new Textarea(driver, "Workout Description").enterTextarea(workoutQuickModel.getWorkoutDescription());
-        new Textarea(driver, "Post Workout Notes/Results").enterTextarea(workoutQuickModel.getResults());
-        new Dropdown(driver, "DistType").select(workoutQuickModel.getDistanceType());
-        new Dropdown(driver, "PaceType").select(workoutQuickModel.getPaceType());
-        new Dropdown(driver, "HowFeel").select(workoutQuickModel.getHowFeel());
-        new Dropdown(driver, "PerEffort").select(workoutQuickModel.getPerceivedEffort());
-        new DropdownSelectByVisibleText(driver, "ActivityType").select(workoutQuickModel.getActivityType());
-        new Autocomplete(driver, "WorkoutTime").enterAutocomplete(workoutQuickModel.getTimeOfDay());
+        new InputNewWorkoutQuick(driver, "Pace", "Pace").enterInput(WorkoutQuickModel.pace);
+        new Textarea(driver, "Workout Description").enterTextarea(WorkoutQuickModel.workoutDescription);
+        new Textarea(driver, "Post Workout Notes/Results").enterTextarea(WorkoutQuickModel.results);
+        new Dropdown(driver, "DistType").select(WorkoutQuickModel.distanceType);
+        new Dropdown(driver, "PaceType").select(WorkoutQuickModel.paceType);
+        new Dropdown(driver, "HowFeel").select(WorkoutQuickModel.howFeel);
+        new Dropdown(driver, "PerEffort").select(WorkoutQuickModel.perceivedEffort);
+        new DropdownSelectByVisibleText(driver, "ActivityType").select(WorkoutQuickModel.activityType);
+        new Autocomplete(driver, "WorkoutTime").enterAutocomplete(WorkoutQuickModel.timeOfDay);
         new Checkbox(driver, "SaveLibrary").selectCheckbox();
         return this;
     }
@@ -52,13 +52,13 @@ public class AddWorkoutQuickSteps extends AbstractCalendarPageSteps {
     }
 
     @Step("Checking that the new quick workout was added")
-    public void checkingNewWorkoutQuickWasAdded(WorkoutQuickModel workoutQuickModel) {
+    public void checkingNewWorkoutQuickWasAdded() {
         Assert.assertTrue(newWorkoutQuickPage.checkingWorkoutAdded(), "Workout was not added");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutTime(), workoutQuickModel.getTimeOfDay(), "Incorrect text");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutType(), workoutQuickModel.getActivityType(), "Incorrect text");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutName(), workoutQuickModel.getName(), "Incorrect text");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistance(), workoutQuickModel.getDistance(), "Incorrect text");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistanceType(), workoutQuickModel.getDistanceType(), "Incorrect text");
-        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDuration(), workoutQuickModel.getDuration(), "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutTime(), WorkoutQuickModel.timeOfDay, "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutType(), WorkoutQuickModel.activityType, "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutName(), WorkoutQuickModel.name, "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistance(), WorkoutQuickModel.distance, "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDistanceType(), WorkoutQuickModel.distanceType, "Incorrect text");
+        Assert.assertEquals(newWorkoutQuickPage.getActualQuickWorkoutDuration(), WorkoutQuickModel.duration, "Incorrect text");
     }
 }

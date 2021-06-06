@@ -1,18 +1,28 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class McMillanModel {
 
-    private String RecentTimeHours;
-    private String RecentTimeMinutes;
-    private String RecentTimeSeconds;
-    private String GoalTimeHours;
-    private String GoalTimeMinutes;
-    private String GoalTimeSeconds;
-    private String RecentDistanceType;
-    private String GoalDistanceType;
+    @Builder.Default
+    public static String recentTimeHours = "1";
+    @Builder.Default
+    public static String recentTimeMinutes = "20";
+    @Builder.Default
+    public static String recentTimeSeconds = "30";
+    @Builder.Default
+    public static String goalTimeHours = "1";
+    @Builder.Default
+    public static String goalTimeMinutes = "05";
+    @Builder.Default
+    public static String goalTimeSeconds = "10";
+    @Builder.Default
+    public static String recentDistanceType = "1500m";
+    @Builder.Default
+    public static String goalDistanceType = "1500m";
 }

@@ -1,23 +1,38 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class WorkoutQuickModel {
 
-    private String Name;
-    private String WorkoutDate;
-    private String Distance;
-    private String Duration;
-    private String Pace;
-    private String WorkoutDescription;
-    private String Results;
-    private String DistanceType;
-    private String PaceType;
-    private String HowFeel;
-    private String PerceivedEffort;
-    private String ActivityType;
-    private String TimeOfDay;
+    @Builder.Default
+    public static String name = "Run/swim";
+    @Builder.Default
+    public static String workoutDate = "5/30/2021";
+    @Builder.Default
+    public static String distance = "5";
+    @Builder.Default
+    public static String duration = "0:50";
+    @Builder.Default
+    public static String pace = "12000";
+    @Builder.Default
+    public static String workoutDescription = "Warm-up, run, stretching";
+    @Builder.Default
+    public static String results = "Check pulse and blood pressure";
+    @Builder.Default
+    public static String distanceType = "km";
+    @Builder.Default
+    public static String paceType = "km";
+    @Builder.Default
+    public static String howFeel = "2";
+    @Builder.Default
+    public static String perceivedEffort = "3";
+    @Builder.Default
+    public static String activityType = "Run";
+    @Builder.Default
+    public static String timeOfDay = "12:45 AM";
 }

@@ -27,19 +27,19 @@ public class AddWorkoutSteps extends AbstractStep {
     }
 
     @Step("Fill in the fields to add a new workout")
-    public AddWorkoutSteps fillNewWorkout(SwimWorkoutModel swimWorkoutModel) {
+    public AddWorkoutSteps fillNewWorkout() {
         new Input(driver, "WorkoutDate").clear();
-        new Input(driver, "WorkoutDate").enterInput(swimWorkoutModel.getDate());
-        new Input(driver, "WorkoutTime").enterInput(swimWorkoutModel.getWorkoutTime());
-        new Input(driver, "Name").enterInput(swimWorkoutModel.getWorkoutName());
-        new Input(driver, "Distance").enterInput(swimWorkoutModel.getDistance());
-        new Input(driver, "Duration").enterInput(swimWorkoutModel.getDuration());
-        new Input(driver, "Pace").enterInput(swimWorkoutModel.getPace());
-        new Input(driver, "kCal").enterInput(swimWorkoutModel.getCaloriesBurned());
-        new DropdownSelectByVisibleText(driver, "DistType").select(swimWorkoutModel.getDistanceType());
-        new DropdownSelectByVisibleText(driver, "PaceType").select(swimWorkoutModel.getPaceType());
-        new DropdownSelectByVisibleText(driver, "PerEffort").select(swimWorkoutModel.getPerceivedEffort());
-        new Textarea(driver, "Workout Description").enterTextarea(swimWorkoutModel.getWorkoutDescription());
+        new Input(driver, "WorkoutDate").enterInput(SwimWorkoutModel.date);
+        new Input(driver, "WorkoutTime").enterInput(SwimWorkoutModel.workoutTime);
+        new Input(driver, "Name").enterInput(SwimWorkoutModel.workoutName);
+        new Input(driver, "Distance").enterInput(SwimWorkoutModel.distance);
+        new Input(driver, "Duration").enterInput(SwimWorkoutModel.duration);
+        new Input(driver, "Pace").enterInput(SwimWorkoutModel.pace);
+        new Input(driver, "kCal").enterInput(SwimWorkoutModel.caloriesBurned);
+        new DropdownSelectByVisibleText(driver, "DistType").select(SwimWorkoutModel.distanceType);
+        new DropdownSelectByVisibleText(driver, "PaceType").select(SwimWorkoutModel.paceType);
+        new DropdownSelectByVisibleText(driver, "PerEffort").select(SwimWorkoutModel.perceivedEffort);
+        new Textarea(driver, "Workout Description").enterTextarea(SwimWorkoutModel.workoutDescription);
         new RadioButton(driver, "Good").selectRadioButton();
         return this;
     }
@@ -51,16 +51,16 @@ public class AddWorkoutSteps extends AbstractStep {
     }
 
     @Step("Checking that the new workout was added")
-    public void checkingNewWorkoutWasAdded(SwimWorkoutModel swimWorkoutModel) {
+    public void checkingNewWorkoutWasAdded() {
         Assert.assertTrue(workoutsPage.chekWorkoutDetailsIsOpen(), "Workout Details is not open");
-        Assert.assertEquals(workoutsPage.getActualTimeOfDay(), swimWorkoutModel.getWorkoutTime(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualWorkoutName(), swimWorkoutModel.getWorkoutName(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualWorkoutDescription(), swimWorkoutModel.getWorkoutDescription(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualDistance(), swimWorkoutModel.getDistance(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualDistanceType(), swimWorkoutModel.getDistanceType(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualDuration(), swimWorkoutModel.getDuration(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualPerceivedEffort(), swimWorkoutModel.getPerceivedEffort(), "Incorrect text");
-        Assert.assertEquals(workoutsPage.getActualCalories(), swimWorkoutModel.getCaloriesBurned(), "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualTimeOfDay(), SwimWorkoutModel.workoutTime, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualWorkoutName(), SwimWorkoutModel.workoutName, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualWorkoutDescription(), SwimWorkoutModel.workoutDescription, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDistance(), SwimWorkoutModel.distance, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDistanceType(), SwimWorkoutModel.distanceType, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualDuration(), SwimWorkoutModel.duration, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualPerceivedEffort(), SwimWorkoutModel.perceivedEffort, "Incorrect text");
+        Assert.assertEquals(workoutsPage.getActualCalories(), SwimWorkoutModel.caloriesBurned, "Incorrect text");
     }
 }
 

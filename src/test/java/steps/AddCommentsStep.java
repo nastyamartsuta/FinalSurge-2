@@ -12,6 +12,8 @@ import static pages.CalendarPage.WORKOUTS;
 
 public class AddCommentsStep extends AbstractCalendarPageSteps {
 
+
+
     public AddCommentsStep(WebDriver driver) {
         super(driver);
     }
@@ -26,8 +28,8 @@ public class AddCommentsStep extends AbstractCalendarPageSteps {
     }
 
     @Step("Add a comment")
-    public AddCommentsStep sendComment(CommentModel commentModel) {
-        new Textarea(driver, "Workout Comment").enterTextarea(commentModel.getWorkoutComment());
+    public AddCommentsStep sendComment() {
+        new Textarea(driver, "Workout Comment").enterTextarea(CommentModel.workoutComment);
         return this;
     }
 
@@ -38,9 +40,9 @@ public class AddCommentsStep extends AbstractCalendarPageSteps {
     }
 
     @Step("Checking that the new comment was added")
-    public AddCommentsStep checkingNewCommentWasAdded(CommentModel commentModel) {
+    public AddCommentsStep checkingNewCommentWasAdded() {
         Assert.assertTrue(commentPage.checkingCommentAdded(), "Comment wasn't added");
-        Assert.assertTrue(commentPage.getActualTextComment().contains(commentModel.getWorkoutComment()), "Incorrect text");
+        Assert.assertTrue(commentPage.getActualTextComment().contains(CommentModel.workoutComment), "Incorrect text");
         return this;
     }
 
@@ -53,11 +55,8 @@ public class AddCommentsStep extends AbstractCalendarPageSteps {
 
     @Step("Close comment page")
     public void closeCommentPage() {
-
         driver.switchTo().defaultContent();
-
         commentPage.clickCloseCommentButton();
-
         validateComponentIsLoaded(calendarPage);
     }
 }

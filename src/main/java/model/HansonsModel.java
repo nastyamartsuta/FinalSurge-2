@@ -1,19 +1,30 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class HansonsModel {
 
-    private String TimeHours;
-    private String TimeMinutes;
-    private String TimeSeconds;
-    private String Temperature;
-    private String WindSpeed;
-    private String Humidity;
-    private String RaceDistance;
-    private String TemperatureType;
-    private String SpeedType;
+    @Builder.Default
+    public static String timeHours = "5";
+    @Builder.Default
+    public static String timeMinutes = "30";
+    @Builder.Default
+    public static String timeSeconds = "00";
+    @Builder.Default
+    public static String temperature = "15";
+    @Builder.Default
+    public static String windSpeed = "10";
+    @Builder.Default
+    public static String humidity = "80";
+    @Builder.Default
+    public static String raceDistance = "Marathon";
+    @Builder.Default
+    public static String temperatureType = "°C";
+    @Builder.Default
+    public static String speedType = "mph";
 }

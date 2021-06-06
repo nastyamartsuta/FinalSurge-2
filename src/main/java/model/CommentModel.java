@@ -1,11 +1,15 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class CommentModel {
 
-    private String WorkoutComment;
+    @Builder.Default
+    public static String workoutComment = "Test comment";
 }

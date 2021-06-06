@@ -25,13 +25,13 @@ public class ReportsSteps extends AbstractStep {
     }
 
     @Step("Fill in the reports fields")
-    public ReportsSteps fillReports(ReportsModel reportsModel) {
+    public ReportsSteps fillReports() {
         new Input(driver, "WorkoutDate").clear();
-        new Input(driver, "WorkoutDate").enterInput(reportsModel.getStartDate());
+        new Input(driver, "WorkoutDate").enterInput(ReportsModel.startDate);
         new Input(driver, "WorkoutDateEnd").clear();
-        new Input(driver, "WorkoutDateEnd").enterInput(reportsModel.getEndDate());
+        new Input(driver, "WorkoutDateEnd").enterInput(ReportsModel.endDate);
         new RadioButton(driver, "List View").selectRadioButton();
-        new DropdownSelectByVisibleText(driver, "ActivityType").select(reportsModel.getActivityType());
+        new DropdownSelectByVisibleText(driver, "ActivityType").select(ReportsModel.activityType);
         return this;
     }
 

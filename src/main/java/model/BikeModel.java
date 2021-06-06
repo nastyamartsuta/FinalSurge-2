@@ -1,18 +1,28 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class BikeModel {
 
-    private String BikeName;
-    private String Model;
-    private String Cost;
-    private String DatePurchased;
-    private String StartingDistance;
-    private String Notes;
-    private String Brand;
-    private String DistanceType;
+    @Builder.Default
+    public static String bikeName = "City bike";
+    @Builder.Default
+    public static String model = "slr03";
+    @Builder.Default
+    public static String cost = "1,250.00";
+    @Builder.Default
+    public static String datePurchased = "5/5/2021";
+    @Builder.Default
+    public static String startingDistance = "200.00";
+    @Builder.Default
+    public static String notes = "Lack of rearview mirror";
+    @Builder.Default
+    public static String brand = "BMC";
+    @Builder.Default
+    public static String distanceType = "km";
 }

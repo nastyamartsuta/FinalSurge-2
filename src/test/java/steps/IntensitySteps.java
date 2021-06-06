@@ -21,10 +21,10 @@ public class IntensitySteps extends AbstractWorkoutCalculatorSteps {
     }
 
     @Step("Fill in the Intensity fields")
-    public IntensitySteps fillIntensity(IntensityModel intensityModel) {
-        new Input(driver, "TimeHH").enterInput(intensityModel.getTimeHours());
-        new Input(driver, "TimeMM").enterInput(intensityModel.getTimeMinutes());
-        new Input(driver, "TimeSS").enterInput(intensityModel.getTimeSeconds());
+    public IntensitySteps fillIntensity() {
+        new Input(driver, "TimeHH").enterInput(IntensityModel.timeHours);
+        new Input(driver, "TimeMM").enterInput(IntensityModel.timeMinutes);
+        new Input(driver, "TimeSS").enterInput(IntensityModel.timeSeconds);
         new RadioButton(driver, " 10Km").selectRadioButton();
         return this;
     }

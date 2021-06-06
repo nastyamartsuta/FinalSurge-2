@@ -41,9 +41,9 @@ public class ActivityTypePage extends BasePage {
         driver.findElement(ADD_ACTIVITY_TYPE_BUTTON).click();
     }
 
-    public boolean getTypeAdded(ActivityTypeModel activityTypeModel) {
+    public boolean getTypeAdded() {
         log.info("Check that the new type was added");
-        driver.findElement(By.xpath(String.format(ADDED_NEW_ACTIVITY_TYPE, activityTypeModel.getATypeName())));
+        driver.findElement(By.xpath(String.format(ADDED_NEW_ACTIVITY_TYPE, ActivityTypeModel.aTypeName)));
         return true;
     }
 }

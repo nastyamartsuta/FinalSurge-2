@@ -1,12 +1,14 @@
 package model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class ActivityTypeModel {
 
-    private String ATypeName;
-    private String Color;
+    @Builder.Default
+    public static String aTypeName = "Yoga";
 }

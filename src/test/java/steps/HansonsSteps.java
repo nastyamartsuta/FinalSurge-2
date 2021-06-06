@@ -22,16 +22,16 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
     }
 
     @Step("Fill in the Hansons fields")
-    public HansonsSteps fillHansons(HansonsModel hansonsModel) {
-        new Input(driver, "TimeHH").enterInput(hansonsModel.getTimeHours());
-        new Input(driver, "TimeMM").enterInput(hansonsModel.getTimeMinutes());
-        new Input(driver, "TimeSS").enterInput(hansonsModel.getTimeSeconds());
-        new Input(driver, "Temp").enterInput(hansonsModel.getTemperature());
-        new Input(driver, "Wind").enterInput(hansonsModel.getWindSpeed());
-        new Input(driver, "Humid").enterInput(hansonsModel.getHumidity());
-        new Dropdown(driver, "RaceDist").select(hansonsModel.getRaceDistance());
-        new DropdownSelectByVisibleText(driver, "TempType").select(hansonsModel.getTemperatureType());
-        new Dropdown(driver, "SpeedType").select(hansonsModel.getSpeedType());
+    public HansonsSteps fillHansons() {
+        new Input(driver, "TimeHH").enterInput(HansonsModel.timeHours);
+        new Input(driver, "TimeMM").enterInput(HansonsModel.timeMinutes);
+        new Input(driver, "TimeSS").enterInput(HansonsModel.timeSeconds);
+        new Input(driver, "Temp").enterInput(HansonsModel.temperature);
+        new Input(driver, "Wind").enterInput(HansonsModel.windSpeed);
+        new Input(driver, "Humid").enterInput(HansonsModel.humidity);
+        new Dropdown(driver, "RaceDist").select(HansonsModel.raceDistance);
+        new DropdownSelectByVisibleText(driver, "TempType").select(HansonsModel.temperatureType);
+        new Dropdown(driver, "SpeedType").select(HansonsModel.speedType);
         return this;
     }
 
@@ -42,15 +42,15 @@ public class HansonsSteps extends AbstractWorkoutCalculatorSteps {
     }
 
     @Step("Checking hansons calculation was opened")
-    public void checkingCalculationWasOpened(HansonsModel hansonsModel) {
+    public void checkingCalculationWasOpened() {
         Assert.assertTrue(hansonsPage.checkCalculationsIsOpened(), "Calculations did not open");
-        Assert.assertEquals(hansonsPage.getActualTemperature(), hansonsModel.getTemperature(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualTemperatureType(), hansonsModel.getTemperatureType(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualHumidity(), hansonsModel.getHumidity(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualWindySpeed(), hansonsModel.getWindSpeed(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualDistance(), hansonsModel.getRaceDistance(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualHours(), hansonsModel.getTimeHours(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualMinutes(), hansonsModel.getTimeMinutes(), "Incorrect text");
-        Assert.assertEquals(hansonsPage.getActualSeconds(), hansonsModel.getTimeSeconds(), "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualTemperature(), HansonsModel.temperature, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualTemperatureType(), HansonsModel.temperatureType, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualHumidity(), HansonsModel.humidity, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualWindySpeed(), HansonsModel.windSpeed, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualDistance(), HansonsModel.raceDistance, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualHours(), HansonsModel.timeHours, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualMinutes(), HansonsModel.timeMinutes, "Incorrect text");
+        Assert.assertEquals(hansonsPage.getActualSeconds(), HansonsModel.timeSeconds, "Incorrect text");
     }
 }

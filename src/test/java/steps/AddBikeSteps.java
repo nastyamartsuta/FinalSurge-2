@@ -23,16 +23,16 @@ public class AddBikeSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Fill in the fields to add a new bike")
-    public AddBikeSteps fillNewBike(BikeModel bikeModel) {
-        new Input(driver, "ShoeName").enterInput(bikeModel.getBikeName());
-        new DropdownEquipment(driver, "s2id_ShoeBrand").select(bikeModel.getBrand());
-        new Input(driver, "ShoeModel").enterInput(bikeModel.getModel());
-        new Input(driver, "ShoeCost").enterInput(bikeModel.getCost());
-        new Input(driver, "ShoeDate").enterInput(bikeModel.getDatePurchased());
+    public AddBikeSteps fillNewBike() {
+        new Input(driver, "ShoeName").enterInput(BikeModel.bikeName);
+        new DropdownEquipment(driver, "s2id_ShoeBrand").select(BikeModel.brand);
+        new Input(driver, "ShoeModel").enterInput(BikeModel.model);
+        new Input(driver, "ShoeCost").enterInput(BikeModel.cost);
+        new Input(driver, "ShoeDate").enterInput(BikeModel.datePurchased);
         new Input(driver, "StartDist").clear();
-        new Input(driver, "StartDist").enterInput(bikeModel.getStartingDistance());
-        new Input(driver, "ShoeNotes").enterInput(bikeModel.getNotes());
-        new Dropdown(driver, "DistType").select(bikeModel.getDistanceType());
+        new Input(driver, "StartDist").enterInput(BikeModel.startingDistance);
+        new Input(driver, "ShoeNotes").enterInput(BikeModel.notes);
+        new Dropdown(driver, "DistType").select(BikeModel.distanceType);
         return this;
     }
 
@@ -43,12 +43,12 @@ public class AddBikeSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Checking that the bike was added")
-    public AddBikeSteps checkingBikeAdd(BikeModel bikeModel) {
-        Assert.assertEquals(bikePage.getActualBikeName(), bikeModel.getBikeName(), "Incorrect text");
-        Assert.assertEquals(bikePage.getActualBikeBrandModel(), bikeModel.getBrand() + " " + bikeModel.getModel(), "Incorrect text");
-        Assert.assertEquals(bikePage.getActualBikeDatePurchased(), bikeModel.getDatePurchased(), "Incorrect text");
-        Assert.assertEquals(bikePage.getActualBikeCost(), bikeModel.getCost(), "Incorrect text");
-        Assert.assertEquals(bikePage.getActualBikeNotes(), bikeModel.getNotes(), "Incorrect text");
+    public AddBikeSteps checkingBikeAdd() {
+        Assert.assertEquals(bikePage.getActualBikeName(), BikeModel.bikeName, "Incorrect text");
+        Assert.assertEquals(bikePage.getActualBikeBrandModel(), BikeModel.brand + " " + BikeModel.model, "Incorrect text");
+        Assert.assertEquals(bikePage.getActualBikeDatePurchased(), BikeModel.datePurchased, "Incorrect text");
+        Assert.assertEquals(bikePage.getActualBikeCost(), BikeModel.cost, "Incorrect text");
+        Assert.assertEquals(bikePage.getActualBikeNotes(), BikeModel.notes, "Incorrect text");
         return this;
     }
 

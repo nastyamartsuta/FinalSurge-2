@@ -7,7 +7,6 @@ import io.qameta.allure.Step;
 import model.RoutesModel;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import pages.RoutesPage;
 
 public class AddRoutesSteps extends AbstractEquipmentsSteps {
 
@@ -23,14 +22,14 @@ public class AddRoutesSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Fill in the fields to add a new route")
-    public AddRoutesSteps fillNewRoutes(RoutesModel routesModel) {
-        new Input(driver, "RouteName").enterInput(routesModel.getRouteName());
-        new DropdownSelectByVisibleText(driver, "Activity").select(routesModel.getActivity());
-        new Input(driver, "Distance").enterInput(routesModel.getDistance());
-        new Input(driver, "RoutePR").enterInput(routesModel.getRoutePersonalRecord());
-        new Input(driver, "PRDate").enterInput(routesModel.getPersonalRecordDate());
-        new Input(driver, "Notes").enterInput(routesModel.getNotes());
-        new Dropdown(driver, "DistType").select(routesModel.getDistanceType());
+    public AddRoutesSteps fillNewRoutes() {
+        new Input(driver, "RouteName").enterInput(RoutesModel.routeName);
+        new DropdownSelectByVisibleText(driver, "Activity").select(RoutesModel.activity);
+        new Input(driver, "Distance").enterInput(RoutesModel.distance);
+        new Input(driver, "RoutePR").enterInput(RoutesModel.routePersonalRecord);
+        new Input(driver, "PRDate").enterInput(RoutesModel.personalRecordDate);
+        new Input(driver, "Notes").enterInput(RoutesModel.notes);
+        new Dropdown(driver, "DistType").select(RoutesModel.distanceType);
         return this;
     }
 
@@ -41,14 +40,14 @@ public class AddRoutesSteps extends AbstractEquipmentsSteps {
     }
 
     @Step("Checking that the new routes was added")
-    public AddRoutesSteps checkingRotesAdd(RoutesModel routesModel) {
-        Assert.assertEquals(routesPage.getActualRoutesName(), routesModel.getRouteName(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesActivity(), routesModel.getActivity(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesDistance(), routesModel.getDistance(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesDistanceType(), routesModel.getDistanceType(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesTime(), routesModel.getRoutePersonalRecord(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesData(), routesModel.getPersonalRecordDate(), "Incorrect text");
-        Assert.assertEquals(routesPage.getActualRoutesNotes(), routesModel.getNotes(), "Incorrect text");
+    public AddRoutesSteps checkingRotesAdd() {
+        Assert.assertEquals(routesPage.getActualRoutesName(), RoutesModel.routeName, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesActivity(), RoutesModel.activity, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesDistance(), RoutesModel.distance, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesDistanceType(), RoutesModel.distanceType, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualPersonalRecord(), RoutesModel.routePersonalRecord, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesData(), RoutesModel.personalRecordDate, "Incorrect text");
+        Assert.assertEquals(routesPage.getActualRoutesNotes(), RoutesModel.notes, "Incorrect text");
         return this;
     }
 

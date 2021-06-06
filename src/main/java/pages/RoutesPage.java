@@ -63,7 +63,7 @@ public class RoutesPage extends BasePage {
         return element.getText().trim();
     }
 
-    public String getActualRoutesTime() {
+    public String getActualPersonalRecord() {
         log.info("Get the actual routes time");
         String nodeText = StringUtils.getWebElementText(driver, ACTUAL_ROUTES_DATE_TIME);
         return nodeText.split("of")[1].split("on")[0].trim();

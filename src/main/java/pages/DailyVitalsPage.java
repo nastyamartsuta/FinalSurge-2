@@ -71,114 +71,114 @@ public class DailyVitalsPage extends BasePage {
         driver.findElement(SAVE_NEW_VITALS_BUTTON).click();
     }
 
-    public String getActualDailyVitalsData(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsData() {
         log.info("Get the actual daily vitals data");
-        String element = getElementText(ACTUAL_DATA, vitalsModel.getVitalsDate());
+        String element = getElementText(ACTUAL_DATA, VitalsModel.vitalsDate);
         return element.trim();
     }
 
-    public String getActualDailyVitalsSteps(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsSteps() {
         log.info("Get the actual daily vitals steps");
-        String element = getElementText(ACTUAL_STEPS, vitalsModel.getVitalsDate());
+        String element = getElementText(ACTUAL_STEPS, VitalsModel.vitalsDate);
         return element.trim();
     }
 
-    public String getActualDailyVitalsWeight(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsWeight() {
         log.info("Get the actual daily vitals weight");
-        String element = getElementText(ACTUAL_WEIGHT, vitalsModel.getVitalsDate());
+        String element = getElementText(ACTUAL_WEIGHT, VitalsModel.vitalsDate);
         return element.trim().split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsWeightType(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsWeightType() {
         log.info("Get the actual daily vitals weight type");
-        String element = getElementText(ACTUAL_WEIGHT, vitalsModel.getVitalsDate());
+        String element = getElementText(ACTUAL_WEIGHT, VitalsModel.vitalsDate);
         return element.trim().split(" ")[1].trim();
     }
 
-    public String getActualDailyVitalsBodyFat(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsBodyFat() {
         log.info("Get the actual daily vitals body fat");
-        String element = getElementText(ACTUAL_BODY_FAT, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_BODY_FAT, VitalsModel.vitalsDate).trim();
         return element.substring(0, element.length() - 1).trim();
     }
 
-    public String getActualDailyVitalsResting(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsResting() {
         log.info("Get the actual daily vitals resting");
-        String element = getElementText(ACTUAL_RESTING_HR, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_RESTING_HR, VitalsModel.vitalsDate).trim();
         return element.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsHRV(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsHRV() {
         log.info("Get the actual daily vitals HRV");
-        return getElementText(ACTUAL_HRV, vitalsModel.getVitalsDate()).trim();
+        return getElementText(ACTUAL_HRV, VitalsModel.vitalsDate).trim();
     }
 
-    public String getActualDailyVitalsCalories(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsCalories() {
         log.info("Get the actual daily vitals calories");
-        String element = getElementText(ACTUAL_CALORIES, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_CALORIES, VitalsModel.vitalsDate).trim();
         return element.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsWater(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsWater() {
         log.info("Get the actual daily vitals water");
-        String element = getElementText(ACTUAL_WATER, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_WATER, VitalsModel.vitalsDate).trim();
         return element.substring(0, element.length() - 1).trim();
     }
 
-    public String getActualDailyVitalsMuscleMass(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsMuscleMass() {
         log.info("Get the actual daily vitals muscle mass");
-        String element = getElementText(ACTUAL_MUSCLE_MASS, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_MUSCLE_MASS, VitalsModel.vitalsDate).trim();
         return element.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsMuscleMassType(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsMuscleMassType() {
         log.info("Get the actual daily vitals muscle mass type");
-        String element = getElementText(ACTUAL_MUSCLE_MASS, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_MUSCLE_MASS, VitalsModel.vitalsDate).trim();
         return element.split(" ")[1].trim();
     }
 
-    public String getActualDailyVitalsSleep(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsSleep() {
         log.info("Get the actual daily vitals sleep");
-        String element = getElementText(ACTUAL_SLEEP, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_SLEEP, VitalsModel.vitalsDate).trim();
         return element.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsAwake(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsAwake() {
         log.info("Get the actual daily vitals awake");
-        String element = getElementText(ACTUAL_AWAKE, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_AWAKE, VitalsModel.vitalsDate).trim();
         return element.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsSleepAmount(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsSleepAmount() {
         log.info("Get the actual daily vitals amount");
-        return getElementText(ACTUAL_AMOUNT, vitalsModel.getVitalsDate()).trim();
+        return getElementText(ACTUAL_AMOUNT, VitalsModel.vitalsDate).trim();
     }
 
-    public String getActualDailyVitalsSleepQuality(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsSleepQuality() {
         log.info("Get the actual daily vitals quality");
-        return getElementText(ACTUAL_QUALITY, vitalsModel.getVitalsDate()).trim();
+        return getElementText(ACTUAL_QUALITY, VitalsModel.vitalsDate).trim();
     }
 
-    public String getActualDailyVitalsStress(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsStress() {
         log.info("Get the actual daily vitals stress");
-        return getElementText(ACTUAL_STRESS, vitalsModel.getVitalsDate()).trim();
+        return getElementText(ACTUAL_STRESS, VitalsModel.vitalsDate).trim();
     }
 
-    public String getActualDailyVitalsBloodPressureSystolic(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsBloodPressureSystolic() {
         log.info("Get the actual daily vitals blood pressure systolic");
-        String element = getElementText(ACTUAL_BLOOD_PRESSURE, vitalsModel.getVitalsDate()).trim();
+        String element = getElementText(ACTUAL_BLOOD_PRESSURE, VitalsModel.vitalsDate).trim();
         return element.split("/")[0].trim();
     }
 
-    public String getActualDailyVitalsBloodPressureDiastolic(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsBloodPressureDiastolic() {
         log.info("Get the actual daily vitals blood pressure diastolic");
-        String bloodPr = getElementText(ACTUAL_BLOOD_PRESSURE, vitalsModel.getVitalsDate()).trim();
+        String bloodPr = getElementText(ACTUAL_BLOOD_PRESSURE, VitalsModel.vitalsDate).trim();
         String diastolic = bloodPr.split("/")[1].trim();
         return diastolic.split(" ")[0].trim();
     }
 
-    public String getActualDailyVitalsNotes(VitalsModel vitalsModel) {
+    public String getActualDailyVitalsNotes() {
         log.info("Get the actual daily vitals notes");
-        return getElementText(ACTUAL_NOTES, vitalsModel.getVitalsDate()).trim();
+        return getElementText(ACTUAL_NOTES, VitalsModel.vitalsDate).trim();
     }
 
     public void showLastMonthVitals() {

@@ -25,9 +25,9 @@ public class PrintWorkoutsSteps extends AbstractStep {
     }
 
     @Step("Fill in the print workout fields")
-    public PrintWorkoutsSteps fillPrintWorkout(PrintWorkoutsModel printWorkoutsModel) {
-        new Input(driver, "PrintStartDate").enterInput(printWorkoutsModel.getPrintStartingDate());
-        new Input(driver, "PrintEndDate").enterInput(printWorkoutsModel.getPrintEndingDate());
+    public PrintWorkoutsSteps fillPrintWorkout() {
+        new Input(driver, "PrintStartDate").enterInput(PrintWorkoutsModel.printStartingDate);
+        new Input(driver, "PrintEndDate").enterInput(PrintWorkoutsModel.printEndingDate);
         return this;
     }
 
